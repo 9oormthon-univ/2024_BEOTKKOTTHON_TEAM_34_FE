@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/kkiri_graph"
+    app:startDestination="@+id/navigation_home" >
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.goorm.kkiri.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home"/>
+    <fragment
+        android:id="@+id/navigation_chatting_main"
+        android:name="com.goorm.kkiri.ui.chatting.ChattingMainFragment"
+        android:label="ChattingMainFragment"
+        tools:layout="@layout/fragment_chatting_main"/>
+    <fragment
+        android:id="@+id/navigation_my_page"
+        android:name="com.goorm.kkiri.ui.mypage.MyPageFragment"
+        android:label="MyPageFragment"
+        tools:layout="@layout/fragment_my_page"/>
+</navigation>

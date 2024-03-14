@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="BottomNavigationStyle">
+        <item name="android:background">@drawable/shape_top_rounded_20dp</item>
         <item name="itemRippleColor">@null</item>
+        <item name="itemIconTint">@color/selector_bottom_navigation_color</item>
+        <item name="itemTextColor">@color/selector_bottom_navigation_color</item>
         <item name="itemActiveIndicatorStyle">@android:color/transparent</item>
     </style>
 </resources>

@@ -8,4 +8,6 @@
     <color name="white_10">#EEEEEE</color>
     <color name="gray_50">#1A000000</color>
     <color name="gray_20">#1A696969</color>
+    <color name="gray_10">#1A000000</color>
+    <color name="tab_color">#85B5FF</color>
 </resources>

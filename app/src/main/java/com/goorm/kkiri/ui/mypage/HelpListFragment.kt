@@ -1,4 +1,4 @@
-package com.goorm.kkiri.ui.mypage.fragment
+package com.goorm.kkiri.ui.mypage
 
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment

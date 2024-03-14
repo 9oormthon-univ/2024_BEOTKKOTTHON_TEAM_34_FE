@@ -1,5 +1,4 @@
-package com.goorm.kkiri.ui.mypage.fragment
-
+package com.goorm.kkiri.ui.mypage
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter

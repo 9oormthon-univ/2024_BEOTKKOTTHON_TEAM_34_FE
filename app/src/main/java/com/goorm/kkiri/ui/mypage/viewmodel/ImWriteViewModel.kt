@@ -2,8 +2,8 @@ package com.goorm.kkiri.ui.mypage.viewmodel
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
-import com.goorm.kkiri.ui.mypage.fragment.HelpListFragment
-import com.goorm.kkiri.ui.mypage.fragment.HelpedListFragment
+import com.goorm.kkiri.ui.mypage.HelpListFragment
+import com.goorm.kkiri.ui.mypage.HelpedListFragment
 
 data class TabItem(val title: String, val fragment: Fragment)
 class ImWriteViewModel : ViewModel() {

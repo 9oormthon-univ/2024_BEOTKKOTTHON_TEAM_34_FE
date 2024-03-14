@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="BottomNavigationStyle">
+        <item name="android:background">@drawable/shape_top_rounded_20dp</item>
         <item name="itemRippleColor">@null</item>
+        <item name="itemIconTint">@color/selector_bottom_navigation_color</item>
+        <item name="itemTextColor">@color/selector_bottom_navigation_color</item>
         <item name="itemActiveIndicatorStyle">@android:color/transparent</item>
     </style>
     <style name="TabTheme" parent="Theme.AppCompat.Light">
@@ -13,4 +16,28 @@
     </style>
 
 
+
+    <!--  Text Style  -->
+    <style name="textStyleDefault">
+    </style>
+
+    <style name="textStyleDefault.16sp">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="textStyleDefault.16sp.black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="textStyleBold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textStyleBold.20sp">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="textStyleBold.20sp.black">
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>

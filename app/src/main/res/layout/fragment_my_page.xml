@@ -126,7 +126,7 @@
             android:id="@+id/mp_trade"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="23dp"
             android:layout_marginStart="23dp"
             android:text="나의 거래"
             android:textSize="16sp"
@@ -137,7 +137,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="413dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="12dp"
             android:layout_marginStart="23dp"
             android:layout_marginEnd="23dp"
             android:layout_marginBottom="30dp"
@@ -272,28 +272,30 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:text="10 개"
-                    android:textSize="26dp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
+
 
                 <ImageView
                     android:layout_width="1dp"
-                    android:layout_height="47dp"
+                    android:layout_height="49dp"
                     android:background="@drawable/mp_line_vert" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="12.5dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical|center_horizontal"
                     android:text="10 번"
-                    android:textSize="26dp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </LinearLayout>

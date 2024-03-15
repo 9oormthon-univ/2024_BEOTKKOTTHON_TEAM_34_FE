@@ -4,8 +4,10 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="blue_main">#85B5FF</color>
+    <color name="orange_main">#FFB367</color>
+    <color name="gray_700">#1A000000</color>
+    <color name="gray_600">#1A696969</color>
     <color name="gray_400">#4B4B4B</color>
-    <color name="white_10">#EEEEEE</color>
-    <color name="gray_50">#1A000000</color>
-    <color name="gray_20">#1A696969</color>
+    <color name="gray_20">#E9E9E9</color>
+    <color name="gray_10">#EEEEEE</color>
 </resources>

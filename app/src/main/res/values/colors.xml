@@ -10,4 +10,6 @@
     <color name="gray_400">#4B4B4B</color>
     <color name="gray_20">#E9E9E9</color>
     <color name="gray_10">#EEEEEE</color>
+
+    <color name="tab_color">#85B5FF</color>
 </resources>

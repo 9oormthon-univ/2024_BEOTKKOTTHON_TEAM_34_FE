@@ -39,7 +39,7 @@
             android:id="@+id/mp_univ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="11dp"
+            android:textSize="11sp"
             android:layout_marginTop="12dp"
             android:layout_marginStart="24dp"
             android:text="구름대학교"
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:text="구름이"
             app:layout_constraintTop_toBottomOf="@id/mp_univ"
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="보유 콩"
-            android:textSize="13dp"
+            android:textSize="13sp"
             app:layout_constraintEnd_toEndOf="@+id/been_count"
             app:layout_constraintStart_toStartOf="@+id/been_img"
             app:layout_constraintTop_toTopOf="@id/mp_user_name" />
@@ -88,7 +88,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginEnd="34dp"
             android:text="%d개"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/mp_user_name"
             app:layout_constraintTop_toBottomOf="@+id/been_balance" />
@@ -182,7 +182,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical|center_horizontal"
                     android:text="도움 제공 거래 횟수"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -228,7 +228,7 @@
                 android:background="@drawable/radius5_sq2"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="지금까지 %d원 에 달하는 도움을\n 제공했습니다."
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
 
@@ -266,7 +266,7 @@
                     android:layout_weight="1"
                     android:gravity="center_vertical|center_horizontal"
                     android:text="도움 요청 거래 횟수"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -315,7 +315,7 @@
                 android:background="@drawable/radius5_sq"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="지금까지 %d원 에 달하는 도움을\n 제공했습니다."
-                android:textSize="15dp"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

@@ -11,4 +11,6 @@
     <string name="text_more_eng">more</string>
     <string name="description_more">더보기 버튼</string>
     <string name="description_logo_image">로고 이미지</string>
+    <string name="description_post_image">게시글 이미지</string>
+    <string name="description_chatting_number_icon">채팅 수 아이콘</string>
 </resources>

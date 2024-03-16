@@ -32,10 +32,19 @@
         android:id="@+id/navigation_home_post_list"
         android:name="com.goorm.kkiri.ui.home.HomePostListFragment"
         android:label="HomePostListFragment"
-        tools:layout="@layout/fragment_home_post_list"/>
+        tools:layout="@layout/fragment_home_post_list">
+        <action
+            android:id="@+id/action_home_post_list_to_detail_post_info"
+            app:destination="@id/navigation_detail_post_info" />
+    </fragment>
     <activity
         android:id="@+id/navigation_im_write"
         android:name="com.goorm.kkiri.ui.mypage.ImWriteActivity"
         android:label="ImWriteActivity"
         tools:layout="@layout/activity_im_write"/>
+    <activity
+        android:id="@+id/navigation_detail_post_info"
+        android:name="com.goorm.kkiri.ui.detail.DetailPostInfoActivity"
+        android:label="DetailPostInfoActivity"
+        tools:layout="@layout/activity_detail_post_info"/>
 </navigation>

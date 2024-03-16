@@ -50,6 +50,7 @@
             android:id="@+id/mp_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:textSize="24dp"
             android:textStyle="bold"
             android:text="구름이"
@@ -73,7 +74,7 @@
             android:id="@+id/been_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text="보유 콩"
             android:textSize="13dp"
             app:layout_constraintEnd_toEndOf="@+id/been_count"
@@ -84,9 +85,9 @@
             android:id="@+id/been_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="34dp"
-            android:text="10개"
+            android:text="%d개"
             android:textSize="16dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/mp_user_name"
@@ -196,7 +197,7 @@
                     android:layout_marginTop="19dp"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="10 개"
+                    android:text="%d 개"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -211,8 +212,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="19dp"
                     android:layout_weight="1"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="10 번"
+                    android:gravity="center_horizontal"
+                    android:text="%d 번"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -226,7 +227,7 @@
                 android:layout_marginEnd="18dp"
                 android:background="@drawable/radius5_sq2"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="지금까지 20,000원 에 달하는 도움을\n 제공했습니다."
+                android:text="지금까지 %d원 에 달하는 도움을\n 제공했습니다."
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
@@ -264,7 +265,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical|center_horizontal"
-                    android:text="도움 쵸청 거래 횟수"
+                    android:text="도움 요청 거래 횟수"
                     android:textSize="14dp"
                     android:textStyle="bold" />
 
@@ -279,14 +280,16 @@
                     android:layout_marginTop="19dp"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="10 개"
+                    android:text="%d 개"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
 
+
                 <ImageView
+                    android:layerType="software"
                     android:layout_width="2dp"
-                    android:layout_height="49dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/mp_line_vert" />
 
                 <TextView
@@ -294,8 +297,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="19dp"
                     android:layout_weight="1"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="10 번"
+                    android:gravity="center_horizontal"
+                    android:text="%d 번"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -311,7 +314,7 @@
                 android:layout_marginBottom="33dp"
                 android:background="@drawable/radius5_sq"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="지금까지 20,000원 에 달하는 도움을\n 제공했습니다."
+                android:text="지금까지 %d원 에 달하는 도움을\n 제공했습니다."
                 android:textSize="15dp"
                 android:textStyle="bold" />
 

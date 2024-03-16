@@ -15,10 +15,22 @@
             android:id="@+id/iv_detail_post_image"
             android:layout_width="match_parent"
             android:layout_height="314dp"
+            tools:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/description_post_image" />
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_detail_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/iv_detail_post_image"
+            app:layout_constraintStart_toStartOf="@id/iv_detail_post_image"
+            app:layout_constraintEnd_toEndOf="@id/iv_detail_post_image"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:navigationIconTint="@color/white" />
+
 
         <TextView
             android:id="@+id/tv_detail_post_nickname"

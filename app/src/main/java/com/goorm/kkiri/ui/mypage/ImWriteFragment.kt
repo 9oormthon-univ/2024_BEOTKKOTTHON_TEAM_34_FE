@@ -17,8 +17,8 @@ class ImWriteFragment : BaseFragment<FragmentImWriteBinding>(R.layout.fragment_i
     }
     private fun setupViewPager() {
         val pagerAdapter = MyPagerAdapter(this)
-        binding.pager.adapter = pagerAdapter
-        TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
+        binding.imWritePager.adapter = pagerAdapter
+        TabLayoutMediator(binding.imWriteTab, binding.imWritePager) { tab, position ->
             tab.text = viewModel.getTabTitle(position)
         }.attach()
     }

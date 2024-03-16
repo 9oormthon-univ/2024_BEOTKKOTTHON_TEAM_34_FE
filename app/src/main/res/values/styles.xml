@@ -15,9 +15,50 @@
         <item name="tabIndicatorHeight">4dp</item> <!-- 탭 밑줄의 높이 -->
     </style>
 
+    <!--  Custom Font  -->
+    <style name="customTextViewFontStyle" parent="@android:style/Widget.DeviceDefault.TextView">
+        <item name="android:fontFamily">@font/nanum_square_round_regular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="customButtonFontStyle" parent="@android:style/Widget.DeviceDefault.Button.Borderless">
+        <item name="android:fontFamily">@font/nanum_square_round_regular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="customEditTextFontStyle" parent="@android:style/Widget.DeviceDefault.EditText">
+        <item name="android:fontFamily">@font/nanum_square_round_regular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!--  Light  -->
+    <style name="customTextViewFontStyle.light">
+        <item name="android:fontFamily">@font/nanum_square_round_light</item>
+    </style>
+
+    <!--  Regular  -->
+    <style name="customTextViewFontStyle.S12">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.S12.white">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--  Bold  -->
+    <style name="customTextViewFontStyle.bold">
+        <item name="android:fontFamily">@font/nanum_square_round_bold</item>
+    </style>
+
+    <!--  Extra Bold  -->
+    <style name="customTextViewFontStyle.extraBold">
+        <item name="android:fontFamily">@font/nanum_square_round_extra_bold</item>
+    </style>
 
 
-    <!--  Text Style  -->
+
+    <!--  아래 제거 예정  -->
+
     <style name="textStyleDefault">
     </style>
 

@@ -11,6 +11,11 @@
         <!--  Status Bar  -->
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
+
+        <!--  Custom Font  -->
+        <item name="android:textViewStyle">@style/customTextViewFontStyle</item>
+        <item name="android:buttonStyle">@style/customButtonFontStyle</item>
+        <item name="android:editTextStyle">@style/customEditTextFontStyle</item>
     </style>
 
     <style name="Theme.Kkiri" parent="Base.Theme.Kkiri" />

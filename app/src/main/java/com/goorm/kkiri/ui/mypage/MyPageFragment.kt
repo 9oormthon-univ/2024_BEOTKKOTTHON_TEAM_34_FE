@@ -1,8 +1,4 @@
 package com.goorm.kkiri.ui.mypage
-
-import android.content.Context
-import android.content.Intent
-import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment

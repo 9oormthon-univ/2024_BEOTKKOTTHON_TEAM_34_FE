@@ -13,24 +13,32 @@
         android:layout_height="wrap_content"
 
         >
-
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/help_line_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dividerThickness="1dp"
+            app:dividerColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
         <TextView
             android:id="@+id/help_ex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="23dp"
             android:layout_marginTop="20dp"
             android:text="바퀴벌레 잡아드립니다."
             android:textSize="15dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/help_line_top" />
 
         <TextView
             android:id="@+id/help_been_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="2dp"
             android:text="콩 2개"
             android:textSize="15dp"
             app:layout_constraintLeft_toLeftOf="@+id/help_ex"
@@ -39,7 +47,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="11dp"
             android:text="2024/03/10"
             android:textSize="10dp"
             app:layout_constraintLeft_toLeftOf="@id/help_been_count"
@@ -47,21 +55,16 @@
 
         <ImageView
             android:id="@+id/help_prop"
-            android:layout_width="85dp"
-            android:layout_height="85dp"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="30dp"
+            android:layout_marginBottom="17.5dp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="-----------------------------------------------------------------------------------------------------"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/help_prop" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

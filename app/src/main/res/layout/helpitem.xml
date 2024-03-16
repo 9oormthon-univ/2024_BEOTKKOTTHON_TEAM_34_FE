@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="listener"
+            type="com.goorm.kkiri.ui.mypage.adapter.MenuClickListener" />
+        <variable
+            name="record"
+            type="com.goorm.kkiri.domain.model.response.MyWrittenMenuItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

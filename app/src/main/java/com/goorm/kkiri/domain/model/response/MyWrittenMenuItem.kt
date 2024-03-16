@@ -3,15 +3,15 @@ package com.goorm.kkiri.domain.model.response
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
-@Parcelize
+import java.time.LocalDate
+
+@Parcelize // 임시 데이터 타입
 data class MyWrittenMenuItem(
-    @SerializedName("id")
-    val recordId: Long,
-    val type: String,
-    val image: String,
-    val title: String,
-    @SerializedName("created_at")
-    val createdAt: String,
-    @SerializedName("updated_at")
-    val updateAt: String
+    @SerializedName("id_wt")
+    val recordIdWt: Long,
+    val beenCountWt: Long,
+    val dateWt: LocalDate,
+    val titleWt: String,
+    val imgWt: String,
+    val expWt: String
 ) : Parcelable

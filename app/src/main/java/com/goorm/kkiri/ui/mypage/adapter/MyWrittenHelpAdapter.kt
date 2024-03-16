@@ -1,22 +1,34 @@
 package com.goorm.kkiri.ui.mypage.adapter
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.goorm.kkiri.databinding.HelpitemBinding
 import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
+import java.time.LocalDate
 
+@RequiresApi(Build.VERSION_CODES.O)
 class MyWrittenHelpAdapter (
     private val listener: MenuClickListener
 ) : RecyclerView.Adapter<MyWrittenHelpAdapter.MyWrittenHelpViewHolder>() {
     private val items = mutableListOf<MyWrittenMenuItem>()
-
+    init{
+        val ld = LocalDate.now()
+        //임시 아이템
+        items.add(MyWrittenMenuItem(1,1,ld,"바퀴벌레 잡아주세요","","콩 드립니다."))
+        items.add(MyWrittenMenuItem(1,1,ld,"바퀴벌레 잡아주세요","","콩 드립니다."))
+        items.add(MyWrittenMenuItem(1,1,ld,"바퀴벌레 잡아주세요","","콩 드립니다."))
+        items.add(MyWrittenMenuItem(1,1,ld,"바퀴벌레 잡아주세요","","콩 드립니다."))
+    }
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): MyWrittenHelpViewHolder {
         return MyWrittenHelpViewHolder.from(parent, listener)
+
     }
 
     override fun getItemCount(): Int = items.size
@@ -33,6 +45,8 @@ class MyWrittenHelpAdapter (
         result.dispatchUpdatesTo(this)
     }
 
+
+
     class RecordSaveDiffUtil(
         private val oldItems: List<MyWrittenMenuItem>,
         private val newItems: List<MyWrittenMenuItem>
@@ -42,7 +56,7 @@ class MyWrittenHelpAdapter (
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
             val oldItem = oldItems[oldItemPosition]
             val newItem = newItems[newItemPosition]
-            return oldItem.recordId == newItem.recordId
+            return oldItem.recordIdWt == newItem.recordIdWt
         }
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {

@@ -78,6 +78,16 @@
             app:layout_constraintVertical_bias="1.0"
             tools:listitem="@layout/item_help_post" />
 
-
+        <ImageButton
+            android:id="@+id/ib_post_write_add_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/description_post_add"
+            android:src="@drawable/ic_plus_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="119dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

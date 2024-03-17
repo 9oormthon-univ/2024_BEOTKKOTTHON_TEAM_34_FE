@@ -34,6 +34,8 @@
         <activity
             android:name=".ui.detail.DetailPostInfoActivity"
             android:exported="false" />
+        <activity android:name=".ui.home.HomeWritePostActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

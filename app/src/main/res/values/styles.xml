@@ -15,6 +15,13 @@
         <item name="tabIndicatorHeight">4dp</item> <!-- 탭 밑줄의 높이 -->
     </style>
 
+    <style name="PopupMenuStyle" parent="Widget.AppCompat.PopupMenu.Overflow">
+        <item name="android:itemBackground">@color/white</item>
+        <item name="android:popupBackground">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:paddingStart">2dp</item>
+    </style>
+
     <!--  Custom Font  -->
     <style name="customTextViewFontStyle" parent="@android:style/Widget.DeviceDefault.TextView">
         <item name="android:fontFamily">@font/nanum_square_round_regular</item>

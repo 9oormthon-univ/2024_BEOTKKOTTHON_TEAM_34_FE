@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_home_post_list_to_detail_post_info"
             app:destination="@id/navigation_detail_post_info" />
+        <action
+            android:id="@+id/action_home_post_list_to_home_write_post"
+            app:destination="@id/navigation_home_write_post" />
     </fragment>
     <activity
         android:id="@+id/navigation_im_write"
@@ -70,4 +73,13 @@
         android:label="DetailPostInfoActivity"
         tools:layout="@layout/activity_detail_post_info"/>
 
+    <activity
+        android:id="@+id/navigation_home_write_post"
+        android:name="com.goorm.kkiri.ui.home.HomeWritePostActivity"
+        android:label="HomeWritePostActivity"
+        tools:layout="@layout/activity_home_write_post">
+        <argument
+            android:name="postType"
+            app:argType="com.goorm.kkiri.ui.common.PostType" />
+    </activity>
 </navigation>

@@ -22,6 +22,11 @@
         <item name="android:paddingStart">2dp</item>
     </style>
 
+    <style name="RoundedCorner">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
     <!--  Custom Font  -->
     <style name="customTextViewFontStyle" parent="@android:style/Widget.DeviceDefault.TextView">
         <item name="android:fontFamily">@font/nanum_square_round_regular</item>
@@ -62,6 +67,10 @@
         <item name="android:fontFamily">@font/nanum_square_round_extra_bold</item>
     </style>
 
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_slide_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_slide_out</item>
+    </style>
 
 
     <!--  아래 제거 예정  -->

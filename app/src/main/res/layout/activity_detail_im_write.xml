@@ -26,21 +26,22 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <ImageView
+            android:id="@+id/iw_add_menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="53dp"
-            android:layout_marginEnd="23dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/ic_iw_add_btn"
             app:layout_constraintEnd_toEndOf="@id/iw_sample_image"
             app:layout_constraintTop_toTopOf="@id/iw_sample_image"/>
+
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:layout_marginStart="23dp"
+            android:id="@+id/iw_wt_back"
+            android:layout_width="42dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/ic_iw_back_btn"
-            app:layout_constraintTop_toTopOf="@id/iw_sample_image"
-            app:layout_constraintStart_toStartOf="@id/iw_sample_image"/>
+            app:layout_constraintStart_toStartOf="@id/iw_sample_image"
+            app:layout_constraintTop_toTopOf="@id/iw_sample_image" />
 
         <ImageView
             android:id="@+id/indicator0_iv_main"

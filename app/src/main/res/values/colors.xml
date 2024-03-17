@@ -15,4 +15,5 @@
     <color name="iw_indicator_on_color">#FFFFFF</color>
     <color name="tab_color">#85B5FF</color>
     <color name="failed_color">#FF4949</color>
+    <color name="red">#FF0000</color>
 </resources>

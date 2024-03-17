@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/kkiri_graph"
-    app:startDestination="@+id/navigation_home" >
+    app:startDestination="@+id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -18,7 +18,7 @@
         android:id="@+id/navigation_chatting_main"
         android:name="com.goorm.kkiri.ui.chatting.ChattingMainFragment"
         android:label="ChattingMainFragment"
-        tools:layout="@layout/fragment_chatting_main"/>
+        tools:layout="@layout/fragment_chatting_main" />
     <fragment
         android:id="@+id/navigation_my_page"
         android:name="com.goorm.kkiri.ui.mypage.MyPageFragment"
@@ -41,10 +41,45 @@
         android:id="@+id/navigation_im_write"
         android:name="com.goorm.kkiri.ui.mypage.ImWriteActivity"
         android:label="ImWriteActivity"
-        tools:layout="@layout/activity_im_write"/>
+        tools:layout="@layout/activity_im_write" />
     <activity
         android:id="@+id/navigation_detail_post_info"
         android:name="com.goorm.kkiri.ui.detail.DetailPostInfoActivity"
         android:label="DetailPostInfoActivity"
-        tools:layout="@layout/activity_detail_post_info"/>
+        tools:layout="@layout/activity_detail_post_info" />
+    <activity
+        android:id="@+id/navigation_sign_in"
+        android:name="com.goorm.kkiri.ui.account.SignInActivity"
+        tools:layout="@layout/activity_sign_in"
+        android:label="SignInActivity">
+        <action
+            android:id="@+id/action_sign_in_to_register"
+            app:destination="@id/navigation_register" />
+    </activity>
+    <activity
+        android:id="@+id/navigation_register"
+        android:name="com.goorm.kkiri.ui.account.RegisterActivity"
+        android:label="RegisterActivity"
+        tools:layout="@layout/activity_register"
+        />
+    <fragment
+        android:id="@+id/navigation_register_fr"
+        android:name="com.goorm.kkiri.ui.account.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register"
+        >
+        <action
+            android:id="@+id/action_navigation_register_fr_to_navigation_register_fr2"
+            app:destination="@id/navigation_register_fr2" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_register_fr2"
+        android:name="com.goorm.kkiri.ui.account.Register2Fragment"
+        android:label="Register2Fragment"
+        tools:layout="@layout/fragment_register2"
+        >
+        <action
+            android:id="@+id/action_navigation_register_fr2_to_navigation_sign_in"
+            app:destination="@id/navigation_sign_in" />
+    </fragment>
 </navigation>

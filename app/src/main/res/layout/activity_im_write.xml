@@ -46,5 +46,13 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/write_logo" />
+
+        <Button
+            android:id="@+id/iw_dt_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상세 페이지 임시버튼"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

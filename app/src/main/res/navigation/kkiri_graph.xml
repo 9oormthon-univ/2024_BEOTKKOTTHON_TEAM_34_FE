@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/kkiri_graph"
-    app:startDestination="@+id/navigation_sign_in" >
+    app:startDestination="@+id/navigation_home" >
 
     <fragment
         android:id="@+id/navigation_sign_in"
@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_my_page_to_im_write"
             app:destination="@id/navigation_im_write" />
+        <action
+            android:id="@+id/action_navigation_my_page_to_navigation_sign_in"
+            app:destination="@id/navigation_sign_in" />
     </fragment>
     <fragment
         android:id="@+id/navigation_home_post_list"

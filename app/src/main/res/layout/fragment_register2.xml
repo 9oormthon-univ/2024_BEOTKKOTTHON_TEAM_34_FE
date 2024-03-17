@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/tv_exp_id_and_pw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="90dp"
+            android:text="아이디와 비밀번호를\n입력해주세요"
+            android:textSize="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="아이디"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="@id/tv_exp_id_and_pw"
+            app:layout_constraintTop_toBottomOf="@id/tv_exp_id_and_pw" />
+
+        <EditText
+            android:id="@+id/et_id_field"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="23dp"
+            android:background="@drawable/shape_rounded_stroke_rect_6dp"
+            android:hint="아이디를 입력해주세요"
+            android:paddingStart="12dp"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_id" />
+
+        <TextView
+            android:id="@+id/tv_enabled_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="사용 가능한 아이디입니다."
+            android:textColor="@color/blue_main"
+            app:layout_constraintStart_toStartOf="@id/et_id_field"
+            app:layout_constraintTop_toBottomOf="@id/et_id_field" />
+
+        <TextView
+            android:id="@+id/tv_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="비밀번호"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="@id/tv_enabled_id"
+            app:layout_constraintTop_toBottomOf="@id/tv_enabled_id" />
+
+        <EditText
+            android:id="@+id/et_pw_field"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="23dp"
+            android:background="@drawable/shape_rounded_stroke_rect_6dp"
+            android:hint="비밀번호를 입력해주세요"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_password" />
+        <TextView
+            android:id="@+id/tv_double_checked_pw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="비밀번호 확인"
+            android:textSize="13dp"
+            app:layout_constraintStart_toStartOf="@id/et_pw_field"
+            app:layout_constraintTop_toBottomOf="@id/et_pw_field" />
+
+        <EditText
+            android:id="@+id/et_double_checked_pw_field"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="23dp"
+            android:background="@drawable/shape_rounded_stroke_rect_6dp"
+            android:hint="아이디를 입력해주세요"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_double_checked_pw" />
+        <ImageView
+            android:id="@+id/ic_checked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_checked"
+            app:layout_constraintStart_toStartOf="@id/et_double_checked_pw_field"
+            app:layout_constraintTop_toTopOf="@id/tv_double_checked_password"
+            app:layout_constraintBottom_toBottomOf="@id/tv_double_checked_password"/>
+
+        <TextView
+            android:id="@+id/tv_double_checked_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="5dp"
+            android:text="비밀번호 일치"
+            android:textColor="@color/blue_main"
+            app:layout_constraintStart_toEndOf="@id/ic_checked"
+            app:layout_constraintTop_toBottomOf="@id/et_double_checked_pw_field" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

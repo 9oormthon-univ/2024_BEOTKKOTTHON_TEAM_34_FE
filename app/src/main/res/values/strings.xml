@@ -21,4 +21,6 @@
     <string name="text_detail_content">자세한 설명</string>
     <string name="hint_detail_content">자세한 설명을 입력해주세요.</string>
     <string name="description_camera_button">카메라 버튼</string>
+    <string name="description_post_add">게시글 추가 버튼</string>
+    <string name="description_help_me">도와줄게요 아이콘</string>
 </resources>

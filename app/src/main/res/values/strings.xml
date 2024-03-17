@@ -13,4 +13,14 @@
     <string name="description_logo_image">로고 이미지</string>
     <string name="description_post_image">게시글 이미지</string>
     <string name="description_chatting_number_icon">채팅 수 아이콘</string>
+    <string name="label_write_complete">작성 완료</string>
+    <string name="text_picture">사진</string>
+    <string name="common_text_title">제목</string>
+    <string name="text_need_beans">사용할 콩 개수</string>
+    <string name="hint_input_need_beans">콩 개수를 입력해주세요.</string>
+    <string name="text_detail_content">자세한 설명</string>
+    <string name="hint_detail_content">자세한 설명을 입력해주세요.</string>
+    <string name="description_camera_button">카메라 버튼</string>
+    <string name="description_post_add">게시글 추가 버튼</string>
+    <string name="description_help_me">도와줄게요 아이콘</string>
 </resources>

@@ -80,6 +80,7 @@
         >
         <action
             android:id="@+id/action_navigation_register_fr2_to_navigation_sign_in"
-            app:destination="@id/navigation_sign_in" />
+            app:destination="@id/navigation_sign_in"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

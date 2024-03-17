@@ -16,6 +16,11 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
                 val action = MyPageFragmentDirections.actionMyPageToImWrite()
                 findNavController().navigate(action)
             }
+            btMvLogIn.setOnClickListener{
+                val action = MyPageFragmentDirections.actionNavigationMyPageToNavigationSignIn()
+                findNavController().navigate(action)
+            }
+
         }
     }
 }

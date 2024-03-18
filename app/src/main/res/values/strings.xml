@@ -23,4 +23,5 @@
     <string name="description_camera_button">카메라 버튼</string>
     <string name="description_post_add">게시글 추가 버튼</string>
     <string name="description_help_me">도와줄게요 아이콘</string>
+    <string name="add_button">Add_button</string>
 </resources>

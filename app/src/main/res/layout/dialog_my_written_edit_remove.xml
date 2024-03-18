@@ -14,8 +14,18 @@
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_my_written_remove"
+        app:layout_constraintTop_toTopOf="parent"
         />
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/divider_edit_remove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerThickness="1dp"
+        app:dividerColor="#E6E6E6"
+        app:layout_constraintTop_toBottomOf="@id/tv_my_written_edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/tv_my_written_remove"
@@ -26,7 +36,7 @@
         android:textColor="@color/red"
         android:text="게시글 삭제"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider_edit_remove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

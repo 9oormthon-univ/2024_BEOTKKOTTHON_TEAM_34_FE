@@ -1,13 +1,14 @@
 package com.goorm.kkiri.ui.mypage
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseActivity
 import com.goorm.kkiri.databinding.ActivityDetailImWriteBinding
+import com.goorm.kkiri.ui.home.HomeWritePostActivity
 import com.goorm.kkiri.ui.mypage.adapter.IwViewPagerAdapter
 
 class DetailImWriteActivity :
@@ -17,7 +18,6 @@ class DetailImWriteActivity :
         settingListClickEvent()
         onImageAttachedViewPager()
     }
-
 
 
     // add 버튼, back 버튼 클릭 이벤트
@@ -50,7 +50,12 @@ class DetailImWriteActivity :
     // 1번 edit, 2번 remove  다이얼로그 내용 각각 클릭 이벤트
     override fun onClickButton(id: Int) {
         when (id) {
-            1 -> "" // 게시글 수정
+            1 -> startActivity(
+                Intent(
+                    this@DetailImWriteActivity,
+                    HomeWritePostActivity::class.java
+                )
+            ) // 게시글 수정
             2 -> finish() // 게시글 삭제
         }
 
@@ -58,10 +63,9 @@ class DetailImWriteActivity :
 
 
     //이미지와 뷰페이저 연결
-    private fun onImageAttachedViewPager(){
+    private fun onImageAttachedViewPager() {
 
-
-        with(binding){
+        with(binding) {
             // IwViewPagerAdapter 인스턴스 생성
             val iwViewPagerAdapter = IwViewPagerAdapter(this@DetailImWriteActivity)
 
@@ -69,13 +73,18 @@ class DetailImWriteActivity :
             iwViewPager.adapter = iwViewPagerAdapter
 
             iwViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                override fun onPageScrolled(
+                    position: Int,
+                    positionOffset: Float,
+                    positionOffsetPixels: Int
+                ) {
                     // 페이지가 스크롤될 때 호출
                 }
 
                 override fun onPageSelected(position: Int) {
                     updateIndicators(position)
                 }
+
                 override fun onPageScrollStateChanged(state: Int) {
                     // 페이지 스크롤 상태가 변경될 때 호출
                 }
@@ -92,8 +101,14 @@ class DetailImWriteActivity :
 
     //인디케이터 업데이트
     private fun updateIndicators(selectedPosition: Int) {
-        val defaultDrawable = AppCompatResources.getDrawable(this@DetailImWriteActivity, R.drawable.shape_indicator_gray_12dp)
-        val selectedDrawable = AppCompatResources.getDrawable(this@DetailImWriteActivity, R.drawable.shape_indicator_white_12dp)
+        val defaultDrawable = AppCompatResources.getDrawable(
+            this@DetailImWriteActivity,
+            R.drawable.shape_indicator_gray_12dp
+        )
+        val selectedDrawable = AppCompatResources.getDrawable(
+            this@DetailImWriteActivity,
+            R.drawable.shape_indicator_white_12dp
+        )
 
         val indicators = listOf(
             binding.indicator0IvMain,
@@ -102,7 +117,10 @@ class DetailImWriteActivity :
         )
 
         indicators.forEachIndexed { index, imageView ->
-            setIndicator(imageView, if (index == selectedPosition) selectedDrawable else defaultDrawable)
+            setIndicator(
+                imageView,
+                if (index == selectedPosition) selectedDrawable else defaultDrawable
+            )
         }
     }
 

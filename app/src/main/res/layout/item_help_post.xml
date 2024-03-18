@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="postItem"
+            type="com.goorm.kkiri.domain.model.response.PostItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +30,7 @@
             android:layout_marginStart="25dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/divider_post_top"
-            android:text="%s"
+            android:text="@{postItem.postTitle}"
             tools:text="기타레슨 받고싶어요!"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -36,7 +38,7 @@
             android:id="@+id/tv_help_post_beans_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="콩 %d개"
+            setBeans="@{postItem.beansCount}"
             app:layout_constraintTop_toBottomOf="@id/tv_help_post_title"
             app:layout_constraintStart_toStartOf="@id/tv_help_post_title"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -46,6 +48,7 @@
             android:id="@+id/iv_help_post_image"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:src="@{postItem.imageUrl}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

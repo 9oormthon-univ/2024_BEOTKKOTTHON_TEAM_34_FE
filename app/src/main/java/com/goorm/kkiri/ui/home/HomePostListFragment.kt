@@ -5,15 +5,25 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.navigation.fragment.findNavController
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment
+import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.databinding.FragmentHomePostListBinding
 import com.goorm.kkiri.ui.common.PostType
 import com.goorm.kkiri.ui.common.PostType.*
+import com.goorm.kkiri.ui.home.adapter.HomePostListAdapter
 
 class HomePostListFragment : BaseFragment<FragmentHomePostListBinding>(R.layout.fragment_home_post_list) {
     private var postType: PostType? = null
 
     override fun setLayout() {
         setClickListener()
+        initAdapter()
+    }
+
+    private fun initAdapter() {
+        val adapter = HomePostListAdapter()
+        DataSource.initHelpMePostItems()
+        adapter.update(DataSource.postItems)
+        binding.rvHomePostHelpList.adapter = adapter
     }
 
     private fun setClickListener() {

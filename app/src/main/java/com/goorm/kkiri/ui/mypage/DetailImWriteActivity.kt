@@ -1,14 +1,21 @@
 package com.goorm.kkiri.ui.mypage
 
+import android.graphics.drawable.Drawable
+import android.widget.ImageView
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseActivity
 import com.goorm.kkiri.databinding.ActivityDetailImWriteBinding
+import com.goorm.kkiri.ui.mypage.adapter.IwViewPagerAdapter
 
 class DetailImWriteActivity :
     BaseActivity<ActivityDetailImWriteBinding>(R.layout.activity_detail_im_write),
     DetailImWriteDialogInterface {
     override fun setLayout() {
         settingListClickEvent()
+        onImageAttachedViewPager()
     }
 
 
@@ -49,5 +56,54 @@ class DetailImWriteActivity :
 
     }
 
+
+    //이미지와 뷰페이저 연결
+    private fun onImageAttachedViewPager(){
+
+
+        with(binding){
+            // IwViewPagerAdapter 인스턴스 생성
+            val iwViewPagerAdapter = IwViewPagerAdapter(this@DetailImWriteActivity)
+
+            // ViewPager2에 어댑터 설정
+            iwViewPager.adapter = iwViewPagerAdapter
+
+            iwViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                    // 페이지가 스크롤될 때 호출
+                }
+
+                override fun onPageSelected(position: Int) {
+                    updateIndicators(position)
+                }
+                override fun onPageScrollStateChanged(state: Int) {
+                    // 페이지 스크롤 상태가 변경될 때 호출
+                }
+            })
+
+        }
+    }
+
+    //인디케이터에 이미지 세팅
+    private fun setIndicator(imgView: ImageView, drawable: Drawable?) {
+        imgView.setImageDrawable(drawable)
+    }
+
+
+    //인디케이터 업데이트
+    private fun updateIndicators(selectedPosition: Int) {
+        val defaultDrawable = AppCompatResources.getDrawable(this@DetailImWriteActivity, R.drawable.shape_indicator_gray_12dp)
+        val selectedDrawable = AppCompatResources.getDrawable(this@DetailImWriteActivity, R.drawable.shape_indicator_white_12dp)
+
+        val indicators = listOf(
+            binding.indicator0IvMain,
+            binding.indicator1IvMain,
+            binding.indicator2IvMain,
+        )
+
+        indicators.forEachIndexed { index, imageView ->
+            setIndicator(imageView, if (index == selectedPosition) selectedDrawable else defaultDrawable)
+        }
+    }
 
 }

@@ -1,28 +1,35 @@
 package com.goorm.kkiri.ui.mypage.adapter
 
+import android.net.Uri
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.RequiresApi
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.goorm.kkiri.R
 import com.goorm.kkiri.databinding.HelpitemBinding
 import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import java.time.LocalDate
 
 @RequiresApi(Build.VERSION_CODES.O)
-class MyWrittenHelpAdapter (
+class MyWrittenHelpAdapter(
     private val listener: MenuClickListener
 ) : RecyclerView.Adapter<MyWrittenHelpAdapter.MyWrittenHelpViewHolder>() {
     private val items = mutableListOf<MyWrittenMenuItem>()
-    init{
+
+    init {
         val ld = LocalDate.now()
+
         //임시 아이템
-        items.add(MyWrittenMenuItem(1,1,ld,"바퀴벌레 잡아주세요","","콩 드립니다."))
-        items.add(MyWrittenMenuItem(1,1,ld,"바퀴벌레 잡아주세요","","콩 드립니다."))
-        items.add(MyWrittenMenuItem(1,1,ld,"바퀴벌레 잡아주세요","","콩 드립니다."))
-        items.add(MyWrittenMenuItem(1,1,ld,"바퀴벌레 잡아주세요","","콩 드립니다."))
+        items.add(MyWrittenMenuItem(1, 2, ld, "기타레슨 받고싶어요!", null, "콩 드립니다."))
+        items.add(MyWrittenMenuItem(1, 3, ld, "코딩 과제 도와주세요!", null, "콩 드립니다."))
+        items.add(MyWrittenMenuItem(1, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
+        items.add(MyWrittenMenuItem(1, 2, ld, "같이 게임해요", null, "콩 드립니다."))
     }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -44,7 +51,6 @@ class MyWrittenHelpAdapter (
         items.addAll(posts)
         result.dispatchUpdatesTo(this)
     }
-
 
 
     class RecordSaveDiffUtil(
@@ -71,8 +77,10 @@ class MyWrittenHelpAdapter (
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(post: MyWrittenMenuItem) {
-            binding.listener = listener
             binding.record = post
+            binding.root.setOnClickListener {
+                listener.menuClickListener(adapterPosition.toLong())
+            }
         }
 
         companion object {
@@ -82,8 +90,7 @@ class MyWrittenHelpAdapter (
                         LayoutInflater.from(parent.context),
                         parent,
                         false
-                    )
-                    ,
+                    ),
                     listener
                 )
             }

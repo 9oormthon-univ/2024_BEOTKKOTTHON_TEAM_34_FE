@@ -24,4 +24,5 @@
     <string name="description_post_add">게시글 추가 버튼</string>
     <string name="description_help_me">도와줄게요 아이콘</string>
     <string name="add_button">Add_button</string>
+    <string name="text_beans_count">콩 %d개</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.goorm.kkiri.ui.mypage
 
+import android.content.Intent
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.goorm.kkiri.R
@@ -18,6 +19,6 @@ class HelpListFragment : BaseFragment<FragmentHelpListBinding>(R.layout.fragment
     }
 
     override fun menuClickListener(position: Long) {
-        TODO("Not yet implemented")
+        startActivity(Intent(requireContext() , DetailImWriteActivity::class.java))
     }
 }

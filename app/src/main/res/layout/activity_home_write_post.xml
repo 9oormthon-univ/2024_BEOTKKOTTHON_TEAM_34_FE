@@ -154,5 +154,13 @@
             app:layout_constraintTop_toBottomOf="@id/tv_post_write_image_count"
             app:layout_constraintVertical_bias="1.0" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_image_file"
+            app:layout_constraintTop_toBottomOf="@id/tv_write_post_image" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -20,19 +20,28 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:menu="@menu/toolbar_menu"
-            app:navigationIcon="@drawable/ic_logo_kkiri" />
+            app:logoAdjustViewBounds="true"
+            app:menu="@menu/toolbar_menu" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_logo_kkiri"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar_home"
+            app:layout_constraintEnd_toEndOf="@id/toolbar_home"
+            app:layout_constraintStart_toStartOf="@id/toolbar_home"
+            app:layout_constraintTop_toTopOf="@id/toolbar_home"
+            android:contentDescription="@string/description_logo_image" />
 
         <TextView
             android:id="@+id/tv_home_univ_name"
-            style="@style/textStyleBold.20sp.black"
+            style="@style/customTextViewFontStyle.bold.S18.black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="25dp"
             android:text="구름대학교"
-            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar_home" />
@@ -64,7 +73,7 @@
 
         <TextView
             android:id="@+id/tv_home_user_name"
-            style="@style/textStyleDefault.16sp"
+            style="@style/customTextViewFontStyle.S16.black"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="19dp"
@@ -76,6 +85,7 @@
 
         <TextView
             android:id="@+id/tv_home_my_beans"
+            style="@style/customTextViewFontStyle.S13.black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
@@ -89,41 +99,46 @@
             android:id="@+id/iv_home_image_beans"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:contentDescription="@string/description_beans_image"
-            android:src="@mipmap/image_beans"
+            android:src="@drawable/ic_beans"
             app:layout_constraintEnd_toStartOf="@id/tv_home_my_beans_number"
             app:layout_constraintStart_toStartOf="@id/tv_home_my_beans"
             app:layout_constraintTop_toBottomOf="@id/tv_home_my_beans" />
 
         <TextView
             android:id="@+id/tv_home_my_beans_number"
+            style="@style/customTextViewFontStyle.bold.S16.black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text="@string/text_my_beans_number"
+            app:layout_constraintBottom_toBottomOf="@id/iv_home_image_beans"
             app:layout_constraintEnd_toEndOf="@id/tv_home_my_beans"
             app:layout_constraintStart_toEndOf="@id/iv_home_image_beans"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_my_beans"
+            app:layout_constraintTop_toTopOf="@id/iv_home_image_beans"
             tools:text="10개" />
 
         <TextView
             android:id="@+id/tv_home_help_me"
+            style="@style/customTextViewFontStyle.bold.S16.orange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_marginStart="26dp"
+            android:layout_marginTop="30dp"
             android:text="@string/text_help_me"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_home_info" />
 
         <TextView
             android:id="@+id/tv_home_more_help_me"
+            style="@style/customTextViewFontStyle.S10.gray_350"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="26dp"
             android:background="@drawable/shape_rounded_rect_10dp"
-            android:paddingStart="6dp"
-            android:paddingTop="1dp"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
             android:paddingEnd="15dp"
             android:paddingBottom="4dp"
             android:text="@string/text_more_eng"
@@ -145,31 +160,36 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_help_me_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="215dp"
             android:layout_marginStart="26dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="26dp"
-            tools:listitem="@layout/item_home_help_post"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_help_me" />
+            android:background="@drawable/shape_rounded_rect_5dp_orange_sub"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_help_me"
+            tools:listitem="@layout/item_home_help_post" />
 
         <TextView
             android:id="@+id/tv_home_help_you"
+            style="@style/customTextViewFontStyle.bold.S16.blue_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
-            android:layout_marginTop="47dp"
+            android:layout_marginTop="13dp"
             android:text="@string/text_help_me"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_help_me_list" />
 
         <TextView
             android:id="@+id/tv_home_more_help_you"
+            style="@style/customTextViewFontStyle.S10.gray_350"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="26dp"
             android:background="@drawable/shape_rounded_rect_10dp"
-            android:paddingStart="6dp"
-            android:paddingTop="1dp"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
             android:paddingEnd="15dp"
             android:paddingBottom="4dp"
             android:text="@string/text_more_eng"
@@ -191,11 +211,14 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_help_you_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="215dp"
             android:layout_marginStart="26dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="26dp"
-            tools:listitem="@layout/item_home_help_post"
-            app:layout_constraintTop_toBottomOf="@id/tv_home_help_you" />
+            android:background="@drawable/shape_rounded_rect_5dp_blue_main"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_help_you"
+            tools:listitem="@layout/item_home_help_post" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

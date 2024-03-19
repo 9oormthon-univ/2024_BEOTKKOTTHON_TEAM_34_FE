@@ -49,6 +49,14 @@
     </style>
 
     <!--  Regular  -->
+    <style name="customTextViewFontStyle.S10">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.S10.gray_350">
+        <item name="android:textColor">@color/gray_350</item>
+    </style>
+
     <style name="customTextViewFontStyle.S12">
         <item name="android:textSize">12sp</item>
     </style>
@@ -57,9 +65,57 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="customTextViewFontStyle.S13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.S13.black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="customTextViewFontStyle.S16">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.S16.black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="customTextViewFontStyle.S20">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.S20.black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <!--  Bold  -->
     <style name="customTextViewFontStyle.bold">
         <item name="android:fontFamily">@font/nanum_square_round_bold</item>
+    </style>
+
+    <style name="customTextViewFontStyle.bold.S16">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.bold.S16.black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="customTextViewFontStyle.bold.S16.orange">
+        <item name="android:textColor">@color/orange_main</item>
+    </style>
+
+    <style name="customTextViewFontStyle.bold.S16.blue_main">
+        <item name="android:textColor">@color/blue_main</item>
+    </style>
+
+    <style name="customTextViewFontStyle.bold.S18">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.bold.S18.black">
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!--  Extra Bold  -->
@@ -70,31 +126,5 @@
     <style name="DialogAnimation">
         <item name="android:windowEnterAnimation">@anim/dialog_slide_in</item>
         <item name="android:windowExitAnimation">@anim/dialog_slide_out</item>
-    </style>
-
-
-    <!--  아래 제거 예정  -->
-
-    <style name="textStyleDefault">
-    </style>
-
-    <style name="textStyleDefault.16sp">
-        <item name="android:textSize">16sp</item>
-    </style>
-
-    <style name="textStyleDefault.16sp.black">
-        <item name="android:textColor">@color/black</item>
-    </style>
-
-    <style name="textStyleBold">
-        <item name="android:textStyle">bold</item>
-    </style>
-
-    <style name="textStyleBold.20sp">
-        <item name="android:textSize">20sp</item>
-    </style>
-
-    <style name="textStyleBold.20sp.black">
-        <item name="android:textColor">@color/black</item>
     </style>
 </resources>

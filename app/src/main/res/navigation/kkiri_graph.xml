@@ -74,7 +74,11 @@
         android:id="@+id/navigation_detail_post_info"
         android:name="com.goorm.kkiri.ui.detail.DetailPostInfoActivity"
         android:label="DetailPostInfoActivity"
-        tools:layout="@layout/activity_detail_post_info"/>
+        tools:layout="@layout/activity_detail_post_info">
+        <argument
+            android:name="postId"
+            app:argType="long" />
+    </activity>
 
     <activity
         android:id="@+id/navigation_home_write_post"

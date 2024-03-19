@@ -65,6 +65,10 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="customTextViewFontStyle.S11.black_60">
+        <item name="android:textColor">@color/black_60</item>
+    </style>
+
     <style name="customTextViewFontStyle.S12">
         <item name="android:textSize">12sp</item>
     </style>
@@ -100,6 +104,14 @@
     <!--  Bold  -->
     <style name="customTextViewFontStyle.bold">
         <item name="android:fontFamily">@font/nanum_square_round_bold</item>
+    </style>
+
+    <style name="customTextViewFontStyle.bold.S15">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.bold.S15.black">
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="customTextViewFontStyle.bold.S16">

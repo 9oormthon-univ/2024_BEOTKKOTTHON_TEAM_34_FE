@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="postType"
+            type="com.goorm.kkiri.ui.common.PostType" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_10">
+        android:background="@color/gray_30">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar_home_write_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            setHelpTitle="@{postType}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -150,6 +153,7 @@
             android:text="@string/label_write_complete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/tv_home_write_post_title"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/tv_home_write_post_title"
             app:layout_constraintTop_toBottomOf="@id/tv_post_write_image_count"
             app:layout_constraintVertical_bias="1.0" />
@@ -158,10 +162,10 @@
             android:id="@+id/rv_upload_image_file_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
-            tools:listitem="@layout/item_image_file"
-            app:layout_constraintTop_toBottomOf="@id/tv_write_post_image" />
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tv_write_post_image"
+            tools:listitem="@layout/item_image_file" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

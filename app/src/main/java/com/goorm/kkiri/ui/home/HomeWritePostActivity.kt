@@ -12,6 +12,7 @@ class HomeWritePostActivity : BaseActivity<ActivityHomeWritePostBinding>(R.layou
     private val args by navArgs<HomeWritePostActivityArgs>()
 
     override fun setLayout() {
+        binding.postType = args.postType
         setClickBackButton()
         setWriteCompleteButton()
         accessAlbum()

@@ -7,59 +7,114 @@
         <variable
             name="postItem"
             type="com.goorm.kkiri.domain.model.response.PostItem" />
+        <variable
+            name="listener"
+            type="com.goorm.kkiri.ui.common.HelpPostClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:onClick="@{() -> listener.onHelpPostClickListener(postItem.postId)}"
         android:layout_height="wrap_content">
 
         <com.google.android.material.divider.MaterialDivider
             android:id="@+id/divider_post_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:dividerColor="@color/black_10"
             app:dividerThickness="1dp"
-            app:dividerColor="@color/black"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_help_post_title"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
+            style="@style/customTextViewFontStyle.bold.S15.black"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/divider_post_top"
+            android:ellipsize="end"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
+            android:maxLines="1"
+            android:layout_marginTop="20dp"
+            app:layout_constraintHorizontal_bias="0"
             android:text="@{postItem.postTitle}"
-            tools:text="기타레슨 받고싶어요!"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintEnd_toStartOf="@id/iv_help_post_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider_post_top"
+            tools:text="기타레슨 받고싶어요!" />
+
+        <TextView
+            android:id="@+id/tv_help_post_create_time"
+            style="@style/customTextViewFontStyle.S11.black_60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="5dp"
+            android:text="@{postItem.createAt}"
+            app:layout_constraintStart_toStartOf="@id/tv_help_post_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_help_post_title"
+            tools:text="3분 전" />
+
+        <ImageView
+            android:id="@+id/iv_beans_icon"
+            android:layout_width="11dp"
+            android:layout_height="11dp"
+            android:layout_marginTop="13dp"
+            android:contentDescription="@string/description_beans_image"
+            android:src="@drawable/ic_beans"
+            app:layout_constraintStart_toStartOf="@id/tv_help_post_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_help_post_create_time" />
 
         <TextView
             android:id="@+id/tv_help_post_beans_number"
+            style="@style/customTextViewFontStyle.S12"
+            android:text="@{String.valueOf(postItem.beansCount)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            setBeans="@{postItem.beansCount}"
-            app:layout_constraintTop_toBottomOf="@id/tv_help_post_title"
-            app:layout_constraintStart_toStartOf="@id/tv_help_post_title"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="47dp" />
+            android:layout_marginStart="6dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_beans_icon"
+            app:layout_constraintStart_toEndOf="@id/iv_beans_icon"
+            app:layout_constraintTop_toTopOf="@id/iv_beans_icon"
+            tools:text="10" />
+
+        <ImageView
+            android:id="@+id/iv_help_post_chatting_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            app:layout_constraintStart_toEndOf="@id/tv_help_post_beans_number"
+            app:layout_constraintTop_toTopOf="@id/tv_help_post_beans_number"
+            app:layout_constraintBottom_toBottomOf="@id/tv_help_post_beans_number"
+            android:src="@drawable/ic_chatting_number"
+            android:contentDescription="@string/description_chatting_number_icon" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_help_post_image"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="22dp"
+            app:shapeAppearanceOverlay="@style/AppRoundedImage_5dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/shape_rounded_rect_5dp"
             android:src="@{postItem.imageUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:background="@color/black"
-            android:layout_marginEnd="22dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp" />
+            tools:background="@color/black" />
 
-
-
-
+        <TextView
+            android:id="@+id/tv_help_post_chatting_number"
+            style="@style/customTextViewFontStyle.S12"
+            android:text="@{String.valueOf(postItem.chattingCount)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_help_post_chatting_image"
+            app:layout_constraintStart_toEndOf="@id/iv_help_post_chatting_image"
+            app:layout_constraintTop_toTopOf="@id/iv_help_post_chatting_image"
+            tools:text="10" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -7,11 +7,13 @@ import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment
 import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.databinding.FragmentHomePostListBinding
+import com.goorm.kkiri.ui.common.HelpPostClickListener
 import com.goorm.kkiri.ui.common.PostType
 import com.goorm.kkiri.ui.common.PostType.*
 import com.goorm.kkiri.ui.home.adapter.HomePostListAdapter
 
-class HomePostListFragment : BaseFragment<FragmentHomePostListBinding>(R.layout.fragment_home_post_list) {
+class HomePostListFragment
+    : BaseFragment<FragmentHomePostListBinding>(R.layout.fragment_home_post_list), HelpPostClickListener {
     private var postType: PostType? = null
 
     override fun setLayout() {
@@ -20,7 +22,7 @@ class HomePostListFragment : BaseFragment<FragmentHomePostListBinding>(R.layout.
     }
 
     private fun initAdapter() {
-        val adapter = HomePostListAdapter()
+        val adapter = HomePostListAdapter(this)
         DataSource.initHelpMePostItems()
         adapter.update(DataSource.postItems)
         binding.rvHomePostHelpList.adapter = adapter
@@ -57,5 +59,10 @@ class HomePostListFragment : BaseFragment<FragmentHomePostListBinding>(R.layout.
                 }
             }
         }
+    }
+
+    override fun onHelpPostClickListener(postId: Long) {
+        val action = HomePostListFragmentDirections.actionHomePostListToDetailPostInfo(postId)
+        findNavController().navigate(action)
     }
 }

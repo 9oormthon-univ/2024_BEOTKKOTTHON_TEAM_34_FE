@@ -65,7 +65,7 @@
         <TextView
             android:id="@+id/tv_help_post_beans_number"
             style="@style/customTextViewFontStyle.S12"
-            setBeans="@{postItem.beansCount}"
+            android:text="@{String.valueOf(postItem.beansCount)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -91,6 +91,7 @@
             android:layout_height="80dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="22dp"
+            app:shapeAppearanceOverlay="@style/AppRoundedImage_5dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/shape_rounded_rect_5dp"
             android:src="@{postItem.imageUrl}"
@@ -102,7 +103,7 @@
         <TextView
             android:id="@+id/tv_help_post_chatting_number"
             style="@style/customTextViewFontStyle.S12"
-            setBeans="@{postItem.beansCount}"
+            android:text="@{String.valueOf(postItem.chattingCount)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"

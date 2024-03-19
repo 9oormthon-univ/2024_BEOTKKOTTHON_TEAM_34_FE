@@ -57,6 +57,14 @@
         <item name="android:textColor">@color/gray_350</item>
     </style>
 
+    <style name="customTextViewFontStyle.S11">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.S11.black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="customTextViewFontStyle.S12">
         <item name="android:textSize">12sp</item>
     </style>

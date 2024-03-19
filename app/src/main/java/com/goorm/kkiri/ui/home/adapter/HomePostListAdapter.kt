@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.goorm.kkiri.databinding.ItemHelpPostBinding
 import com.goorm.kkiri.domain.model.response.PostItem
+import com.goorm.kkiri.ui.common.HelpPostClickListener
 
-class HomePostListAdapter : RecyclerView.Adapter<HomePostListAdapter.HomePostListViewHolder>() {
+class HomePostListAdapter(
+    private val listener: HelpPostClickListener
+) : RecyclerView.Adapter<HomePostListAdapter.HomePostListViewHolder>() {
     private val postItems = mutableListOf<PostItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomePostListViewHolder {
@@ -17,7 +20,7 @@ class HomePostListAdapter : RecyclerView.Adapter<HomePostListAdapter.HomePostLis
     override fun getItemCount(): Int = postItems.size
 
     override fun onBindViewHolder(holder: HomePostListViewHolder, position: Int) {
-        holder.bind(postItems[position])
+        holder.bind(postItems[position], listener)
     }
 
     fun update(newItems: List<PostItem>) {
@@ -52,8 +55,9 @@ class HomePostListAdapter : RecyclerView.Adapter<HomePostListAdapter.HomePostLis
         private val binding: ItemHelpPostBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(postItem: PostItem) {
+        fun bind(postItem: PostItem, listener: HelpPostClickListener) {
             binding.postItem = postItem
+            binding.listener = listener
         }
 
         companion object {

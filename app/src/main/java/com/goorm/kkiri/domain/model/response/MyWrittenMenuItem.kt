@@ -1,5 +1,6 @@
 package com.goorm.kkiri.domain.model.response
 
+import android.net.Uri
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
@@ -12,6 +13,6 @@ data class MyWrittenMenuItem(
     val beenCountWt: Long,
     val dateWt: LocalDate,
     val titleWt: String,
-    val imgWt: String,
+    val imgWt: Uri?,
     val expWt: String
 ) : Parcelable

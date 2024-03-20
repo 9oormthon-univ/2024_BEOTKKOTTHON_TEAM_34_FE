@@ -2,6 +2,7 @@ package com.goorm.kkiri.ui.mypage
 
 import android.content.Intent
 import android.os.Build
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModelProvider
 import com.goorm.kkiri.R
@@ -11,11 +12,10 @@ import com.goorm.kkiri.ui.mypage.viewmodel.ImWriteViewModel
 
 @RequiresApi(Build.VERSION_CODES.O)
 class ImWriteActivity : BaseActivity<ActivityImWriteBinding>(R.layout.activity_im_write) {
-    private lateinit var viewModel: ImWriteViewModel
+    private val viewModel: ImWriteViewModel by viewModels()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun setLayout() {
-        viewModel = ViewModelProvider(this).get(ImWriteViewModel::class.java)
         setFragment()
         setOnClick()
 

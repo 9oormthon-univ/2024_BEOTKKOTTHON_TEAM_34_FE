@@ -63,4 +63,5 @@
     <string name="text_date">%d/%d</string>
     <string name="text_local_time">%d:%d</string>
     <string name="text_info_des">교양 과제인데..\n하나도 모르겠어요.\n내일까지 해야돼요 도와주세요!</string>
+    <string name="text_do_chatting">채팅하기</string>
 </resources>

@@ -4,6 +4,7 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.goorm.kkiri.R
 import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
+import com.goorm.kkiri.domain.model.response.HelpPostInfo
 import com.goorm.kkiri.domain.model.response.PostItem
 import java.time.LocalDate
 
@@ -53,6 +54,14 @@ object DataSource {
         )
         postItems.add(
             PostItem(10, "코딩 알려주실분!", R.drawable.ic_app_logo, "3월 13일", 5, 6),
+        )
+    }
+
+    fun getHelpPostInfo(): HelpPostInfo {
+        return HelpPostInfo(
+            1, "구르미", "코딩 알려주실분!",
+            "이번에 컴퓨터 공학과에 새내기로 입학했습니다. 코딩을 1도 몰라서\n알려주실분 구해요ㅠㅠ\n언어는 파이썬 원합니다!",
+            null, "1분 전", 10, 5
         )
     }
 }

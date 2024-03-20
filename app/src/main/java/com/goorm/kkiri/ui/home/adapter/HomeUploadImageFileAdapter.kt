@@ -26,7 +26,7 @@ class HomeUploadImageFileAdapter : RecyclerView.Adapter<HomeUploadImageFileAdapt
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(imageItem: String) {
-
+            binding.imageUrl = imageItem
         }
 
         companion object {

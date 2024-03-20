@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="imageUrl"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,6 +15,7 @@
         <ImageView
             android:id="@+id/ib_upload_image"
             android:layout_width="80dp"
+            imageUrl="@{imageUrl}"
             android:layout_height="80dp"
             android:scaleType="fitCenter"
             android:layout_marginStart="16dp"

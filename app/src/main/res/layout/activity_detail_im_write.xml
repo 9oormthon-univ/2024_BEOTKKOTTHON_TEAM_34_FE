@@ -79,8 +79,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
             android:layout_marginTop="22dp"
-            android:text="구름이"
-            android:textSize="18dp"
+            android:text="@string/text_univ_student"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iw_view_pager" />
@@ -101,8 +101,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
-            android:text="3/12"
-            android:textSize="14dp"
+            android:text="@string/text_date"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_mypage_iw_dt_name"
             app:layout_constraintEnd_toStartOf="@id/tv_mypage_iw_dt_time"
             app:layout_constraintTop_toTopOf="@id/tv_mypage_iw_dt_name" />
@@ -112,8 +112,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="23dp"
-            android:text="14:16"
-            android:textSize="14dp"
+            android:text="@string/text_local_time"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_mypage_iw_dt_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_mypage_iw_dt_date" />
@@ -124,8 +124,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
             android:layout_marginTop="25dp"
-            android:text="코딩 과제 도와주세요 ㅠㅠ"
-            android:textSize="20dp"
+            android:text="@string/text_help_me"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dv_mypage_iw_dt_line"
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
             android:layout_marginTop="13dp"
-            android:text="교양 과제인데..\n하나도 모르겠어요.\n내일까지 해야돼요 도와주세요!"
+            android:text="@string/text_info_des"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_mypage_iw_dt_title" />
 

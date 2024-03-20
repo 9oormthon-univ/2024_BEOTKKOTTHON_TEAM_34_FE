@@ -12,7 +12,11 @@ class EmptyListFragment : BaseFragment<FragmentEmptyListBinding>(R.layout.fragme
 
 
     override fun setLayout() {
-        binding.tvEmptyInstructions.text ="""게시물이 없습니다.
-            |도움 서비스를 제공해 보세요!""".trimMargin()
+        setString("${R.string.text_info_blank_post_message}")
+    }
+    private fun setString(msg : String){
+        with(binding){
+            tvEmptyInstructions.text = getString(msg.toInt());
+        }
     }
 }

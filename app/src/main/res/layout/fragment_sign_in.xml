@@ -25,7 +25,7 @@
 
         <EditText
             android:id="@+id/et_login_id"
-            android:hint="아이디"
+            android:hint="@string/text_hint_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
@@ -43,7 +43,7 @@
 
         <EditText
             android:id="@+id/et_login_pw"
-            android:hint="비밀번호"
+            android:hint="@string/text_hint_pw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="23dp"
@@ -68,9 +68,9 @@
             android:layout_marginEnd="23dp"
             android:background="@drawable/shape_rounded_rect_10dp"
             android:backgroundTint="@color/blue_main"
-            android:text="로그인"
+            android:text="@string/text_login"
             android:textColor="@color/white"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_login_pw" />
@@ -82,9 +82,9 @@
             android:layout_marginTop="6dp"
             android:layout_marginEnd="18dp"
             android:background="@android:color/transparent"
-            android:text="회원가입"
+            android:text="@string/text_register"
             android:textColor="#85B5FF"
-            android:textSize="12dp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@id/bt_login"
             app:layout_constraintTop_toBottomOf="@id/bt_login" />
     </androidx.constraintlayout.widget.ConstraintLayout>

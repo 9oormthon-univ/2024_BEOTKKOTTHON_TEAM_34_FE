@@ -11,8 +11,8 @@
         android:background="@drawable/shape_top_rounded_20dp"
         android:backgroundTint="@color/white"
         android:gravity="center"
-        android:text="게시글 수정"
-        android:textSize="18dp"
+        android:text="@string/text_edit_post"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/divider_edit_remove"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -34,8 +34,8 @@
         android:background="@color/white"
         android:gravity="center"
         android:textColor="@color/red"
-        android:text="게시글 삭제"
-        android:textSize="18dp"
+        android:text="@string/text_remove_post"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -37,7 +37,7 @@
             android:layout_marginStart="23dp"
             android:layout_marginTop="20dp"
             android:text="@{record.titleWt}"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/help_line_top" />
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:text="@{Long.toString(record.beenCountWt)}"
-            android:textSize="12dp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/help_item_been"
             app:layout_constraintStart_toEndOf="@+id/help_item_been"
             app:layout_constraintTop_toTopOf="@id/help_item_been" />
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:text='@{java.time.format.DateTimeFormatter.ofPattern("yyyy/MM/dd").format(record.dateWt)}'
-            android:textSize="10dp"
+            android:textSize="11sp"
             app:layout_constraintLeft_toLeftOf="@id/help_item_been"
             app:layout_constraintTop_toBottomOf="@id/help_item_been" />
 

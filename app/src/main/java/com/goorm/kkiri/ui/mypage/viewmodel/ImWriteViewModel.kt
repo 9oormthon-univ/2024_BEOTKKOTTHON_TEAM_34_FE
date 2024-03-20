@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import com.goorm.kkiri.ui.mypage.EmptyListFragment
 import com.goorm.kkiri.ui.mypage.HelpListFragment
@@ -24,12 +25,8 @@ class ImWriteViewModel : ViewModel() {
 
     //임시 데이터 값 세팅
     init {
-        val ld = LocalDate.now()
         val recyclerViewItems = ArrayList<MyWrittenMenuItem>().apply {
-            add(MyWrittenMenuItem(1, 2, ld, "기타레슨 받고싶어요!", null, "콩 드립니다."))
-            add(MyWrittenMenuItem(1, 3, ld, "코딩 과제 도와주세요!", null, "콩 드립니다."))
-            add(MyWrittenMenuItem(1, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
-            add(MyWrittenMenuItem(1, 2, ld, "같이 게임해요", null, "콩 드립니다."))
+            DataSource.writtemItems.toList()
         }
 
         //임시데이터로 초기 세팅

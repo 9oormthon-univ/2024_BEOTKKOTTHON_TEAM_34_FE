@@ -4,9 +4,9 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import com.goorm.kkiri.ui.mypage.EmptyListFragment
 import com.goorm.kkiri.ui.mypage.HelpListFragment
@@ -17,40 +17,45 @@ data class TabItem(val title: String, val fragment: Fragment)
 
 @RequiresApi(Build.VERSION_CODES.O)
 class ImWriteViewModel : ViewModel() {
+
+    //아이템 리스트 (리사이클러뷰)
     private val _itemList = MutableLiveData<ArrayList<MyWrittenMenuItem>>()
     val itemList: LiveData<ArrayList<MyWrittenMenuItem>> get() = _itemList
-    private val _tabItems = MediatorLiveData<List<TabItem>>()
+
+    //탭 아이템
+    private val _tabItems = MutableLiveData<List<TabItem>>()
     val tabItems: LiveData<List<TabItem>> get() = _tabItems
 
-    //임시 데이터 값 세팅
+    //스크롤 이벤트
+    private val _scrollToTopEvent = MutableLiveData<Unit>()
+    val scrollToTopEvent: LiveData<Unit> get() = _scrollToTopEvent
+
+    //플로팅 버튼 (탑 버튼) 이벤트
+    private val _floatButtonVisibility = MutableLiveData<Boolean>()
+    val floatButtonVisibility: LiveData<Boolean> get() = _floatButtonVisibility
+
+
     init {
-        val ld = LocalDate.now()
-        val recyclerViewItems = ArrayList<MyWrittenMenuItem>().apply {
-            add(MyWrittenMenuItem(1, 2, ld, "기타레슨 받고싶어요!", null, "콩 드립니다."))
-            add(MyWrittenMenuItem(1, 3, ld, "코딩 과제 도와주세요!", null, "콩 드립니다."))
-            add(MyWrittenMenuItem(1, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
-            add(MyWrittenMenuItem(1, 2, ld, "같이 게임해요", null, "콩 드립니다."))
-        }
-
-        //임시데이터로 초기 세팅
-        _itemList.value = recyclerViewItems
-        updateTabItems()
-
-        //리스트 넣어주기
-        _tabItems.addSource(_itemList) {
-            updateTabItems()
-        }
+        setupInitialData()
     }
 
+
+    //초기 데이터 세팅
+    private fun setupInitialData() {
+        DataSource.initMyWrittenMenuItems()
+        val recyclerViewItems = ArrayList(DataSource.writtenItems)
+        _itemList.value = recyclerViewItems
+        _floatButtonVisibility.value = false
+        updateTabItems()
+    }
 
     //임시값 1개 넣어주는 함수
     fun createFirstItem() {
         val ld = LocalDate.now()
         val items = MyWrittenMenuItem(1, 2, ld, "기타레슨 받고싶어요!", null, "콩 드립니다.")
-        val currentList = _itemList.value.orEmpty().toMutableList() // 수정된 부분
+        val currentList = _itemList.value.orEmpty().toMutableList()
         currentList.add(0, items)
         _itemList.value = ArrayList(currentList)
-        // 탭 아이템을 업데이트
     }
 
     //1개 뺴주는 함수
@@ -73,13 +78,13 @@ class ImWriteViewModel : ViewModel() {
         _tabItems.value = newTabItems
     }
 
-
-    fun setItemList(recyclerViewItems: ArrayList<MyWrittenMenuItem>) {
-        _itemList.value = recyclerViewItems
+    //스크롤 이벤트 매개함수
+    fun scrollToTop() {
+        _scrollToTopEvent.value = Unit
     }
 
-    fun getFirstItem(): MyWrittenMenuItem? {
-        return itemList.value?.firstOrNull()
+    //버튼 가시성 세팅 매개함수
+    fun setFloatButtonVisibility(visible: Boolean) {
+        _floatButtonVisibility.value = visible
     }
-
 }

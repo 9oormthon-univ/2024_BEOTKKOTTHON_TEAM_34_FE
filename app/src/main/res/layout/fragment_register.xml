@@ -27,8 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginTop="63dp"
-            android:text="로그인에 사용할\n정보를 입력해주세요."
-            android:textSize="28dp"
+            android:text="@string/text_login_info"
+            android:textSize="28sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar_register_post_list" />
 
@@ -37,7 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="닉네임"
+            android:textSize="13dp"
+            android:text="@string/text_nick_name"
             app:layout_constraintStart_toStartOf="@id/tv_exp_nickname"
             app:layout_constraintTop_toBottomOf="@id/tv_exp_nickname" />
 
@@ -49,9 +50,10 @@
             android:layout_marginEnd="26dp"
             android:layout_marginTop="7dp"
             android:background="@drawable/shape_rounded_stroke_rect_6dp"
-            android:hint="닉네임을 입력해주세요"
-            android:paddingStart="12dp"
-            android:textSize="12dp"
+            android:hint="@string/text_hint_nick_name"
+            android:paddingStart="12sp"
+            android:paddingEnd="12sp"
+            android:textSize="12sp"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:inputType="text"
@@ -75,8 +77,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="아이디"
-            android:textSize="13dp"
+            android:text="@string/text_hint_id"
+            android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@id/tv_enabled_nick"
             app:layout_constraintTop_toBottomOf="@id/tv_enabled_nick" />
 
@@ -114,8 +116,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="비밀번호"
-            android:textSize="13dp"
+            android:text="@string/text_hint_pw"
+            android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@id/tv_enabled_id"
             app:layout_constraintTop_toBottomOf="@id/tv_enabled_id" />
 
@@ -128,10 +130,11 @@
             android:layout_marginEnd="26dp"
             android:maxLines="1"
             android:background="@drawable/shape_rounded_stroke_rect_6dp"
-            android:hint="비밀번호를 입력해주세요"
+            android:hint="@string/text_hint_pw_info"
             android:inputType="textPassword"
             android:paddingStart="12dp"
-            android:textSize="12dp"
+            android:paddingEnd="12dp"
+            android:textSize="12sp"
             android:focusable="true"
             android:singleLine="true"
             android:focusableInTouchMode="true"
@@ -143,8 +146,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="비밀번호 확인"
-            android:textSize="13dp"
+            android:text="@string/text_pw_conf"
+            android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@id/et_pw_field"
             app:layout_constraintTop_toBottomOf="@id/et_pw_field" />
 
@@ -157,10 +160,11 @@
             android:layout_marginEnd="26dp"
             android:maxLines="1"
             android:background="@drawable/shape_rounded_stroke_rect_6dp"
-            android:hint="아이디를 입력해주세요"
+            android:hint="@string/text_hint_conf_pw"
             android:inputType="textPassword"
             android:paddingStart="12dp"
-            android:textSize="12dp"
+            android:paddingEnd="12dp"
+            android:textSize="12sp"
             android:focusable="true"
             android:focusableInTouchMode="true"
             app:layout_constraintStart_toStartOf="parent"
@@ -174,7 +178,8 @@
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="@id/et_double_checked_pw_field"
             app:layout_constraintTop_toTopOf="@id/tv_double_checked_password"
-            app:layout_constraintBottom_toBottomOf="@id/tv_double_checked_password"/>
+            app:layout_constraintBottom_toBottomOf="@id/tv_double_checked_password"
+            android:contentDescription="@string/blank" />
 
         <TextView
             android:id="@+id/tv_double_checked_password"
@@ -195,9 +200,9 @@
             android:layout_marginEnd="26dp"
             android:layout_marginBottom="26dp"
             android:background="@drawable/shape_rounded_rect_8dp"
-            android:text="완료"
+            android:text="@string/text_complete"
             android:textColor="@color/white"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

@@ -18,7 +18,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/mypage_logo" />
+            android:background="@drawable/mypage_logo"
+            android:contentDescription="@string/blank" />
 
         <TextView
             android:id="@+id/mp_user_name"
@@ -42,7 +43,7 @@
             android:textSize="11sp"
             android:layout_marginTop="12dp"
             android:layout_marginStart="24dp"
-            android:text="구름대학교"
+            android:text="@string/text_univ_name"
             app:layout_constraintLeft_toLeftOf="@+id/mp_user_name"
             app:layout_constraintTop_toTopOf="@id/mp_user_name"
             />
@@ -53,7 +54,7 @@
             android:layout_marginTop="5dp"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:text="구름이"
+            android:text="@string/text_univ_student"
             app:layout_constraintTop_toBottomOf="@id/mp_univ"
             app:layout_constraintLeft_toLeftOf="@id/mp_univ"
             />
@@ -68,14 +69,14 @@
             app:layout_constraintBottom_toBottomOf="@id/mp_user_name"
             app:layout_constraintTop_toTopOf="@id/mp_user_name"
             app:layout_constraintEnd_toStartOf="@id/been_img"
-            />
+            android:contentDescription="@string/blank" />
 
         <TextView
             android:id="@+id/been_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="보유 콩"
+            android:text="@string/text_hold_been"
             android:textSize="13sp"
             app:layout_constraintEnd_toEndOf="@+id/been_count"
             app:layout_constraintStart_toStartOf="@+id/been_img"
@@ -87,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="34dp"
-            android:text="%d개"
+            android:text="@string/text_been_count"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/mp_user_name"
@@ -108,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="35dp"
-            android:text="내가 쓴 글 >"
+            android:text="@string/text_my_written"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,7 +132,7 @@
             android:layout_height="30dp"
             android:layout_marginTop="23dp"
             android:layout_marginStart="25dp"
-            android:text="나의 거래"
+            android:text="@string/text_my_transaction"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -162,7 +163,7 @@
                     android:layout_marginEnd="14dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical|center_horizontal"
-                    android:text="누적 콩 수익량"
+                    android:text="@string/been_accumulate_revenue"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -180,7 +181,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical|center_horizontal"
-                    android:text="도움 제공 거래 횟수"
+                    android:text="@string/text_provide_help"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -196,7 +197,7 @@
                     android:layout_marginTop="19dp"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="%d 개"
+                    android:text="@string/text_been_count"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -212,7 +213,7 @@
                     android:layout_marginTop="19dp"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="%d 번"
+                    android:text="@string/text_number"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -226,7 +227,7 @@
                 android:layout_marginEnd="18dp"
                 android:background="@drawable/radius5_sq2"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="지금까지 %d원 에 달하는 도움을\n 제공했습니다."
+                android:text="@string/text_guide_help"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -244,7 +245,7 @@
                     android:layout_marginEnd="14dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical|center_horizontal"
-                    android:text="누적 콩 지출량"
+                    android:text="@string/been_accumulate_separation"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -264,7 +265,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical|center_horizontal"
-                    android:text="도움 요청 거래 횟수"
+                    android:text="@string/text_provide_helped"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
@@ -297,7 +298,7 @@
                     android:layout_marginTop="19dp"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:text="%d 번"
+                    android:text="@string/text_number"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -313,7 +314,7 @@
                 android:layout_marginBottom="33dp"
                 android:background="@drawable/radius5_sq"
                 android:gravity="center_horizontal|center_vertical"
-                android:text="지금까지 %d원 에 달하는 도움을\n 제공했습니다."
+                android:text="@string/text_guide_helped"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 

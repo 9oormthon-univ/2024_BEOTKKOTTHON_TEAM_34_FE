@@ -19,24 +19,37 @@
         android:theme="@style/Theme.Kkiri"
         tools:targetApi="31">
         <activity
-            android:name=".ui.mypage.DetailImWriteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".ui.account.AccountActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".ui.mypage.DetailImWriteActivity"
+            android:exported="false" />
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".ui.MainActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:name=".ui.mypage.ImWriteActivity"
             android:exported="false" />
         <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:name=".ui.detail.DetailPostInfoActivity"
             android:exported="false" />
-        <activity android:name=".ui.home.HomeWritePostActivity"
-            android:exported="false"/>
+        <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:name=".ui.home.HomeWritePostActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

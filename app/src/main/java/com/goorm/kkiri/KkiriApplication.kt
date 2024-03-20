@@ -7,7 +7,7 @@ import dagger.hilt.android.HiltAndroidApp
 class KkiriApplication : Application() {
 
     companion object {
-        private lateinit var application: KkiriApplication
+        lateinit var application: KkiriApplication
     }
 
     override fun onCreate() {

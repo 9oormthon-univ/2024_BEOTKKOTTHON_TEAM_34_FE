@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_home_post_list_to_home_write_post"
             app:destination="@id/navigation_home_write_post" />
+        <argument
+            android:name="postType"
+            app:argType="com.goorm.kkiri.ui.common.PostType" />
     </fragment>
     <activity
         android:id="@+id/navigation_im_write"

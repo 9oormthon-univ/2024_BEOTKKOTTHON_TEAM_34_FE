@@ -6,28 +6,6 @@
     app:startDestination="@+id/navigation_home" >
 
     <fragment
-        android:id="@+id/navigation_sign_in"
-        android:name="com.goorm.kkiri.ui.account.SignInFragment"
-        android:label="SignInFragment"
-        tools:layout="@layout/fragment_sign_in">
-        <action
-            android:id="@+id/action_navigation_sign_in_to_navigation_register"
-            app:destination="@id/navigation_register" />
-        <action
-            android:id="@+id/action_navigation_sign_in_to_navigation_home"
-            app:destination="@id/navigation_home" />
-    </fragment>
-    <fragment
-        android:id="@+id/navigation_register"
-        android:name="com.goorm.kkiri.ui.account.RegisterFragment"
-        android:label="RegisterFragment"
-        tools:layout="@layout/fragment_register">
-        <action
-            android:id="@+id/action_navigation_register_to_navigation_sign_in"
-            app:destination="@id/navigation_sign_in"
-            app:popUpToInclusive="false" />
-    </fragment>
-    <fragment
         android:id="@+id/navigation_home"
         android:name="com.goorm.kkiri.ui.home.HomeFragment"
         android:label="HomeFragment"
@@ -49,9 +27,6 @@
         <action
             android:id="@+id/action_my_page_to_im_write"
             app:destination="@id/navigation_im_write" />
-        <action
-            android:id="@+id/action_navigation_my_page_to_navigation_sign_in"
-            app:destination="@id/navigation_sign_in" />
     </fragment>
     <fragment
         android:id="@+id/navigation_home_post_list"

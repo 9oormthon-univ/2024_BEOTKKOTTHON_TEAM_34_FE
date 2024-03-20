@@ -10,7 +10,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseActivity
 import com.goorm.kkiri.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun setLayout() {

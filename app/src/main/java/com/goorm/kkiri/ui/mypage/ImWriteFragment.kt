@@ -1,9 +1,11 @@
 package com.goorm.kkiri.ui.mypage
 
+import android.content.res.Configuration
 import android.graphics.Typeface
 import android.os.Build
 import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -25,23 +27,8 @@ class ImWriteFragment : BaseFragment<FragmentImWriteBinding>(R.layout.fragment_i
 
     override fun setLayout() {
         setupViewPagerAndTabs()
-        setupTopButton()
     }
 
-    //top버튼 이벤트 추가
-    private fun setupTopButton() {
-        val fadeIn = AlphaAnimation(0f, 1f).apply { duration = 500 }
-        val fadeOut = AlphaAnimation(1f, 0f).apply { duration = 500 }
-
-        viewModel.floatButtonVisibility.observe(viewLifecycleOwner) { visible ->
-            binding.fbTopBtn.visibility = if (visible) View.VISIBLE else View.GONE
-            binding.fbTopBtn.startAnimation(if (visible) fadeIn else fadeOut)
-        }
-
-        binding.fbTopBtn.setOnClickListener {
-            viewModel.scrollToTop()
-        }
-    }
 
     //뷰페이저에 탭 아이템 적용
     private fun setupViewPagerAndTabs() {
@@ -49,6 +36,7 @@ class ImWriteFragment : BaseFragment<FragmentImWriteBinding>(R.layout.fragment_i
             val pagerAdapter = MyPagerAdapter(this)
             binding.imWritePager.adapter = pagerAdapter
             TabLayoutMediator(binding.imWriteTab, binding.imWritePager) { tab, position ->
+                tab
                 setupTab(tab, tabItems[position].title)
             }.attach()
             pagerAdapter.setTabItems(tabItems)
@@ -57,6 +45,7 @@ class ImWriteFragment : BaseFragment<FragmentImWriteBinding>(R.layout.fragment_i
 
     //탭 바 변경시 적용 폰트 유지
     private fun setupTab(tab: TabLayout.Tab, title: String) {
+
         val textView = TextView(context).apply {
             text = title
             textSize = 14f

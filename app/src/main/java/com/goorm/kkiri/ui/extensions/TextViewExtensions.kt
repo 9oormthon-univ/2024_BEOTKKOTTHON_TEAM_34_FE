@@ -10,3 +10,9 @@ fun TextView.setBeans(count: Int) {
     val text = getString(context, R.string.text_beans_count).format(count)
     setText(text)
 }
+
+@BindingAdapter("setNeedBeans")
+fun TextView.setNeedBeans(count: Int) {
+    val text = getString(context, R.string.text_my_beans_number).format(count)
+    setText(text)
+}

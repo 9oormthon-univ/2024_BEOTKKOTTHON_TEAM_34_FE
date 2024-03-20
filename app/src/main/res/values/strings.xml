@@ -30,4 +30,5 @@
     <string name="description_help_you_icon">도와줄게요 아이콘</string>
     <string name="text_post_list_help_me">도와주세요</string>
     <string name="text_post_list_help_you">도와줄게요</string>
+    <string name="text_do_chatting">채팅하기</string>
 </resources>

@@ -147,6 +147,14 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="customTextViewFontStyle.bold.S20">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.bold.S20.black">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <!--  Extra Bold  -->
     <style name="customTextViewFontStyle.extraBold">
         <item name="android:fontFamily">@font/nanum_square_round_extra_bold</item>

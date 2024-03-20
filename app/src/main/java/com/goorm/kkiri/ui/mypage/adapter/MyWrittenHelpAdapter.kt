@@ -1,19 +1,13 @@
 package com.goorm.kkiri.ui.mypage.adapter
 
-import android.net.Uri
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.annotation.RequiresApi
-import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.goorm.kkiri.R
 import com.goorm.kkiri.databinding.HelpitemBinding
 import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
-import com.goorm.kkiri.ui.mypage.viewmodel.ImWriteViewModel
-import java.time.LocalDate
 
 @RequiresApi(Build.VERSION_CODES.O)
 class MyWrittenHelpAdapter(
@@ -25,14 +19,13 @@ class MyWrittenHelpAdapter(
         parent: ViewGroup,
         viewType: Int
     ): MyWrittenHelpViewHolder {
-        return MyWrittenHelpViewHolder.from(parent, listener)
-
+        return MyWrittenHelpViewHolder.from(parent)
     }
 
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: MyWrittenHelpViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], listener)
     }
 
     fun update(posts: List<MyWrittenMenuItem>) {
@@ -42,7 +35,6 @@ class MyWrittenHelpAdapter(
         items.addAll(posts)
         result.dispatchUpdatesTo(this)
     }
-
 
     class RecordSaveDiffUtil(
         private val oldItems: List<MyWrittenMenuItem>,
@@ -59,15 +51,13 @@ class MyWrittenHelpAdapter(
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
             return oldItems[oldItemPosition] == newItems[newItemPosition]
         }
-
     }
 
     class MyWrittenHelpViewHolder(
-        private val binding: HelpitemBinding,
-        private val listener: MenuClickListener
+        private val binding: HelpitemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(post: MyWrittenMenuItem) {
+        fun bind(post: MyWrittenMenuItem, listener: MenuClickListener) {
             binding.record = post
             binding.root.setOnClickListener {
                 listener.menuClickListener(adapterPosition.toLong())
@@ -75,14 +65,13 @@ class MyWrittenHelpAdapter(
         }
 
         companion object {
-            fun from(parent: ViewGroup, listener: MenuClickListener): MyWrittenHelpViewHolder {
+            fun from(parent: ViewGroup): MyWrittenHelpViewHolder {
                 return MyWrittenHelpViewHolder(
                     HelpitemBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
                         false
-                    ),
-                    listener
+                    )
                 )
             }
         }

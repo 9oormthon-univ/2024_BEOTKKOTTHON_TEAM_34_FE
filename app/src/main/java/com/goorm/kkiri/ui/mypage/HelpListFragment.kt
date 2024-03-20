@@ -2,14 +2,11 @@ package com.goorm.kkiri.ui.mypage
 
 import android.content.Intent
 import android.os.Build
-import android.os.Bundle
-import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment
-import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.databinding.FragmentHelpListBinding
 import com.goorm.kkiri.ui.mypage.adapter.MenuClickListener
 import com.goorm.kkiri.ui.mypage.adapter.MyWrittenHelpAdapter

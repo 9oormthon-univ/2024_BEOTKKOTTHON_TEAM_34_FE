@@ -1,13 +1,29 @@
 package com.goorm.kkiri.data.local
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.goorm.kkiri.R
+import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import com.goorm.kkiri.domain.model.response.PostItem
+import java.time.LocalDate
 
 object DataSource {
 
     var postItems = mutableListOf<PostItem>()
+    var writtemItems = mutableListOf<MyWrittenMenuItem>()
 
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun initMyWrittenMenuItems(){
+        writtemItems.clear()
+
+        val ld = LocalDate.now()
+
+        writtemItems.add(MyWrittenMenuItem(1, 2, ld, "기타레슨 받고싶어요!", null, "콩 드립니다."))
+        writtemItems.add(MyWrittenMenuItem(1, 3, ld, "코딩 과제 도와주세요!", null, "콩 드립니다."))
+        writtemItems.add(MyWrittenMenuItem(1, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
+        writtemItems.add(MyWrittenMenuItem(1, 2, ld, "같이 게임해요", null, "콩 드립니다."))
+    }
     fun initHelpMePostItems() {
         postItems.clear()
         postItems.add(

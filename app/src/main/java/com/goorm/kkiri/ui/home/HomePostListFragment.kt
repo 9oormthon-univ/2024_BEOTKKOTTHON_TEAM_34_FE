@@ -3,7 +3,9 @@ package com.goorm.kkiri.ui.home
 import android.view.ContextThemeWrapper
 import android.view.MenuItem
 import androidx.appcompat.widget.PopupMenu
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment
 import com.goorm.kkiri.data.local.DataSource
@@ -12,15 +14,78 @@ import com.goorm.kkiri.ui.common.HelpPostClickListener
 import com.goorm.kkiri.ui.common.PostType
 import com.goorm.kkiri.ui.common.PostType.*
 import com.goorm.kkiri.ui.home.adapter.HomePostListAdapter
+import com.goorm.kkiri.ui.home.viewmodel.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomePostListFragment
     : BaseFragment<FragmentHomePostListBinding>(R.layout.fragment_home_post_list),
     HelpPostClickListener {
     private var postType: PostType? = null
+    private var isHelpMeValue = false
+    private var isHelpYouValue = false
+    private val viewModel by viewModels<HomeViewModel>()
+    private val args by navArgs<HomePostListFragmentArgs>()
 
     override fun setLayout() {
+        binding.vm = viewModel
+        setFirstHelpTextViewBackgroundTint()
         setClickListener()
         initAdapter()
+        changeHelpButton()
+    }
+
+    private fun setFirstHelpTextViewBackgroundTint() {
+        with(binding) {
+            when (args.postType) {
+                HelpMe -> {
+                    isHelpMeValue = true
+                    isHelpYouValue = false
+                    isHelpMe = isHelpMeValue
+                    isHelpYou = isHelpYouValue
+                    tvHomePostListHelpMe.setTextColor(resources.getColor(R.color.white))
+                    tvHomePostListHelpYou.setTextColor(resources.getColor(R.color.black))
+                }
+
+                HelpYou -> {
+                    isHelpMeValue = false
+                    isHelpYouValue = true
+                    isHelpMe = isHelpMeValue
+                    isHelpYou = isHelpYouValue
+                    tvHomePostListHelpYou.setTextColor(resources.getColor(R.color.white))
+                    tvHomePostListHelpMe.setTextColor(resources.getColor(R.color.black))
+                }
+            }
+        }
+    }
+
+    private fun changeHelpButton() {
+        with(binding) {
+            tvHomePostListHelpMe.setOnClickListener {
+                if (!isHelpMeValue) {
+                    isHelpMeValue = true
+                    isHelpYouValue = false
+                    ivHomePostListHelpMeIcon.setImageResource(R.drawable.ic_help_me_white_checked)
+                    isHelpMe = isHelpMeValue
+                    isHelpYou = isHelpYouValue
+                    ivHomePostListHelpYouIcon.setImageResource(R.drawable.ic_help_you_black)
+                    tvHomePostListHelpMe.setTextColor(resources.getColor(R.color.white))
+                    tvHomePostListHelpYou.setTextColor(resources.getColor(R.color.black))
+                }
+            }
+            tvHomePostListHelpYou.setOnClickListener {
+                if (!isHelpYouValue) {
+                    isHelpMeValue = false
+                    isHelpYouValue = true
+                    ivHomePostListHelpMeIcon.setImageResource(R.drawable.ic_help_me_black)
+                    ivHomePostListHelpYouIcon.setImageResource(R.drawable.ic_help_you_white_checked)
+                    isHelpMe = isHelpMeValue
+                    isHelpYou = isHelpYouValue
+                    tvHomePostListHelpYou.setTextColor(resources.getColor(R.color.white))
+                    tvHomePostListHelpMe.setTextColor(resources.getColor(R.color.black))
+                }
+            }
+        }
     }
 
     private fun initAdapter() {

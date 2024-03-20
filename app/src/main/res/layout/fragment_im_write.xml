@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="myWrittenViewModel"
+            type="com.goorm.kkiri.ui.mypage.viewmodel.ImWriteViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

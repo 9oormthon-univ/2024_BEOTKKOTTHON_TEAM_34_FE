@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.goorm.kkiri.R
 import com.goorm.kkiri.databinding.HelpitemBinding
 import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
+import com.goorm.kkiri.ui.mypage.viewmodel.ImWriteViewModel
 import java.time.LocalDate
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -19,16 +20,6 @@ class MyWrittenHelpAdapter(
     private val listener: MenuClickListener
 ) : RecyclerView.Adapter<MyWrittenHelpAdapter.MyWrittenHelpViewHolder>() {
     private val items = mutableListOf<MyWrittenMenuItem>()
-
-    init {
-        val ld = LocalDate.now()
-
-        //임시 아이템
-        items.add(MyWrittenMenuItem(1, 2, ld, "기타레슨 받고싶어요!", null, "콩 드립니다."))
-        items.add(MyWrittenMenuItem(1, 3, ld, "코딩 과제 도와주세요!", null, "콩 드립니다."))
-        items.add(MyWrittenMenuItem(1, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
-        items.add(MyWrittenMenuItem(1, 2, ld, "같이 게임해요", null, "콩 드립니다."))
-    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

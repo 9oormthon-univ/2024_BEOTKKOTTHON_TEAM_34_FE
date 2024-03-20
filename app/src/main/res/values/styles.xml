@@ -9,8 +9,6 @@
     </style>
     <style name="TabTheme" parent="Theme.AppCompat.Light">
         <item name="tabIndicatorColor">@color/tab_color</item> <!-- 탭 밑줄 색상 -->
-        <item name="tabSelectedTextColor">@android:color/black</item> <!-- 선택된 탭의 글씨 색상 -->
-        <item name="tabTextColor">@android:color/black</item> <!-- 탭의 글씨 색상 -->
         <item name="android:background">@android:color/white</item> <!-- 탭바의 배경 색상 -->
         <item name="tabIndicatorHeight">4dp</item> <!-- 탭 밑줄의 높이 -->
     </style>

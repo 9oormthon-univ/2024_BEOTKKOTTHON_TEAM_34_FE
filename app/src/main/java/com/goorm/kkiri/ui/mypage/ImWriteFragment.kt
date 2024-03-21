@@ -36,7 +36,6 @@ class ImWriteFragment : BaseFragment<FragmentImWriteBinding>(R.layout.fragment_i
             val pagerAdapter = MyPagerAdapter(this)
             binding.imWritePager.adapter = pagerAdapter
             TabLayoutMediator(binding.imWriteTab, binding.imWritePager) { tab, position ->
-                tab
                 setupTab(tab, tabItems[position].title)
             }.attach()
             pagerAdapter.setTabItems(tabItems)

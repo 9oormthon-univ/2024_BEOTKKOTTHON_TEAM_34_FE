@@ -10,9 +10,9 @@ import java.time.LocalDate
 data class MyWrittenMenuItem(
     @SerializedName("id_wt")
     val recordIdWt: Long,
-    val beenCountWt: Long,
-    val dateWt: LocalDate,
-    val titleWt: String,
+    var beenCountWt: Long,
+    var dateWt: LocalDate,
+    var titleWt: String,
     val imgWt: Uri?,
-    val expWt: String
+    var expWt: String
 ) : Parcelable

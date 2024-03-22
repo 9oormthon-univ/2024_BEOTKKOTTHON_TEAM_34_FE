@@ -10,6 +10,7 @@ import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseActivity
 import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.databinding.ActivityDetailBinding
+import com.goorm.kkiri.domain.model.response.MyImageItem
 import com.goorm.kkiri.ui.mypage.adapter.MenuClickListener
 import com.goorm.kkiri.ui.mypage.adapter.MyImageButtonAdapter
 
@@ -73,7 +74,9 @@ class DetailActivity :
                     // 선택한 이미지의 수가 최대 허용치인 10장 이내인 경우에만 업로드 처리
                     uploadSelectedImages(data)
                     if(selectedImageCount < MAX_IMAGES_UPLOAD){
-                        DataSource.pictureData.add(0,MyImageItem(1, DataSource.uri,"${DataSource.pictureData.size}"))
+                        DataSource.pictureData.add(0,
+                            MyImageItem(1, DataSource.uri,"${DataSource.pictureData.size}")
+                        )
                     }
                     updateRecyclerView()
 

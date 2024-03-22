@@ -10,6 +10,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -20,6 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TabTheme"
+            app:tabMode="fixed"
+            app:tabGravity="fill"
             app:tabIndicatorFullWidth="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +32,7 @@
         </com.google.android.material.tabs.TabLayout>
 
         <androidx.viewpager2.widget.ViewPager2
+            android:layout_weight="1"
             android:id="@+id/im_write_pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -40,18 +44,5 @@
 
         </androidx.viewpager2.widget.ViewPager2>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fb_top_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="17dp"
-            android:layout_marginBottom="98dp"
-            android:src="@drawable/ic_top_button"
-            android:backgroundTint="#FFFFFF"
-            android:contentDescription="@string/add_button"
-            app:tint="@color/black"
-            app:shapeAppearanceOverlay="@style/RoundedCorner"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

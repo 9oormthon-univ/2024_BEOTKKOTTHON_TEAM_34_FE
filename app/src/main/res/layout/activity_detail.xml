@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="postType"
+            type="com.goorm.kkiri.ui.common.PostType" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/iw_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.mypage.DetailActivity">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar_detail_write_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="@string/text_help_me"
+            app:titleCentered="true" />
+
+        <TextView
+            android:id="@+id/tv_detail_write_post_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="23dp"
+            android:text="@string/common_text_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_detail_write_post" />
+
+        <EditText
+            android:id="@+id/et_dt_input_post_title"
+            style="@style/customTextViewFontStyle.S12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:autofillHints="false"
+            android:background="@drawable/shape_rounded_stroke_gray_rect_6dp"
+            android:backgroundTint="@color/white"
+            android:hint="@string/common_text_title"
+            android:inputType="text"
+            android:padding="12dp"
+            app:layout_constraintEnd_toEndOf="@id/tv_detail_write_post_title"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_write_post_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_detail_write_post_title" />
+
+        <TextView
+            android:id="@+id/tv_dt_write_post_need_beans_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/text_need_beans"
+            app:layout_constraintEnd_toEndOf="@id/tv_detail_write_post_title"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_write_post_title"
+            app:layout_constraintTop_toBottomOf="@id/et_dt_input_post_title" />
+
+        <EditText
+            android:id="@+id/et_dt_input_write_post_need_beans"
+            style="@style/customTextViewFontStyle.S12"
+            android:layout_width="148dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:autofillHints="false"
+            android:background="@drawable/shape_rounded_stroke_gray_rect_6dp"
+            android:backgroundTint="@color/white"
+            android:hint="@string/hint_input_need_beans"
+            android:inputType="number"
+            android:padding="12dp"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_write_post_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_dt_write_post_need_beans_count" />
+
+        <TextView
+            android:id="@+id/tv_dt_detail_write_post_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:text="@string/text_detail_content"
+            app:layout_constraintEnd_toEndOf="@id/tv_detail_write_post_title"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_write_post_title"
+            app:layout_constraintTop_toBottomOf="@id/et_dt_input_write_post_need_beans" />
+
+        <EditText
+            android:id="@+id/et_dt_input_post_write_content"
+            style="@style/customTextViewFontStyle.S12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:autofillHints="false"
+            android:background="@drawable/shape_rounded_stroke_gray_rect_6dp"
+            android:backgroundTint="@color/white"
+            android:gravity="top"
+            android:hint="@string/hint_detail_content"
+            android:inputType="textMultiLine"
+            android:minLines="12"
+            android:maxLines="12"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="8dp"
+            app:layout_constraintEnd_toEndOf="@id/tv_detail_write_post_title"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_write_post_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_dt_detail_write_post_content" />
+
+        <TextView
+            android:id="@+id/tv_dt_write_post_image"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/text_picture"
+            app:layout_constraintEnd_toEndOf="@id/tv_detail_write_post_title"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_write_post_title"
+            app:layout_constraintTop_toBottomOf="@id/et_dt_input_post_write_content" />
+
+        <ImageButton
+            android:id="@+id/ib_dt_post_write_camera_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/shape_rounded_stroke_gray_rect_6dp"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/description_camera_button"
+            android:paddingStart="22dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="22dp"
+            android:paddingBottom="33dp"
+            android:src="@drawable/ic_camera"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_write_post_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_dt_write_post_image" />
+
+        <TextView
+            android:id="@+id/tv_dt_post_write_image_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="%d/10"
+            app:layout_constraintBottom_toBottomOf="@id/ib_dt_post_write_camera_button"
+            app:layout_constraintEnd_toEndOf="@id/ib_dt_post_write_camera_button"
+            app:layout_constraintStart_toStartOf="@id/ib_dt_post_write_camera_button"
+            tools:text="0/10" />
+
+        <Button
+            android:id="@+id/btn_post_write_complete_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/shape_rounded_rect_8dp"
+            android:text="@string/label_write_complete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tv_detail_write_post_title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/tv_detail_write_post_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_dt_post_write_image_count"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_upload_image_file_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tv_dt_write_post_image"
+            tools:listitem="@layout/item_image_file" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

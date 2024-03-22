@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import com.goorm.kkiri.R
 
 object BindingAdapters {
-
+//제거예정
     @JvmStatic
     @BindingAdapter("imageUri")
     fun setImageUri(view: ImageView, uri: Uri?) {

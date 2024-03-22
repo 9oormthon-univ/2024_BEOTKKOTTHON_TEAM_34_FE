@@ -14,7 +14,7 @@
             android:id="@+id/action_navigation_sign_in_to_navigation_register"
             app:destination="@id/navigation_register" />
         <action
-            android:id="@+id/action_navigation_sign_in_to_navigation_home"
+            android:id="@+id/action_sign_in_to_home"
             app:destination="@id/navigation_home" />
     </fragment>
     <fragment
@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_home_to_home_post_list"
             app:destination="@id/navigation_home_post_list" />
+        <action
+            android:id="@+id/action_home_to_search"
+            app:destination="@id/navigation_search" />
     </fragment>
     <fragment
         android:id="@+id/navigation_chatting_main"
@@ -92,4 +95,9 @@
             android:name="postType"
             app:argType="com.goorm.kkiri.ui.common.PostType" />
     </activity>
+    <activity
+        android:id="@+id/navigation_search"
+        android:name="com.goorm.kkiri.ui.search.SearchActivity"
+        android:label="SearchActivity"
+        tools:layout="@layout/activity_search"/>
 </navigation>

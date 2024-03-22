@@ -5,28 +5,7 @@
     android:id="@+id/kkiri_graph"
     app:startDestination="@+id/navigation_home" >
 
-    <fragment
-        android:id="@+id/navigation_sign_in"
-        android:name="com.goorm.kkiri.ui.account.SignInFragment"
-        android:label="SignInFragment"
-        tools:layout="@layout/fragment_sign_in">
-        <action
-            android:id="@+id/action_navigation_sign_in_to_navigation_register"
-            app:destination="@id/navigation_register" />
-        <action
-            android:id="@+id/action_sign_in_to_home"
-            app:destination="@id/navigation_home" />
-    </fragment>
-    <fragment
-        android:id="@+id/navigation_register"
-        android:name="com.goorm.kkiri.ui.account.RegisterFragment"
-        android:label="RegisterFragment"
-        tools:layout="@layout/fragment_register">
-        <action
-            android:id="@+id/action_navigation_register_to_navigation_sign_in"
-            app:destination="@id/navigation_sign_in"
-            app:popUpToInclusive="false" />
-    </fragment>
+
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.goorm.kkiri.ui.home.HomeFragment"
@@ -43,7 +22,11 @@
         android:id="@+id/navigation_chatting_main"
         android:name="com.goorm.kkiri.ui.chatting.ChattingMainFragment"
         android:label="ChattingMainFragment"
-        tools:layout="@layout/fragment_chatting_main"/>
+        tools:layout="@layout/fragment_chatting_main">
+        <action
+            android:id="@+id/action_navigation_chatting_main_to_navigation_chatting_room"
+            app:destination="@id/navigation_chatting_room" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_my_page"
         android:name="com.goorm.kkiri.ui.mypage.MyPageFragment"
@@ -97,4 +80,10 @@
         android:name="com.goorm.kkiri.ui.search.SearchActivity"
         android:label="SearchActivity"
         tools:layout="@layout/activity_search"/>
+    <fragment
+        android:id="@+id/navigation_chatting_room"
+        android:name="com.goorm.kkiri.ui.chatting.ChattingRoomFragment"
+        android:label="ChattingRoomFragment"
+        tools:layout="@layout/fragment_chatting_room"
+        />
 </navigation>

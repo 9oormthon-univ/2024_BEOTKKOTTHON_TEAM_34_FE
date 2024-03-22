@@ -10,6 +10,7 @@ import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseActivity
 import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.databinding.ActivityDetailBinding
+import com.goorm.kkiri.domain.model.response.MyImageItem
 import com.goorm.kkiri.ui.mypage.adapter.MenuClickListener
 import com.goorm.kkiri.ui.mypage.adapter.MyImageButtonAdapter
 

@@ -76,6 +76,10 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="customTextViewFontStyle.S12.gray_60">
+        <item name="android:textColor">@color/black_60</item>
+    </style>
+
     <style name="customTextViewFontStyle.S12.white">
         <item name="android:textColor">@color/white</item>
     </style>
@@ -90,6 +94,14 @@
 
     <style name="customTextViewFontStyle.S13.black_70">
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="customTextViewFontStyle.S14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="customTextViewFontStyle.S14.black_50">
+        <item name="android:textColor">@color/black_50</item>
     </style>
 
     <style name="customTextViewFontStyle.S16">

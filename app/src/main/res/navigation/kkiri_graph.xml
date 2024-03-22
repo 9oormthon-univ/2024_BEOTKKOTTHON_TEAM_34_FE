@@ -6,6 +6,28 @@
     app:startDestination="@+id/navigation_home" >
 
     <fragment
+        android:id="@+id/navigation_sign_in"
+        android:name="com.goorm.kkiri.ui.account.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_navigation_sign_in_to_navigation_register"
+            app:destination="@id/navigation_register" />
+        <action
+            android:id="@+id/action_sign_in_to_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_register"
+        android:name="com.goorm.kkiri.ui.account.RegisterFragment"
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_navigation_register_to_navigation_sign_in"
+            app:destination="@id/navigation_sign_in"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
         android:id="@+id/navigation_home"
         android:name="com.goorm.kkiri.ui.home.HomeFragment"
         android:label="HomeFragment"
@@ -13,6 +35,9 @@
         <action
             android:id="@+id/action_home_to_home_post_list"
             app:destination="@id/navigation_home_post_list" />
+        <action
+            android:id="@+id/action_home_to_search"
+            app:destination="@id/navigation_search" />
     </fragment>
     <fragment
         android:id="@+id/navigation_chatting_main"
@@ -67,4 +92,9 @@
             android:name="postType"
             app:argType="com.goorm.kkiri.ui.common.PostType" />
     </activity>
+    <activity
+        android:id="@+id/navigation_search"
+        android:name="com.goorm.kkiri.ui.search.SearchActivity"
+        android:label="SearchActivity"
+        tools:layout="@layout/activity_search"/>
 </navigation>

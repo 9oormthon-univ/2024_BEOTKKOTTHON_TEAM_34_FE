@@ -21,6 +21,12 @@ class HomeUploadImageFileAdapter : RecyclerView.Adapter<HomeUploadImageFileAdapt
         holder.bind(imageItems[position])
     }
 
+    fun update(images: List<String>) {
+        val positionStart = images.size
+        imageItems.addAll(images)
+        notifyItemRangeInserted(positionStart, images.size)
+    }
+
     class HomeUploadImageFileViewHolder(
         private val binding: ItemImageFileBinding
     ) : RecyclerView.ViewHolder(binding.root) {

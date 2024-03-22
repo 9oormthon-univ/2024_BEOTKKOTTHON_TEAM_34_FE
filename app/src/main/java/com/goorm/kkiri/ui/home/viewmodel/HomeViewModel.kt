@@ -4,9 +4,14 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import com.goorm.kkiri.KkiriApplication
 import com.goorm.kkiri.R
+import com.goorm.kkiri.domain.repository.MemberRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(
+    private val memberRepository: MemberRepository
+) : ViewModel() {
 
     fun changeHelpMeBackgroundTint(isHelpMe: Boolean): Int {
         return if (isHelpMe) {

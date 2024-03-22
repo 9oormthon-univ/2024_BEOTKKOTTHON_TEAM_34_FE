@@ -1,34 +1,40 @@
 package com.goorm.kkiri.data.local
 
+import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.goorm.kkiri.R
 import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import com.goorm.kkiri.domain.model.response.HelpPostInfo
+import com.goorm.kkiri.domain.model.response.MyImageItem
 import com.goorm.kkiri.domain.model.response.PostItem
 import java.time.LocalDate
 @RequiresApi(Build.VERSION_CODES.O)
 object DataSource {
-
+    val uri = Uri.parse("android.resource://com.goorm.kkiri/drawable/ic_camera")
     var postItems = mutableListOf<PostItem>()
     var writtenItems = mutableListOf<MyWrittenMenuItem>()
     var writtenItems2 = mutableListOf<MyWrittenMenuItem>()
-
+    var pictureData = mutableListOf<MyImageItem>()
 
     fun initMyWrittenMenuItems(){
         writtenItems.clear()
         val ld = LocalDate.now()
         writtenItems.add(MyWrittenMenuItem(1, 2, ld, "기타레슨 받고싶어요!", null, "콩 드립니다."))
-        writtenItems.add(MyWrittenMenuItem(1, 3, ld, "코딩 과제 도와주세요!", null, "콩 드립니다."))
-        writtenItems.add(MyWrittenMenuItem(1, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
-        writtenItems.add(MyWrittenMenuItem(1, 2, ld, "같이 게임해요", null, "콩 드립니다."))
+        writtenItems.add(MyWrittenMenuItem(2, 3, ld, "코딩 과제 도와주세요!", null, "콩 드립니다."))
+        writtenItems.add(MyWrittenMenuItem(3, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
+        writtenItems.add(MyWrittenMenuItem(4, 2, ld, "같이 게임해요", null, "콩 드립니다."))
     }
     fun initMyWrittenMenuItems2(){
         writtenItems2.clear()
         val ld = LocalDate.now()
         writtenItems2.add(MyWrittenMenuItem(1, 2, ld, "기타레슨 받고싶어요!", null, "콩 드립니다."))
-        writtenItems2.add(MyWrittenMenuItem(1, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
-        writtenItems2.add(MyWrittenMenuItem(1, 2, ld, "같이 게임해요", null, "콩 드립니다."))
+        writtenItems2.add(MyWrittenMenuItem(2, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
+        writtenItems2.add(MyWrittenMenuItem(3, 2, ld, "같이 게임해요", null, "콩 드립니다."))
+    }
+    fun initPicturesData(){
+        pictureData.clear()
+        pictureData.add(MyImageItem(0,uri,"0"))
     }
     fun initHelpMePostItems() {
         postItems.clear()

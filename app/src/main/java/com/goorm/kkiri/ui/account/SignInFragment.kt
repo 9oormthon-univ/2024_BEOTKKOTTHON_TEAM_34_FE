@@ -21,7 +21,6 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sig
                 navigateToDestination(SignInFragmentDirections.actionNavigationSignInToNavigationRegister())
             }
             btLogin.setOnClickListener {
-                navigateToDestination(SignInFragmentDirections.actionSignInToHome())
                 startActivity(Intent(requireContext(), MainActivity::class.java))
             }
 

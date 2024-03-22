@@ -20,7 +20,7 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sig
                 navigateToDestination(SignInFragmentDirections.actionNavigationSignInToNavigationRegister())
             }
             btLogin.setOnClickListener {
-                navigateToDestination(SignInFragmentDirections.actionNavigationSignInToNavigationHome())
+                navigateToDestination(SignInFragmentDirections.actionSignInToHome())
             }
 
 

@@ -5,6 +5,9 @@
     <data>
 
     </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,7 +39,7 @@
             android:id="@+id/tv_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="23dp"
             android:textSize="13dp"
             android:text="@string/text_nick_name"
             app:layout_constraintStart_toStartOf="@id/tv_exp_nickname"
@@ -45,7 +48,7 @@
         <EditText
             android:id="@+id/et_nickname_field"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="44dp"
             android:layout_marginStart="26dp"
             android:layout_marginEnd="26dp"
             android:layout_marginTop="7dp"
@@ -76,7 +79,7 @@
             android:id="@+id/tv_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="@string/text_hint_id"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@id/tv_enabled_nick"
@@ -85,7 +88,7 @@
         <EditText
             android:id="@+id/et_id_field"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="44dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="7dp"
             android:layout_marginEnd="26dp"
@@ -115,7 +118,7 @@
             android:id="@+id/tv_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="10dp"
             android:text="@string/text_hint_pw"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@id/tv_enabled_id"
@@ -124,7 +127,7 @@
         <EditText
             android:id="@+id/et_pw_field"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="44dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="7dp"
             android:layout_marginEnd="26dp"
@@ -145,7 +148,7 @@
             android:id="@+id/tv_double_checked_pw"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:text="@string/text_pw_conf"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="@id/et_pw_field"
@@ -154,7 +157,7 @@
         <EditText
             android:id="@+id/et_double_checked_pw_field"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
+            android:layout_height="44dp"
             android:layout_marginStart="26dp"
             android:layout_marginTop="7dp"
             android:layout_marginEnd="26dp"
@@ -198,16 +201,19 @@
             android:layout_height="46dp"
             android:layout_marginStart="26dp"
             android:layout_marginEnd="26dp"
-            android:layout_marginBottom="26dp"
+            android:layout_marginTop="93dp"
+            android:layout_marginBottom="27dp"
             android:background="@drawable/shape_rounded_rect_8dp"
             android:text="@string/text_complete"
             android:textColor="@color/white"
             android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_double_checked_password" />
 
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

@@ -1,5 +1,6 @@
 package com.goorm.kkiri.ui.mypage
 
+import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -21,7 +22,7 @@ class DetailImWritDialog(
 
     private var _binding: DialogMyWrittenEditRemoveBinding? = null
     private val binding get() = _binding!!
-
+    var dismissListener: DialogDismissListener? = null
     //다이얼로그의 크기를 부모의 뷰에 맞추기위한 세팅
     override fun onStart() {
         super.onStart()
@@ -60,7 +61,14 @@ class DetailImWritDialog(
             }
         }
     }
+    fun setOnDismissListener(listener: DialogDismissListener) {
+        dismissListener = listener
+    }
 
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        dismissListener?.onDialogDismissed()
+    }
     //클릭리스너 등록
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

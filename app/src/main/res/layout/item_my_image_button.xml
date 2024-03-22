@@ -1,0 +1,46 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="listener"
+            type="com.goorm.kkiri.ui.mypage.adapter.MenuClickListener" />
+        <variable
+            name="record"
+            type="com.goorm.kkiri.domain.model.response.MyImageItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:onClick="@{() -> listener.menuClickListener(record.imgId)}"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <ImageButton
+            android:id="@+id/ib_dt_post_write_camera_button"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/shape_rounded_stroke_gray_rect_6dp"
+            android:backgroundTint="@color/white"
+            android:contentDescription="@string/description_camera_button"
+            android:paddingStart="22dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="22dp"
+            android:paddingBottom="33dp"
+            android:src="@drawable/ic_camera"
+            android:onClick="@{() -> listener.menuClickListener(record.imgId)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_dt_post_write_image_count"
+            android:onClick="@{() -> listener.menuClickListener(record.imgId)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/ib_dt_post_write_camera_button"
+            app:layout_constraintEnd_toEndOf="@id/ib_dt_post_write_camera_button"
+            app:layout_constraintStart_toStartOf="@id/ib_dt_post_write_camera_button"
+            tools:text="0/10" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

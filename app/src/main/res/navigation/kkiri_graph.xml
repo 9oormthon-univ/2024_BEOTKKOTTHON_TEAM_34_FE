@@ -52,9 +52,6 @@
         <action
             android:id="@+id/action_my_page_to_im_write"
             app:destination="@id/navigation_im_write" />
-        <action
-            android:id="@+id/action_navigation_my_page_to_navigation_sign_in"
-            app:destination="@id/navigation_sign_in" />
     </fragment>
     <fragment
         android:id="@+id/navigation_home_post_list"

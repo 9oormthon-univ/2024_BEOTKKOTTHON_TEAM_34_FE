@@ -7,14 +7,14 @@ import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import com.goorm.kkiri.domain.model.response.HelpPostInfo
 import com.goorm.kkiri.domain.model.response.PostItem
 import java.time.LocalDate
-
+@RequiresApi(Build.VERSION_CODES.O)
 object DataSource {
 
     var postItems = mutableListOf<PostItem>()
     var writtenItems = mutableListOf<MyWrittenMenuItem>()
+    var writtenItems2 = mutableListOf<MyWrittenMenuItem>()
 
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun initMyWrittenMenuItems(){
         writtenItems.clear()
         val ld = LocalDate.now()
@@ -22,6 +22,13 @@ object DataSource {
         writtenItems.add(MyWrittenMenuItem(1, 3, ld, "코딩 과제 도와주세요!", null, "콩 드립니다."))
         writtenItems.add(MyWrittenMenuItem(1, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
         writtenItems.add(MyWrittenMenuItem(1, 2, ld, "같이 게임해요", null, "콩 드립니다."))
+    }
+    fun initMyWrittenMenuItems2(){
+        writtenItems2.clear()
+        val ld = LocalDate.now()
+        writtenItems2.add(MyWrittenMenuItem(1, 2, ld, "기타레슨 받고싶어요!", null, "콩 드립니다."))
+        writtenItems2.add(MyWrittenMenuItem(1, 2, ld, "바퀴벌레 잡아주실 분!", null, "콩 드립니다."))
+        writtenItems2.add(MyWrittenMenuItem(1, 2, ld, "같이 게임해요", null, "콩 드립니다."))
     }
     fun initHelpMePostItems() {
         postItems.clear()

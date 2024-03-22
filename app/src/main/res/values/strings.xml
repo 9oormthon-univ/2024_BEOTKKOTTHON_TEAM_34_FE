@@ -64,4 +64,8 @@
     <string name="text_local_time">%d:%d</string>
     <string name="text_info_des">교양 과제인데..\n하나도 모르겠어요.\n내일까지 해야돼요 도와주세요!</string>
     <string name="text_do_chatting">채팅하기</string>
+    <string name="description_back_icon">뒤로가기 아이콘</string>
+    <string name="hint_search_gudie">검색어를 입력해주세요</string>
+    <string name="text_search_post">게시판의 글을 검색해보세요!</string>
+    <string name="description_magifier_icon">돋보기 아이콘</string>
 </resources>

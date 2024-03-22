@@ -2,10 +2,13 @@ package com.goorm.kkiri.ui.home
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Rect
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import androidx.navigation.navArgs
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseActivity
@@ -19,12 +22,52 @@ class HomeWritePostActivity : BaseActivity<ActivityHomeWritePostBinding>(R.layou
     override fun setLayout() {
         binding.postType = args.postType
         setClickListener()
+        setOutsideTouchListener()
+
     }
 
     private fun setClickListener() {
         setClickBackButton()
         accessAlbum()
         setWriteCompleteButton()
+        clickInfo()
+    }
+    private fun clickInfo() {
+        binding.btExchangeBeansValue.setOnClickListener {
+            // tvInfoExchange가 서서히 나타남
+            binding.tvInfoExchange.apply {
+                alpha = 0f
+                isVisible = true
+                animate().alpha(1f).setDuration(300).setListener(null)
+            }
+        }
+    }
+    private fun setOutsideTouchListener() {
+        binding.root.setOnTouchListener { v, event ->
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    if (!isViewInBounds(binding.tvInfoExchange, event.rawX.toInt(), event.rawY.toInt())) {
+                        // tvInfoExchange가 서서히 사라짐
+                        binding.tvInfoExchange.animate().alpha(0f).setDuration(300).withEndAction {
+                            binding.tvInfoExchange.isVisible = false
+                        }
+                        v.performClick() // 클릭으로 간주되는 경우 performClick을 호출
+                    }
+                }
+            }
+            true // 이벤트를 처리했음을 나타냅니다.
+        }
+        }
+
+
+
+    private fun isViewInBounds(view: View, x: Int, y: Int): Boolean {
+        val outRect = Rect()
+        val location = IntArray(2)
+        view.getDrawingRect(outRect)
+        view.getLocationOnScreen(location)
+        outRect.offset(location[0], location[1])
+        return outRect.contains(x, y)
     }
 
     private fun initAdapter() {

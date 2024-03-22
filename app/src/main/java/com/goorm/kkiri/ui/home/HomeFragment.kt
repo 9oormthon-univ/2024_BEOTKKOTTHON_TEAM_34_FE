@@ -24,6 +24,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 val action = HomeFragmentDirections.actionHomeToHomePostList(HelpYou)
                 findNavController().navigate(action)
             }
+            toolbarHome.setOnMenuItemClickListener {
+                when (it.itemId) {
+                    R.id.menu_serch -> {
+                        val action = HomeFragmentDirections.actionHomeToSearch()
+                        findNavController().navigate(action)
+                        return@setOnMenuItemClickListener true
+                    }
+                    else -> return@setOnMenuItemClickListener  true
+                }
+            }
         }
     }
 }

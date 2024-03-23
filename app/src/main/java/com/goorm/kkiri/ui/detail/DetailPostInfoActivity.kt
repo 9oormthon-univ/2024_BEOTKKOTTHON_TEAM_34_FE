@@ -61,7 +61,8 @@ class DetailPostInfoActivity : BaseActivity<ActivityDetailPostInfoBinding>(R.lay
     private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount(): Int = 10
         /*viewModel.boardDetail.value.result?.images?.size!! // 페이지 수 리턴*/
-        override fun createFragment(position: Int): Fragment {
+    
+         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 in 0 until itemCount -> IwViewPagerFragment.newInstance(R.mipmap.image_iw_sample)
                 else -> throw IllegalStateException("Invalid position")

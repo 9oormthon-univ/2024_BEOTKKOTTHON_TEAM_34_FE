@@ -34,7 +34,6 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
             btLogin.setOnClickListener {
                 viewModel.login("sim", "1234")
                 login()
-                startActivity(Intent(this@SignInActivity, MainActivity::class.java))
             }
 
 
@@ -48,7 +47,9 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.loginResult.collectLatest {
-
+                    if (it.status == "OK") {
+                        startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                    }
                 }
             }
         }

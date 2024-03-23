@@ -27,7 +27,6 @@ object DataSource {
     }
     fun initChatRoomMenuItems(){
         chatRoomItems.clear()
-        chatRoomItems.add(ChatRoomItem(1,"send","구름이","코딩 과제 도와주세요 ㅠㅠ","${LocalDate.now()}",true))
     }
 
     fun initMyWrittenMenuItems(){

@@ -129,12 +129,12 @@
                 android:hint="메세지 입력"
                 android:paddingStart="18dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                app:layout_constraintEnd_toStartOf="@+id/bt_send_message"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/bt_send_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="23dp"

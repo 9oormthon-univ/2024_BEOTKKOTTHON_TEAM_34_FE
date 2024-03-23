@@ -6,5 +6,5 @@ data class ChatRoomItem(
     val receiver : String?, // 보내는사람 이름
     val expReceiver : String?,// 내용
     val dateTime : String, //시간
-    val stateProduct : Boolean //on off
+    var stateProduct : Boolean = true //on off
 )

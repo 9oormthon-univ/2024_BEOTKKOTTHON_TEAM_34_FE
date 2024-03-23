@@ -6,7 +6,7 @@
     <data>
         <variable
             name="postItem"
-            type="com.goorm.kkiri.domain.model.response.PostItem" />
+            type="com.goorm.kkiri.domain.model.response.BoardIndividualDto" />
         <variable
             name="listener"
             type="com.goorm.kkiri.ui.common.HelpPostClickListener" />
@@ -14,7 +14,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:onClick="@{() -> listener.onHelpPostClickListener(postItem.postId)}"
+        android:onClick="@{() -> listener.onHelpPostClickListener(postItem.id)}"
         android:layout_height="wrap_content">
 
         <com.google.android.material.divider.MaterialDivider
@@ -38,7 +38,7 @@
             android:maxLines="1"
             android:layout_marginTop="20dp"
             app:layout_constraintHorizontal_bias="0"
-            android:text="@{postItem.postTitle}"
+            android:text="@{postItem.title}"
             app:layout_constraintEnd_toStartOf="@id/iv_help_post_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/divider_post_top"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="5dp"
-            android:text="@{postItem.createAt}"
+            android:text="@{postItem.createdDate}"
             app:layout_constraintStart_toStartOf="@id/tv_help_post_title"
             app:layout_constraintTop_toBottomOf="@id/tv_help_post_title"
             tools:text="3분 전" />
@@ -69,7 +69,7 @@
         <TextView
             android:id="@+id/tv_help_post_beans_number"
             style="@style/customTextViewFontStyle.S12"
-            android:text="@{String.valueOf(postItem.beansCount)}"
+            android:text="@{String.valueOf(postItem.point)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
@@ -98,7 +98,6 @@
             app:shapeAppearanceOverlay="@style/AppRoundedImage_5dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/shape_rounded_rect_5dp"
-            android:src="@{postItem.imageUrl}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -107,7 +106,7 @@
         <TextView
             android:id="@+id/tv_help_post_chatting_number"
             style="@style/customTextViewFontStyle.S12"
-            android:text="@{String.valueOf(postItem.chattingCount)}"
+            android:text="@{String.valueOf(postItem.chatRoomsCount)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"

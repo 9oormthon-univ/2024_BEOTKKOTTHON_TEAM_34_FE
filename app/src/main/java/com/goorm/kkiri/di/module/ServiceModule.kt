@@ -1,5 +1,6 @@
 package com.goorm.kkiri.di.module
 
+import com.goorm.kkiri.data.remote.BoardService
 import com.goorm.kkiri.data.remote.MemberService
 import dagger.Module
 import dagger.Provides
@@ -17,4 +18,10 @@ object ServiceModule {
     fun provideMemberService(
         @NetworkModule.KkiriInterceptorOkHttpClient retrofit: Retrofit
     ): MemberService = retrofit.create(MemberService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideBoardService(
+        @NetworkModule.KkiriInterceptorOkHttpClient retrofit: Retrofit
+    ): BoardService = retrofit.create(BoardService::class.java)
 }

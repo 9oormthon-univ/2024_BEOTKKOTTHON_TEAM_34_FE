@@ -4,18 +4,25 @@ import android.view.ContextThemeWrapper
 import android.view.MenuItem
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment
-import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.databinding.FragmentHomePostListBinding
+import com.goorm.kkiri.domain.model.request.Pageable
 import com.goorm.kkiri.ui.common.HelpPostClickListener
+import com.goorm.kkiri.ui.common.HelpType
 import com.goorm.kkiri.ui.common.PostType
 import com.goorm.kkiri.ui.common.PostType.*
 import com.goorm.kkiri.ui.home.adapter.HomePostListAdapter
-import com.goorm.kkiri.ui.home.viewmodel.HomeViewModel
+import com.goorm.kkiri.ui.home.viewmodel.BoardViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomePostListFragment
@@ -24,7 +31,7 @@ class HomePostListFragment
     private var postType: PostType? = null
     private var isHelpMeValue = false
     private var isHelpYouValue = false
-    private val viewModel by viewModels<HomeViewModel>()
+    private val viewModel by viewModels<BoardViewModel>()
     private val args by navArgs<HomePostListFragmentArgs>()
 
     override fun setLayout() {
@@ -90,8 +97,14 @@ class HomePostListFragment
 
     private fun initAdapter() {
         val adapter = HomePostListAdapter(this)
-        DataSource.initHelpMePostItems()
-        adapter.update(DataSource.postItems)
+        viewModel.getBoardByPage(HelpType.HELPING.name, Pageable(1, 5))
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.boardList.collectLatest {
+                    adapter.update(it.list)
+                }
+            }
+        }
         binding.rvHomePostHelpList.adapter = adapter
     }
 

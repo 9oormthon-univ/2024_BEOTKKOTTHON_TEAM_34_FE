@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.goorm.kkiri.ui.home.viewmodel.HomeViewModel" />
+            type="com.goorm.kkiri.ui.home.viewmodel.BoardViewModel" />
         <variable
             name="isHelpMe"
             type="Boolean" />

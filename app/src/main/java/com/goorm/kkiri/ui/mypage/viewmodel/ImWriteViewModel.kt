@@ -46,6 +46,7 @@ class ImWriteViewModel : ViewModel() {
     }
 
     fun fetchHelpDate(pos : Long) = _helpItems.value?.get(pos.toInt())
+    fun fetchHelpedDate(pos : Long) = _helpedItems.value?.get(pos.toInt())
     fun updateHelpList(pos: Int, item: MyWrittenMenuItem) {
         val updatedList = _helpItems.value?.toMutableList()
         updatedList?.let {
@@ -55,9 +56,16 @@ class ImWriteViewModel : ViewModel() {
             }
         }
     }
+    fun updateHelpedList(pos: Int, item: MyWrittenMenuItem) {
+        val updatedList = _helpedItems.value?.toMutableList()
+        updatedList?.let {
+            if (pos >= 0 && pos < it.size) {
+                it[pos] = item
+                _helpedItems.value = it
+            }
+        }
+    }
 
-
-    fun fetchHelpedDate(pos : Long) = _helpItems.value?.get(pos.toInt())
 
     //임시값 1개 넣어주는 함수
     fun createFirstItem() {

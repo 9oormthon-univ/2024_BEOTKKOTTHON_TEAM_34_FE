@@ -10,7 +10,6 @@ import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import com.goorm.kkiri.domain.model.response.HelpPostInfo
 import com.goorm.kkiri.domain.model.response.MyImageItem
 import com.goorm.kkiri.domain.model.response.BoardIndividualDto
-import com.goorm.kkiri.domain.model.response.BoardVolunteerDto
 import java.time.LocalDate
 @RequiresApi(Build.VERSION_CODES.O)
 object DataSource {

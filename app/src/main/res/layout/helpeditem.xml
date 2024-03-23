@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="listener"
+            type="com.goorm.kkiri.ui.mypage.adapter.MenuClickListener" />
+
+        <variable
+            name="record"
+            type="com.goorm.kkiri.domain.model.response.MyWrittenMenuItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/help_layout"
+        android:layout_width="match_parent"
+        android:layout_height="113dp"
+
+        >
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/help_line_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dividerColor="#E6E6E6"
+            app:dividerThickness="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/help_ex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="20dp"
+            android:text="@{record.titleWt}"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/help_line_top" />
+
+        <ImageView
+            android:id="@+id/help_item_been"
+            android:layout_width="10dp"
+            android:layout_height="9.5dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/mypage_been"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/help_ex" />
+
+        <TextView
+            android:id="@+id/help_been_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:text="@{Long.toString(record.beenCountWt)}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/help_item_been"
+            app:layout_constraintStart_toEndOf="@+id/help_item_been"
+            app:layout_constraintTop_toTopOf="@id/help_item_been" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text='@{java.time.format.DateTimeFormatter.ofPattern("yyyy/MM/dd").format(record.dateWt)}'
+            android:textSize="11sp"
+            app:layout_constraintLeft_toLeftOf="@id/help_item_been"
+            app:layout_constraintTop_toBottomOf="@id/help_item_been" />
+
+
+
+        <ImageView
+            android:id="@+id/help_prop"
+            android:layout_width="78dp"
+            android:layout_height="78dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="17.5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:imageUri="@{record.imgWt}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

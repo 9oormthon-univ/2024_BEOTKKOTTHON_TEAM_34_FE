@@ -1,5 +1,6 @@
 package com.goorm.kkiri.ui.extensions
 
+import android.graphics.BitmapFactory
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -11,4 +12,10 @@ fun ImageView.load(url: String?) {
             .load(url)
             .into(this)
     }
+}
+
+@BindingAdapter("setSrcVolunteerImage")
+fun ImageView.setSrcVolunteerImage(id: Int) {
+    val bitmap = BitmapFactory.decodeResource(resources, id)
+    setImageBitmap(bitmap)
 }

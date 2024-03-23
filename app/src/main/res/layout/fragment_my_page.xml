@@ -5,330 +5,335 @@
 
     <data>
 
+        <variable
+            name="userInfo"
+            type="com.goorm.kkiri.domain.model.response.MyPageDto" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <ImageView
-            android:id="@+id/mp_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/mypage_logo"
-            android:contentDescription="@string/blank" />
 
-        <TextView
-            android:id="@+id/mp_user_name"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="19dp"
-            android:layout_marginEnd="25dp"
-            android:background="@drawable/radius5_sq_e"
-            android:paddingTop="37dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mp_logo" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/mp_univ"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="11sp"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="24dp"
-            android:text="@string/text_univ_name"
-            app:layout_constraintLeft_toLeftOf="@+id/mp_user_name"
-            app:layout_constraintTop_toTopOf="@id/mp_user_name"
-            />
-        <TextView
-            android:id="@+id/mp_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:text="@string/text_univ_student"
-            app:layout_constraintTop_toBottomOf="@id/mp_univ"
-            app:layout_constraintLeft_toLeftOf="@id/mp_univ"
-            />
-        <ImageView
-            android:id="@+id/mp_vert_line"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            tools:srcCompat="@drawable/mp_line_vert_e"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintBottom_toBottomOf="@id/mp_user_name"
-            app:layout_constraintTop_toTopOf="@id/mp_user_name"
-            app:layout_constraintEnd_toStartOf="@id/been_img"
-            android:contentDescription="@string/blank" />
-
-        <TextView
-            android:id="@+id/been_balance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/text_hold_been"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toEndOf="@+id/been_count"
-            app:layout_constraintStart_toStartOf="@+id/been_img"
-            app:layout_constraintTop_toTopOf="@id/mp_user_name" />
-
-        <TextView
-            android:id="@+id/been_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="34dp"
-            android:text="@string/text_been_count"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/mp_user_name"
-            app:layout_constraintTop_toBottomOf="@+id/been_balance" />
-        <ImageView
-            android:id="@+id/been_img"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            app:layout_constraintTop_toTopOf="@id/been_count"
-            app:layout_constraintBottom_toBottomOf="@id/been_count"
-            app:layout_constraintEnd_toStartOf="@id/been_count"
-            android:background="@drawable/mypage_been" />
-
-        <TextView
-            android:id="@+id/mp_write"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="35dp"
-            android:text="@string/text_my_written"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mp_user_name" />
-        <ImageView
-            android:id="@+id/mp_line"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="25dp"
-            app:layout_constraintTop_toBottomOf="@id/mp_write"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/mp_line_hori"/>
-
-        <TextView
-            android:id="@+id/mp_trade"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:layout_marginTop="23dp"
-            android:layout_marginStart="25dp"
-            android:text="@string/text_my_transaction"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mp_line" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="413dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginStart="23dp"
-            android:layout_marginEnd="23dp"
-            android:background="@drawable/radius5_sq_ee"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mp_trade">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/mp_logo"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="205dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="43dp"
-                    android:layout_marginEnd="14dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="@string/been_accumulate_revenue"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="2dp"
-                    android:layout_height="37dp"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/mp_line_vert" />
-
-                <TextView
-                    android:layout_width="205dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginTop="43dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="@string/text_provide_help"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="215dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="19dp"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="@string/text_been_count"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:layout_width="2dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/mp_line_vert"
-                    android:layerType="software" />
-
-                <TextView
-                    android:layout_width="215dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="19dp"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="@string/text_number"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+                android:layout_marginTop="48dp"
+                android:background="@drawable/mypage_logo"
+                android:contentDescription="@string/blank"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/mp_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="76dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="18dp"
-                android:background="@drawable/radius5_sq2"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="@string/text_guide_help"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="210dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="31dp"
-                    android:layout_marginEnd="14dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="@string/been_accumulate_separation"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-
-                <ImageView
-                    android:layout_width="2dp"
-                    android:layout_height="37dp"
-                    android:layout_gravity="bottom"
-                    android:background="@drawable/mp_line_vert" />
-
-
-                <TextView
-                    android:layout_width="210dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:text="@string/text_provide_helped"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="215dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="19dp"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="%d 개"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-
-                <ImageView
-                    android:layout_width="2dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/mp_line_vert"
-                    android:layerType="software" />
-
-                <TextView
-                    android:layout_width="215dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="19dp"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="@string/text_number"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/radius5_sq_e"
+                android:paddingTop="37dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mp_logo" />
 
             <TextView
-                android:id="@+id/mp_help_dt"
+                android:id="@+id/mp_univ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:text="@{userInfo.univ}"
+                android:textSize="11sp"
+                app:layout_constraintLeft_toLeftOf="@+id/mp_user_name"
+                app:layout_constraintTop_toTopOf="@id/mp_user_name" />
+
+            <TextView
+                android:id="@+id/mp_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@{userInfo.nickname}"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@id/mp_univ"
+                app:layout_constraintTop_toBottomOf="@id/mp_univ" />
+
+            <ImageView
+                android:id="@+id/mp_vert_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="15dp"
+                android:contentDescription="@string/blank"
+                app:layout_constraintBottom_toBottomOf="@id/mp_user_name"
+                app:layout_constraintEnd_toStartOf="@id/been_img"
+                app:layout_constraintTop_toTopOf="@id/mp_user_name"
+                tools:srcCompat="@drawable/mp_line_vert_e" />
+
+            <TextView
+                android:id="@+id/been_balance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/text_hold_been"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="@+id/been_count"
+                app:layout_constraintStart_toStartOf="@+id/been_img"
+                app:layout_constraintTop_toTopOf="@id/mp_user_name" />
+
+            <TextView
+                android:id="@+id/been_count"
+                setNeedBeans="@{userInfo.point}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="34dp"
+                android:text="@string/text_been_count"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/mp_user_name"
+                app:layout_constraintTop_toBottomOf="@+id/been_balance" />
+
+            <ImageView
+                android:id="@+id/been_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:background="@drawable/mypage_been"
+                app:layout_constraintBottom_toBottomOf="@id/been_count"
+                app:layout_constraintEnd_toStartOf="@id/been_count"
+                app:layout_constraintTop_toTopOf="@id/been_count" />
+
+            <TextView
+                android:id="@+id/mp_write"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="35dp"
+                android:text="@string/text_my_written"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mp_user_name" />
+
+            <ImageView
+                android:id="@+id/mp_line"
                 android:layout_width="match_parent"
-                android:layout_height="76dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginEnd="18dp"
-                android:layout_marginBottom="33dp"
-                android:background="@drawable/radius5_sq"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="@string/text_guide_helped"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/mp_line_hori"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mp_write" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/mp_trade"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="23dp"
+                android:text="@string/text_my_transaction"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mp_line" />
 
-        <Button
-            android:id="@+id/bt_mv_log_in"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그인 페이지 이동"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="413dp"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/radius5_sq_ee"
+                android:orientation="vertical"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mp_trade"
+                app:layout_constraintBottom_toBottomOf="parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="205dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="43dp"
+                        android:layout_marginEnd="14dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/been_accumulate_revenue"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="2dp"
+                        android:layout_height="37dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/mp_line_vert" />
+
+                    <TextView
+                        android:layout_width="205dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="43dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/text_provide_help"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="215dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        setNeedBeans="@{userInfo.earnPoint}"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/mp_line_vert"
+                        android:layerType="software" />
+
+                    <TextView
+                        android:layout_width="215dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_weight="1"
+                        setNumber="@{userInfo.earnPoint}"
+                        android:gravity="center_horizontal"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="76dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="18dp"
+                    setRealMoneyHelp="@{userInfo.earnPoint}"
+                    android:background="@drawable/radius5_sq2"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="31dp"
+                        android:layout_marginEnd="14dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/been_accumulate_separation"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:layout_width="2dp"
+                        android:layout_height="37dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/mp_line_vert" />
+
+
+                    <TextView
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical|center_horizontal"
+                        android:text="@string/text_provide_helped"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="215dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        setNeedBeans="@{userInfo.consumePoint}"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/mp_line_vert"
+                        android:layerType="software" />
+
+                    <TextView
+                        android:layout_width="215dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="19dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        setNumber="@{userInfo.consumePoint}"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/mp_help_dt"
+                    android:layout_width="match_parent"
+                    android:layout_height="76dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="18dp"
+                    android:layout_marginBottom="33dp"
+                    android:background="@drawable/radius5_sq"
+                    android:gravity="center_horizontal|center_vertical"
+                    setRealMoneyHelped="@{userInfo.consumePoint}"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </layout>

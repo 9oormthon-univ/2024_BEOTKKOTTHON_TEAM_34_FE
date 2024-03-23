@@ -8,11 +8,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.goorm.kkiri.KkiriApplication
 import com.goorm.kkiri.data.local.DataSource
+import com.goorm.kkiri.domain.model.base.BaseResponse
+import com.goorm.kkiri.domain.model.response.MyPageDto
 import com.goorm.kkiri.domain.model.response.MyPost
 import com.goorm.kkiri.domain.model.response.MyResult
 import com.goorm.kkiri.domain.repository.BoardRepository
-import com.goorm.kkiri.domain.repository.MyWrittenRepository
+import com.goorm.kkiri.domain.repository.MemberRepository
 import com.goorm.kkiri.ui.mypage.HelpListFragment
 import com.goorm.kkiri.ui.mypage.HelpedListFragment
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,15 +28,44 @@ data class TabItem(val title: String, val fragment: Fragment)
 
 @HiltViewModel
 @RequiresApi(Build.VERSION_CODES.O)
-class ImWriteViewModel @Inject constructor(
-    private val boardRepository: BoardRepository
+class MyPageViewModel @Inject constructor(
+    private val boardRepository: BoardRepository,
+    private val memberRepository: MemberRepository
 ): ViewModel() {
     // HelpListFragment에서 사용할 아이템 리스트
-    private val _helpItems = MutableStateFlow(MyResult())
+    private var _helpItems = MutableStateFlow(MyResult())
     val helpItems: StateFlow<MyResult> = _helpItems
 
-    private val _helpedItems = MutableStateFlow(MyResult())
+    private var _helpedItems = MutableStateFlow(MyResult())
     val helpedItems: StateFlow<MyResult> = _helpedItems
+
+    //탭 아이템
+    private val _tabItems = MutableLiveData<List<TabItem>>()
+    val tabItems: LiveData<List<TabItem>> get() = _tabItems
+
+    private var _myPageInfo = MutableStateFlow(BaseResponse<MyPageDto>())
+    val myPageInfo: StateFlow<BaseResponse<MyPageDto>> = _myPageInfo
+
+    init {
+        setupInitialData()
+        updateTabItems()
+    }
+
+    fun getMyPageInfo() {
+        viewModelScope.launch {
+            try {
+                KkiriApplication.getInstance().tokenManager.userIdFlow.collect {
+                    if (it != null) {
+                        memberRepository.getMyPageInfo(it.toLong()).collect { myPageInfo ->
+                            _myPageInfo.value = myPageInfo
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                Log.e("Get My Page Info Error", e.message.toString())
+            }
+        }
+    }
 
     fun getMyWrittenByPage(userId: Long, type: String, page: Int) {
         viewModelScope.launch {
@@ -48,17 +80,6 @@ class ImWriteViewModel @Inject constructor(
         }
     }
 
-    //탭 아이템
-    private val _tabItems = MutableLiveData<List<TabItem>>()
-    val tabItems: LiveData<List<TabItem>> get() = _tabItems
-
-
-    init {
-        setupInitialData()
-        updateTabItems()
-    }
-
-
     //초기 데이터 세팅
     private fun setupInitialData() {
         DataSource.initMyWrittenMenuItems()
@@ -67,6 +88,7 @@ class ImWriteViewModel @Inject constructor(
 
     fun fetchHelpDate(pos : Long) = _helpItems.value.list[pos.toInt()]
     fun fetchHelpedDate(pos : Long) = _helpedItems.value.list[pos.toInt()]
+
     fun updateHelpList(pos: Int, item: MyPost) {
         val updatedList = _helpItems.value.list.toMutableList()
         updatedList.let {

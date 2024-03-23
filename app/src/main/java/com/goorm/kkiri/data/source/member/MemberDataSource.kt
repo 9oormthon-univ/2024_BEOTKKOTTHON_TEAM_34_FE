@@ -4,6 +4,7 @@ import android.util.Log
 import com.goorm.kkiri.data.remote.MemberService
 import com.goorm.kkiri.domain.model.base.BaseResponse
 import com.goorm.kkiri.domain.model.response.HomeUserInfoDto
+import com.goorm.kkiri.domain.model.response.MyPageDto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
@@ -28,6 +29,13 @@ class MemberDataSource @Inject constructor(
         val result = memberService.getHomeUserInfo(userId)
         emit(result)
     }.catch {
-        Log.e("Get Home User Info", it.message.toString())
+        Log.e("Get Home User Info Failure", it.message.toString())
+    }
+
+    fun getMyPageInfo(userId: Long): Flow<BaseResponse<MyPageDto>> = flow {
+        val result = memberService.getMyPageInfo(userId)
+        emit(result)
+    }.catch {
+        Log.e("Get MyPage Info Failure", it.message.toString())
     }
 }

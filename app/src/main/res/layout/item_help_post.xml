@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
             android:layout_marginTop="5dp"
-            android:text="@{postItem.createdDate}"
+            setDateFormat="@{postItem.createdDate}"
             app:layout_constraintStart_toStartOf="@id/tv_help_post_title"
             app:layout_constraintTop_toBottomOf="@id/tv_help_post_title"
             tools:text="3분 전" />

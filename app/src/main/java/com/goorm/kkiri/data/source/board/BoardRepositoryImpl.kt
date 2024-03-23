@@ -13,7 +13,7 @@ class BoardRepositoryImpl @Inject constructor(
 
     override suspend fun getBoardByPage(
         type: String,
-        pageable: Pageable
-    ): Flow<BaseResponse<BoardPageDto>> = dataSource.getBoardByPage(type, pageable)
+        page: Int
+    ): Flow<BaseResponse<BoardPageDto>> = dataSource.getBoardByPage(type, page)
 
 }

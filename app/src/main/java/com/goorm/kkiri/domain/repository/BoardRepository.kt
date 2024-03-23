@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface BoardRepository {
 
-    suspend fun getBoardByPage(type: String, pageable: Pageable): Flow<BaseResponse<BoardPageDto>>
+    suspend fun getBoardByPage(type: String, page: Int): Flow<BaseResponse<BoardPageDto>>
 }

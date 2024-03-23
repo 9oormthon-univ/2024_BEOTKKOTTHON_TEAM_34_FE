@@ -40,6 +40,7 @@ class DetailPostInfoActivity : BaseActivity<ActivityDetailPostInfoBinding>(R.lay
         binding.ivDetailPostImage.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         binding.icViewPager.setViewPager(binding.ivDetailPostImage)
         clickChatBtn()
+        /**/
     }
 
     private fun setBackButton() {

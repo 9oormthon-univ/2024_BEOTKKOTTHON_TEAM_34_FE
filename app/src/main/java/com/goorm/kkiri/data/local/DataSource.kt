@@ -10,6 +10,7 @@ import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import com.goorm.kkiri.domain.model.response.HelpPostInfo
 import com.goorm.kkiri.domain.model.response.MyImageItem
 import com.goorm.kkiri.domain.model.response.BoardIndividualDto
+import com.goorm.kkiri.domain.model.response.BoardVolunteerDto
 import java.time.LocalDate
 @RequiresApi(Build.VERSION_CODES.O)
 object DataSource {
@@ -19,6 +20,19 @@ object DataSource {
     var pictureData = mutableListOf<MyImageItem>()
     var chatMainItems = mutableListOf<ChatMain>()
     var chatRoomItems = mutableListOf<ChatRoomItem>()
+    val boardVolunteerDto = mutableListOf<BoardVolunteerDto>()
+
+    fun initBoardVolunteerList() {
+        boardVolunteerDto.add(
+            BoardVolunteerDto(1, "유기견 자원봉사자 모집", R.mipmap.image_dog, 9, "~ 4/5")
+        )
+        boardVolunteerDto.add(
+            BoardVolunteerDto(2, "농촌봉사활동 지원자 모집", R.mipmap.image_rural, 9, "~ 4/8")
+        )
+        boardVolunteerDto.add(
+            BoardVolunteerDto(3, "구름대학교 장애도우미 모집", R.mipmap.image_student, 9, "~ 4/11")
+        )
+    }
 
     fun initChatMainMenuItems(){
         chatMainItems.clear()

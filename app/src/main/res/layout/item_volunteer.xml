@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="boardVolunteerDto"
+            type="com.goorm.kkiri.domain.model.response.BoardVolunteerDto" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/shape_rounded_stroke_rect_5dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_volunteer_image"
+            android:layout_width="match_parent"
+            android:layout_height="116dp"
+            app:shapeAppearanceOverlay="@style/AppRoundedImage_5dp"
+            android:contentDescription="@string/description_volunteer_image"
+            android:scaleType="centerCrop"
+            setSrcVolunteerImage="@{boardVolunteerDto.imageUrl}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/image_dog" />
+
+        <TextView
+            android:id="@+id/tv_volunteer_title"
+            style="@style/customTextViewFontStyle.bold.S10.black"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8.5dp"
+            android:layout_marginTop="8.78dp"
+            android:layout_marginEnd="8.5dp"
+            android:maxLines="1"
+            android:text="@{boardVolunteerDto.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_volunteer_image"
+            tools:text="유기견 자원봉사자 모집" />
+
+        <ImageView
+            android:id="@+id/iv_volunteer_beans_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="18dp"
+            android:contentDescription="@string/description_beans_image"
+            android:src="@drawable/ic_beans_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_volunteer_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_volunteer_title" />
+
+        <TextView
+            android:id="@+id/tv_volunteer_beans_count"
+            style="@style/customTextViewFontStyle.S7.black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:text="@{String.valueOf(boardVolunteerDto.beansCount)}"
+            app:layout_constraintBottom_toBottomOf="@id/iv_volunteer_beans_image"
+            app:layout_constraintStart_toEndOf="@id/iv_volunteer_beans_image"
+            app:layout_constraintTop_toTopOf="@id/iv_volunteer_beans_image"
+            tools:text="9" />
+
+        <TextView
+            android:id="@+id/tv_volunteer_limit_date"
+            style="@style/customTextViewFontStyle.S7.black_50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:text="@{boardVolunteerDto.limitDate}"
+            app:layout_constraintBottom_toBottomOf="@id/iv_volunteer_beans_image"
+            app:layout_constraintStart_toEndOf="@id/tv_volunteer_beans_count"
+            app:layout_constraintTop_toTopOf="@id/iv_volunteer_beans_image"
+            tools:text="~ 4/5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

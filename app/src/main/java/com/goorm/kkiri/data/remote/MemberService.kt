@@ -20,7 +20,7 @@ interface MemberService {
         @Query("password") password: String
     ): BaseResponse<Long>
 
-    @POST("/api/user/loginInfo")
+    @GET("/api/user/loginInfo")
     suspend fun getHomeUserInfo(
         @Query("userId") userId: Long
     ): BaseResponse<HomeUserInfoDto>

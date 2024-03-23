@@ -27,11 +27,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel by viewModels<BoardViewModel>()
 
     override fun setLayout() {
+        viewModel.getHomeUserInfo()
         viewModel.getHomeBoardHelpMe(HELPED.name, 0)
         viewModel.getHomeBoardHelpYou(HELPING.name, 0)
         setClickListener()
         initVolunteerBanner()
         initHomeHelpBoard()
+        setUserInfo()
+    }
+
+    private fun setUserInfo() {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.homeUserInfoDto.collectLatest {
+                    if (it.status == "OK") {
+                        binding.userInfo = it.result
+                    }
+                }
+            }
+        }
     }
 
     private fun setClickListener() {

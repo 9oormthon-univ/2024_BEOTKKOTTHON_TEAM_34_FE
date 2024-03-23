@@ -78,6 +78,7 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+    implementation("androidx.core:core-splashscreen:1.0.1")
 
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)

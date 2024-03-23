@@ -1,6 +1,7 @@
 package com.goorm.kkiri.domain.model.response
 
-data class Message(
+
+data class MessageDto(
     val id: String,
     val chatRoomId: String,
     val senderId: String,

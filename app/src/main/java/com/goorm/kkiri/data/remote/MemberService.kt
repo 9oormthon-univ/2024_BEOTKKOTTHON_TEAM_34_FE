@@ -1,6 +1,5 @@
 package com.goorm.kkiri.data.remote
 
-import com.goorm.kkiri.domain.model.response.Message
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.POST

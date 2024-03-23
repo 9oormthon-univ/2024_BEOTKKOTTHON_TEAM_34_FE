@@ -6,6 +6,5 @@ import com.goorm.kkiri.domain.model.response.BoardPageDto
 import kotlinx.coroutines.flow.Flow
 
 interface BoardRepository {
-
     suspend fun getBoardByPage(type: String, pageable: Pageable): Flow<BaseResponse<BoardPageDto>>
 }

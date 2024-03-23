@@ -16,3 +16,9 @@ fun TextView.setNeedBeans(count: Int) {
     val text = getString(context, R.string.text_my_beans_number).format(count)
     setText(text)
 }
+
+@BindingAdapter("setDateFormat")
+fun TextView.setDateFormat(input: String) {
+    val date = input.substring(0, 10)
+    text = date
+}

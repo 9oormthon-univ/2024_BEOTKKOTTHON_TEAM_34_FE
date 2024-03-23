@@ -9,7 +9,9 @@ import com.goorm.kkiri.R
 import com.goorm.kkiri.domain.model.base.BaseResponse
 import com.goorm.kkiri.domain.model.response.BoardHomeDto
 import com.goorm.kkiri.domain.model.response.BoardPageDto
+import com.goorm.kkiri.domain.model.response.HomeUserInfoDto
 import com.goorm.kkiri.domain.repository.BoardRepository
+import com.goorm.kkiri.domain.repository.MemberRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,7 +20,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BoardViewModel @Inject constructor(
-    private val boardRepository: BoardRepository
+    private val boardRepository: BoardRepository,
+    private val memberRepository: MemberRepository
 ) : ViewModel() {
 
     private var _boardList = MutableStateFlow(BoardPageDto())
@@ -27,6 +30,8 @@ class BoardViewModel @Inject constructor(
     val homeBoardHelpMe: StateFlow<BaseResponse<List<BoardHomeDto>>> = _homeBoardHelpMe
     private var _homeBoardHelpYou = MutableStateFlow(BaseResponse<List<BoardHomeDto>>())
     val homeBoardHelpYou: StateFlow<BaseResponse<List<BoardHomeDto>>> = _homeBoardHelpYou
+    private var _homeUserInfo = MutableStateFlow(BaseResponse<HomeUserInfoDto>())
+    val homeUserInfoDto: StateFlow<BaseResponse<HomeUserInfoDto>> = _homeUserInfo
 
     fun getBoardByPage(type: String, page: Int) {
         viewModelScope.launch {
@@ -62,6 +67,22 @@ class BoardViewModel @Inject constructor(
                 }
             } catch (e: Exception) {
                 Log.e("Get Home Board Help Me Error", e.message.toString())
+            }
+        }
+    }
+
+    fun getHomeUserInfo() {
+        viewModelScope.launch {
+            try {
+                KkiriApplication.getInstance().tokenManager.userIdFlow.collect {
+                    if (it != null) {
+                        memberRepository.getHomeUserInfo(it.toLong()).collect { userInfo ->
+                            _homeUserInfo.value = userInfo
+                        }
+                    }
+                }
+            }catch (e: Exception) {
+                Log.e("Get Home User Info Error", e.message.toString())
             }
         }
     }

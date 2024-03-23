@@ -175,8 +175,8 @@ class HomePostListFragment
         }
     }
 
-    override fun onHelpPostClickListener(postId: Long) {
-        val action = HomePostListFragmentDirections.actionHomePostListToDetailPostInfo(postId)
+    override fun onHelpPostClickListener(postId: Long, chattingCount: Int) {
+        val action = HomePostListFragmentDirections.actionHomePostListToDetailPostInfo(postId, chattingCount)
         findNavController().navigate(action)
     }
 }

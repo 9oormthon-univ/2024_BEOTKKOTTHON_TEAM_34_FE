@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.goorm.kkiri.KkiriApplication
 import com.goorm.kkiri.R
-import com.goorm.kkiri.domain.model.request.Pageable
 import com.goorm.kkiri.domain.model.response.BoardPageDto
 import com.goorm.kkiri.domain.repository.BoardRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,7 +26,9 @@ class BoardViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 boardRepository.getBoardByPage(type, page).collect {
-                    _boardList.value = it.result
+                    if (it.result != null) {
+                        _boardList.value = it.result
+                    }
                 }
             } catch (e: Exception) {
                 Log.e("Get Board By Page Error", e.message.toString())

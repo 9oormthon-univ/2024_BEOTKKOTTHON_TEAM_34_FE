@@ -2,6 +2,7 @@ package com.goorm.kkiri.data.remote
 
 import com.goorm.kkiri.domain.model.base.BaseResponse
 import com.goorm.kkiri.domain.model.request.Pageable
+import com.goorm.kkiri.domain.model.response.BoardDetailDto
 import com.goorm.kkiri.domain.model.response.BoardPageDto
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -14,4 +15,9 @@ interface BoardService {
         @Path("type") type: String,
         @Query("page") page: Int
     ): BaseResponse<BoardPageDto>
+
+    @GET("/api/board/detail/{boardId}")
+    suspend fun getBoardDetail(
+        @Path("boardId") boardId: Long
+    ): BaseResponse<BoardDetailDto>
 }

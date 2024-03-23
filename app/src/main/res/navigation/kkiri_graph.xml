@@ -64,6 +64,9 @@
         <argument
             android:name="postId"
             app:argType="long" />
+        <argument
+            android:name="chattingCount"
+            app:argType="integer" />
     </activity>
 
     <activity

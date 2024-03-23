@@ -1,7 +1,7 @@
 package com.goorm.kkiri.data.source.board
 
 import com.goorm.kkiri.domain.model.base.BaseResponse
-import com.goorm.kkiri.domain.model.request.Pageable
+import com.goorm.kkiri.domain.model.response.BoardDetailDto
 import com.goorm.kkiri.domain.model.response.BoardPageDto
 import com.goorm.kkiri.domain.repository.BoardRepository
 import kotlinx.coroutines.flow.Flow
@@ -15,5 +15,9 @@ class BoardRepositoryImpl @Inject constructor(
         type: String,
         page: Int
     ): Flow<BaseResponse<BoardPageDto>> = dataSource.getBoardByPage(type, page)
+
+    override suspend fun getBoardInfo(
+        boardId: Long
+    ): Flow<BaseResponse<BoardDetailDto>> = dataSource.getBoardDetail(boardId)
 
 }

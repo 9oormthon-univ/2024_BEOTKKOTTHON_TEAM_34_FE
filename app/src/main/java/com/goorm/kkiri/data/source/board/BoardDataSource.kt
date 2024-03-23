@@ -3,6 +3,7 @@ package com.goorm.kkiri.data.source.board
 import android.util.Log
 import com.goorm.kkiri.data.remote.BoardService
 import com.goorm.kkiri.domain.model.base.BaseResponse
+import com.goorm.kkiri.domain.model.response.BoardDetailDto
 import com.goorm.kkiri.domain.model.response.BoardPageDto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -16,6 +17,13 @@ class BoardDataSource @Inject constructor(
         val result = boardService.getBoardByPage(type, page)
         emit(result)
     }.catch {
-        Log.e("Get Board by Page Error", it.message.toString())
+        Log.e("Get Board by Page Failure", it.message.toString())
+    }
+
+    fun getBoardDetail(boardId: Long): Flow<BaseResponse<BoardDetailDto>> = flow {
+        val result = boardService.getBoardDetail(boardId)
+        emit(result)
+    }.catch {
+        Log.e("Get Board Detail Failure", it.message.toString())
     }
 }

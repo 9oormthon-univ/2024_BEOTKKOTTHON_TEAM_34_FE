@@ -15,7 +15,9 @@ import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseActivity
 import com.goorm.kkiri.databinding.ActivityHomeWritePostBinding
 import com.goorm.kkiri.ui.home.adapter.HomeUploadImageFileAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeWritePostActivity : BaseActivity<ActivityHomeWritePostBinding>(R.layout.activity_home_write_post) {
     private val args by navArgs<HomeWritePostActivityArgs>()
     private val adapter = HomeUploadImageFileAdapter()

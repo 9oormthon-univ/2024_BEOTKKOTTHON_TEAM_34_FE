@@ -5,6 +5,7 @@ import com.goorm.kkiri.domain.model.request.Pageable
 import com.goorm.kkiri.domain.model.response.BoardDetailDto
 import com.goorm.kkiri.domain.model.response.BoardHomeDto
 import com.goorm.kkiri.domain.model.response.BoardPageDto
+import com.goorm.kkiri.domain.model.response.MyResult
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -16,6 +17,13 @@ interface BoardService {
         @Path("type") type: String,
         @Query("page") page: Int
     ): BaseResponse<BoardPageDto>
+
+    @GET("api/board/user/{userId}")
+    suspend fun getMyWrittenByPage(
+        @Path("userId") userId: Long,
+        @Query("type") type: String,
+        @Query("page") page: Int
+    ): BaseResponse<MyResult>
 
     @GET("/api/board/detail/{boardId}")
     suspend fun getBoardDetail(

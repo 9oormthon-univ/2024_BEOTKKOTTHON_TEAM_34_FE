@@ -6,30 +6,30 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.goorm.kkiri.databinding.HelpitemBinding
+import com.goorm.kkiri.databinding.HelpeditemBinding
 import com.goorm.kkiri.domain.model.response.MyPost
 
 @RequiresApi(Build.VERSION_CODES.O)
-class MyWrittenHelpAdapter(
+class MyWrittenHelpedAdapter(
     private val listener: MenuClickListener
-) : RecyclerView.Adapter<MyWrittenHelpAdapter.MyWrittenHelpViewHolder>() {
+) : RecyclerView.Adapter<MyWrittenHelpedAdapter.MyWrittenHelpedViewHolder>() {
     private val items = mutableListOf<MyPost>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MyWrittenHelpViewHolder {
-        return MyWrittenHelpViewHolder.from(parent)
+    ): MyWrittenHelpedViewHolder {
+        return MyWrittenHelpedViewHolder.from(parent)
     }
 
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(holder: MyWrittenHelpViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyWrittenHelpedViewHolder, position: Int) {
         holder.bind(items[position], listener)
     }
 
     fun update(posts: List<MyPost>) {
-        val diffUtil = RecordSaveDiffUtil(items,posts)
+        val diffUtil = RecordSaveDiffUtil(items, posts)
         val result = DiffUtil.calculateDiff(diffUtil)
         items.clear()
         items.addAll(posts)
@@ -53,8 +53,8 @@ class MyWrittenHelpAdapter(
         }
     }
 
-    class MyWrittenHelpViewHolder(
-        private val binding: HelpitemBinding
+    class MyWrittenHelpedViewHolder(
+        private val binding: HelpeditemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(post: MyPost, listener: MenuClickListener) {
@@ -65,9 +65,9 @@ class MyWrittenHelpAdapter(
         }
 
         companion object {
-            fun from(parent: ViewGroup): MyWrittenHelpViewHolder {
-                return MyWrittenHelpViewHolder(
-                    HelpitemBinding.inflate(
+            fun from(parent: ViewGroup): MyWrittenHelpedViewHolder {
+                return MyWrittenHelpedViewHolder(
+                    HelpeditemBinding.inflate(
                         LayoutInflater.from(parent.context),
                         parent,
                         false

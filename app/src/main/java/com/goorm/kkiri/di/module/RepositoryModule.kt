@@ -2,9 +2,12 @@ package com.goorm.kkiri.di.module
 
 import com.goorm.kkiri.data.source.board.BoardDataSource
 import com.goorm.kkiri.data.source.board.BoardRepositoryImpl
+import com.goorm.kkiri.data.source.chat.ChatDataSource
+import com.goorm.kkiri.data.source.chat.ChatRepositoryImpl
 import com.goorm.kkiri.data.source.member.MemberDataSource
 import com.goorm.kkiri.data.source.member.MemberRepositoryImpl
 import com.goorm.kkiri.domain.repository.BoardRepository
+import com.goorm.kkiri.domain.repository.ChattingRepository
 import com.goorm.kkiri.domain.repository.MemberRepository
 import dagger.Module
 import dagger.Provides
@@ -25,4 +28,9 @@ object RepositoryModule {
     @Provides
     fun provideBoardRepository(boardDataSource: BoardDataSource): BoardRepository =
         BoardRepositoryImpl(boardDataSource)
+
+    @Singleton
+    @Provides
+    fun provideChatRepository(chattingDataSource: ChatDataSource): ChattingRepository =
+        ChatRepositoryImpl(chattingDataSource)
 }

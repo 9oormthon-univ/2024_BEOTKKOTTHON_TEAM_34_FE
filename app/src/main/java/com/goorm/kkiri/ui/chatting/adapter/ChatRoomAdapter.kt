@@ -61,9 +61,9 @@ class ChatRoomAdapter(
 
         fun bind(postItem: ChatRoomItem) {
             binding.postItem = postItem
-
             if (postItem.stateProduct) {
                 // True 경우, 왼쪽 뷰 표시
+                binding.tvSendMessage.text = postItem.expReceiver
                 binding.clSendMessage.visibility = View.VISIBLE
                 binding.clReceiveMessage.visibility = View.GONE
                 binding.tvSendTime.text = postItem.dateTime
@@ -72,12 +72,8 @@ class ChatRoomAdapter(
                 binding.clSendMessage.visibility = View.GONE
                 binding.clReceiveMessage.visibility = View.VISIBLE
                 binding.tvReceiveTime.text = postItem.dateTime
-
             }
         }
-
-
-
         companion object {
             fun from(parent: ViewGroup): ChatRoomViewHolder {
                 return ChatRoomViewHolder(

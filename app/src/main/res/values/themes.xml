@@ -12,6 +12,7 @@
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
 
+
         <!--  Custom Font  -->
         <item name="android:textViewStyle">@style/customTextViewFontStyle</item>
         <item name="android:buttonStyle">@style/customButtonFontStyle</item>
@@ -19,4 +20,13 @@
     </style>
 
     <style name="Theme.Kkiri" parent="Base.Theme.Kkiri" />
+
+
+    <style name="AppTheme.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/blue_main</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_dummy_splash</item>
+        <item name="postSplashScreenTheme">@style/Theme.Kkiri</item>
+    </style>
+
+
 </resources>

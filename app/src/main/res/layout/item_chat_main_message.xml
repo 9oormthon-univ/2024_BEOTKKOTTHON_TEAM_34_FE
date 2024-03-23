@@ -34,7 +34,9 @@
                 android:layout_marginStart="21dp"
                 android:background="@drawable/send_message"
                 android:gravity="center"
-                android:text="ㅎ"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="안녕하세요"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,6 +62,8 @@
             <TextView
                 android:id="@+id/tv_receive_message"
                 android:layout_width="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:layout_height="45dp"
                 android:layout_marginEnd="21dp"
                 android:background="@drawable/receive_message"

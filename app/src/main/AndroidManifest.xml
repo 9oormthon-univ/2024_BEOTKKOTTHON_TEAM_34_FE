@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.goorm.kkiri" >
+    package="com.goorm.kkiri">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,11 +14,26 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/ic_app_logo"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@drawable/ic_app_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Kkiri"
-        android:networkSecurityConfig="@xml/network_security_config"
-        tools:targetApi="31" >
+        tools:targetApi="31">
+        <activity
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Kkiri" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".ui.splash.IntroActivity"
+            android:exported="true"
+            />
         <activity
             android:name=".ui.mypage.DetailActivity"
             android:exported="false" />
@@ -28,11 +43,9 @@
         <activity
             android:name=".ui.account.SignInActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="true"
+            android:theme="@style/AppTheme.Splash">
+
         </activity>
         <activity
             android:name=".ui.account.RegisterActivity"
@@ -44,8 +57,7 @@
         <activity
             android:name=".ui.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ui.mypage.ImWriteActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -58,8 +70,9 @@
             android:name=".ui.home.HomeWritePostActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="false" />
-        <activity android:name=".ui.search.SearchActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

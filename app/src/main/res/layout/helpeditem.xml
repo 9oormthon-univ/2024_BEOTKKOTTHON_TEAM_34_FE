@@ -57,12 +57,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
-            android:text="@{record.point}"
+            android:text="@{Long.toString(record.point)}"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/help_item_been"
             app:layout_constraintStart_toEndOf="@+id/help_item_been"
             app:layout_constraintTop_toTopOf="@id/help_item_been" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -71,6 +70,7 @@
             android:textSize="11sp"
             app:layout_constraintLeft_toLeftOf="@id/help_item_been"
             app:layout_constraintTop_toBottomOf="@id/help_item_been" />
+
 
 
         <ImageView

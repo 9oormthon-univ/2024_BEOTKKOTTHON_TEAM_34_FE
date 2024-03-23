@@ -12,4 +12,6 @@ interface BoardRepository {
     suspend fun getBoardByPage(type: String, page: Int): Flow<BaseResponse<BoardPageDto>>
     suspend fun getBoardInfo(boardId: Long): Flow<BaseResponse<BoardDetailDto>>
     suspend fun getHomeBard(type: String, page: Int): Flow<BaseResponse<List<BoardHomeDto>>>
+    suspend fun getBoardByPage(type: String, pageable: Pageable): Flow<BaseResponse<BoardPageDto>>
+    suspend fun getMyWrittenBoard(userId: Long, type: String, page: Int): Flow<BaseResponse<MyResult>>
 }

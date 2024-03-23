@@ -78,6 +78,9 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+    // DataStore
+    implementation(libs.androidx.datastore.core)
+    implementation(libs.androidx.datastore.preferences)
 
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)

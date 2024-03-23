@@ -39,7 +39,7 @@ class ImWriteViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 boardRepository.getMyWrittenBoard(userId, type, page).collect {
-                    _helpedItems.value = it.result
+                    _helpedItems.value = it.result!!
                     _helpItems.value = it.result
                 }
             } catch (e: Exception) {

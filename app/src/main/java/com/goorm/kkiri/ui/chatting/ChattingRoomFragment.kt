@@ -35,9 +35,6 @@ class ChattingRoomFragment :
     private lateinit var adapter : ChatRoomAdapter
     private val viewModel by viewModels<ChatViewModel>()
 
-
-
-
     private var isState = false
     private var count = 0
 

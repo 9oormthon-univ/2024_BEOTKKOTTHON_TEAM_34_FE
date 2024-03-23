@@ -176,10 +176,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_upload_image_file_list"
             android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/tv_write_post_image"
+            app:layout_constraintTop_toBottomOf="@id/ib_post_write_camera_button"
             tools:listitem="@layout/item_image_file" />
 
         <TextView

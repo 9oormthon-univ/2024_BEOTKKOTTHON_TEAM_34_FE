@@ -78,6 +78,9 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+    // DataStore
+    implementation(libs.androidx.datastore.core)
+    implementation(libs.androidx.datastore.preferences)
     implementation("androidx.core:core-splashscreen:1.0.1")
 
     implementation(libs.androidx.activity.ktx)

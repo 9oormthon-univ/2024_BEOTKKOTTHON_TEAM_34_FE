@@ -7,9 +7,7 @@ import com.goorm.kkiri.R
 import com.goorm.kkiri.domain.model.response.ChatMain
 import com.goorm.kkiri.domain.model.response.ChatRoomItem
 import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
-import com.goorm.kkiri.domain.model.response.HelpPostInfo
 import com.goorm.kkiri.domain.model.response.MyImageItem
-import com.goorm.kkiri.domain.model.response.BoardIndividualDto
 import com.goorm.kkiri.domain.model.response.BoardVolunteerDto
 import java.time.LocalDate
 @RequiresApi(Build.VERSION_CODES.O)
@@ -59,13 +57,5 @@ object DataSource {
     fun initPicturesData(){
         pictureData.clear()
         pictureData.add(MyImageItem(0,uri,"0"))
-    }
-
-    fun getHelpPostInfo(): HelpPostInfo {
-        return HelpPostInfo(
-            1, "구르미", "코딩 알려주실분!",
-            "이번에 컴퓨터 공학과에 새내기로 입학했습니다. 코딩을 1도 몰라서\n알려주실분 구해요ㅠㅠ\n언어는 파이썬 원합니다!",
-            null, "1분 전", 10, 5
-        )
     }
 }

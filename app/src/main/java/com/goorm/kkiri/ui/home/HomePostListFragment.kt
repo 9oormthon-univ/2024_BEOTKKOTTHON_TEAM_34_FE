@@ -12,8 +12,8 @@ import androidx.navigation.fragment.navArgs
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment
 import com.goorm.kkiri.databinding.FragmentHomePostListBinding
-import com.goorm.kkiri.domain.model.request.Pageable
 import com.goorm.kkiri.ui.common.HelpPostClickListener
+import com.goorm.kkiri.ui.common.HelpType
 import com.goorm.kkiri.ui.common.HelpType.*
 import com.goorm.kkiri.ui.common.PostType
 import com.goorm.kkiri.ui.common.PostType.*
@@ -38,7 +38,6 @@ class HomePostListFragment
         binding.vm = viewModel
         setFirstHelpTextViewBackgroundTint()
         setClickListener()
-        //initAdapter()
         changeHelpButton()
     }
 
@@ -52,6 +51,7 @@ class HomePostListFragment
                     isHelpYou = isHelpYouValue
                     tvHomePostListHelpMe.setTextColor(resources.getColor(R.color.white))
                     tvHomePostListHelpYou.setTextColor(resources.getColor(R.color.black))
+                    initAdapter(args.helpType)
                 }
 
                 HELPING -> {
@@ -61,6 +61,9 @@ class HomePostListFragment
                     isHelpYou = isHelpYouValue
                     tvHomePostListHelpYou.setTextColor(resources.getColor(R.color.white))
                     tvHomePostListHelpMe.setTextColor(resources.getColor(R.color.black))
+                    ivHomePostListHelpMeIcon.setImageResource(R.drawable.ic_help_me_black)
+                    ivHomePostListHelpYouIcon.setImageResource(R.drawable.ic_help_you_white_checked)
+                    initAdapter(args.helpType)
                 }
             }
         }
@@ -78,6 +81,7 @@ class HomePostListFragment
                     ivHomePostListHelpYouIcon.setImageResource(R.drawable.ic_help_you_black)
                     tvHomePostListHelpMe.setTextColor(resources.getColor(R.color.white))
                     tvHomePostListHelpYou.setTextColor(resources.getColor(R.color.black))
+                    initAdapter(HELPED)
                 }
             }
             tvHomePostListHelpYou.setOnClickListener {
@@ -90,14 +94,15 @@ class HomePostListFragment
                     isHelpYou = isHelpYouValue
                     tvHomePostListHelpYou.setTextColor(resources.getColor(R.color.white))
                     tvHomePostListHelpMe.setTextColor(resources.getColor(R.color.black))
+                    initAdapter(HELPING)
                 }
             }
         }
     }
 
-    private fun initAdapter() {
+    private fun initAdapter(helpType: HelpType) {
         val adapter = HomePostListAdapter(this)
-        viewModel.getBoardByPage(HELPING.name, Pageable(1))
+        viewModel.getBoardByPage(helpType.name, 0)
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.boardList.collectLatest {
@@ -170,8 +175,8 @@ class HomePostListFragment
         }
     }
 
-    override fun onHelpPostClickListener(postId: Long) {
-        val action = HomePostListFragmentDirections.actionHomePostListToDetailPostInfo(postId)
+    override fun onHelpPostClickListener(postId: Long, chattingCount: Int) {
+        val action = HomePostListFragmentDirections.actionHomePostListToDetailPostInfo(postId, chattingCount)
         findNavController().navigate(action)
     }
 }

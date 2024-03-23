@@ -1,14 +1,12 @@
 package com.goorm.kkiri.ui.account
 
 import android.content.Intent
-import androidx.navigation.NavDirections
-import androidx.navigation.fragment.findNavController
 import com.goorm.kkiri.R
-import com.goorm.kkiri.base.BaseFragment
-import com.goorm.kkiri.databinding.FragmentSignInBinding
+import com.goorm.kkiri.base.BaseActivity
+import com.goorm.kkiri.databinding.ActivitySignInBinding
 import com.goorm.kkiri.ui.MainActivity
 
-class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sign_in) {
+class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {
     override fun setLayout() {
         setClickListener()
     }
@@ -18,10 +16,11 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sig
         // 로그인 -> 회원가입 or 홈 으로 이동
         with(binding) {
             tvBtRegister.setOnClickListener {
-                navigateToDestination(SignInFragmentDirections.actionNavigationSignInToNavigationRegister())
+                val intent = Intent(this@SignInActivity, RegisterActivity::class.java)
+                startActivity(intent)
             }
             btLogin.setOnClickListener {
-                startActivity(Intent(requireContext(), MainActivity::class.java))
+                startActivity(Intent(this@SignInActivity, MainActivity::class.java))
             }
 
 
@@ -29,9 +28,5 @@ class SignInFragment : BaseFragment<FragmentSignInBinding>(R.layout.fragment_sig
             etLoginId.setOnClickListener { v -> v.requestFocus() }
             etLoginPw.setOnClickListener { v -> v.requestFocus() }
         }
-    }
-
-    private fun navigateToDestination(action: NavDirections) {
-        findNavController().navigate(action)
     }
 }

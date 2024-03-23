@@ -7,7 +7,6 @@ import com.goorm.kkiri.domain.model.response.BoardPageDto
 import com.goorm.kkiri.domain.model.response.MyResult
 import com.goorm.kkiri.domain.repository.BoardRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class BoardRepositoryImpl @Inject constructor(
@@ -28,12 +27,9 @@ class BoardRepositoryImpl @Inject constructor(
         page: Int
     ): Flow<BaseResponse<List<BoardHomeDto>>> = dataSource.getHomeBoard(type, page)
 
-
     override suspend fun getMyWrittenBoard(
         userId: Long,
         type: String,
         page: Int
     ): Flow<BaseResponse<MyResult>> = dataSource.getMyWrittenBoard(userId, type, page)
-
-
 }

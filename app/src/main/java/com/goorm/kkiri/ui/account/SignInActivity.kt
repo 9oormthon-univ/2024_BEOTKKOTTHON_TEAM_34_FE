@@ -5,12 +5,8 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.goorm.kkiri.R
+import com.goorm.kkiri.base.BaseActivity
 import com.goorm.kkiri.databinding.ActivitySignInBinding
 import com.goorm.kkiri.ui.MainActivity
 import com.goorm.kkiri.ui.account.viewmodel.MemberViewModel
@@ -18,15 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class SignInActivity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignInBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        installSplashScreen()
-
-        binding = ActivitySignInBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
 @AndroidEntryPoint
 class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sign_in) {

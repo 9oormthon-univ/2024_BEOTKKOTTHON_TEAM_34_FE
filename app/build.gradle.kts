@@ -82,7 +82,7 @@ dependencies {
     implementation(libs.androidx.datastore.core)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.core.splashscreen)
-
+    implementation ("me.relex:circleindicator:2.1.6")
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.fragment.ktx)
 }

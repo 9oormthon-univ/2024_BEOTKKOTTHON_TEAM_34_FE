@@ -71,7 +71,7 @@
             app:layout_constraintBottom_toBottomOf="@id/indicator1_iv_main"
             app:layout_constraintStart_toEndOf="@id/indicator1_iv_main"
             app:srcCompat="@drawable/shape_indicator_gray_12dp" />
-        D
+
 
         <TextView
             android:id="@+id/tv_mypage_iw_dt_name"

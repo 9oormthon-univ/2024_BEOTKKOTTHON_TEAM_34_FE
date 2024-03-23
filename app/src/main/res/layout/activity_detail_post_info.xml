@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/iv_detail_post_image"
             android:layout_width="match_parent"
             android:layout_height="314dp"
@@ -35,6 +35,19 @@
             app:layout_constraintEnd_toEndOf="@id/iv_detail_post_image"
             app:navigationIcon="@drawable/ic_arrow_back"
             app:navigationIconTint="@color/white" />
+
+
+        <me.relex.circleindicator.CircleIndicator3
+            android:id="@+id/ic_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            app:ci_drawable_unselected="@drawable/shape_indicator_gray_12dp"
+            app:ci_drawable="@drawable/shape_indicator_white_12dp"
+            app:ci_animator="@animator/scale_with_alpha"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_detail_post_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
 
         <TextView

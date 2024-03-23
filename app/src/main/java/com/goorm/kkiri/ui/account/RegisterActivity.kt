@@ -9,13 +9,11 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.navigation.NavDirections
-import androidx.navigation.fragment.findNavController
 import com.goorm.kkiri.R
-import com.goorm.kkiri.base.BaseFragment
-import com.goorm.kkiri.databinding.FragmentRegisterBinding
+import com.goorm.kkiri.base.BaseActivity
+import com.goorm.kkiri.databinding.ActivityRegisterBinding
 
-class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment_register) {
+class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity_register) {
 
     override fun setLayout() {
         setClickListener()
@@ -27,7 +25,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
     private fun setClickListener() {
         with(binding) {
             btNextRegister.setOnClickListener {
-                navigateToDestination(RegisterFragmentDirections.actionNavigationRegisterToNavigationSignIn())
+                finish()
             }
             setRequestFocusOnClick(etNicknameField)
             setRequestFocusOnClick(etIdField)
@@ -77,7 +75,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
 
     // 키보드를 숨기는 함수
     private fun hideKeyboard(view: View) {
-        val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
@@ -113,7 +111,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
                         tvDoubleCheckedPassword.text = "비밀번호 일치"
                         tvDoubleCheckedPassword.setTextColor(
                             ContextCompat.getColor(
-                                requireContext(),
+                                this@RegisterActivity,
                                 R.color.blue_main
                             )
                         )
@@ -123,7 +121,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
                         tvDoubleCheckedPassword.text = "비밀번호 불일치"
                         tvDoubleCheckedPassword.setTextColor(
                             ContextCompat.getColor(
-                                requireContext(),
+                                this@RegisterActivity,
                                 R.color.failed_color
                             )
                         )
@@ -145,10 +143,5 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(R.layout.fragment
             setupTextWatcher(etIdField, tvEnabledId, "사용 가능한 아이디입니다.")
             setupPasswordTextWatchers()
         }
-    }
-
-    // 네비게이션 이동
-    private fun navigateToDestination(action: NavDirections) {
-        findNavController().navigate(action)
     }
 }

@@ -1,4 +1,4 @@
-package com.goorm.kkiri.data.source
+package com.goorm.kkiri.data.source.member
 
 import com.goorm.kkiri.domain.repository.MemberRepository
 import javax.inject.Inject

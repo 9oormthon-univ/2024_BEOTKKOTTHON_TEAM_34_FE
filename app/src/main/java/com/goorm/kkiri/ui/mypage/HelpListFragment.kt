@@ -3,14 +3,12 @@ package com.goorm.kkiri.ui.mypage
 import android.app.Activity
 import android.content.Intent
 import android.os.Build
-import android.util.Log
 import android.view.View
 import android.view.animation.AlphaAnimation
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -18,23 +16,20 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment
-import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.databinding.FragmentHelpListBinding
-import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import com.goorm.kkiri.ui.mypage.adapter.MenuClickListener
 import com.goorm.kkiri.ui.mypage.adapter.MyWrittenHelpAdapter
-import com.goorm.kkiri.ui.mypage.viewmodel.ImWriteViewModel
+import com.goorm.kkiri.ui.mypage.viewmodel.MyPageViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import java.time.LocalDate
 
 @AndroidEntryPoint
 @RequiresApi(Build.VERSION_CODES.O)
 class HelpListFragment : BaseFragment<FragmentHelpListBinding>(R.layout.fragment_help_list),
     MenuClickListener {
     private lateinit var startForResult: ActivityResultLauncher<Intent>
-    private val viewModel by viewModels <ImWriteViewModel>()
+    private val viewModel by viewModels <MyPageViewModel>()
     private lateinit var helpAdapter: MyWrittenHelpAdapter
     private var selectPos = -1L
 

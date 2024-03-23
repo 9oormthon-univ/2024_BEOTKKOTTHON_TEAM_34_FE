@@ -69,4 +69,5 @@
     <string name="text_search_post">게시판의 글을 검색해보세요!</string>
     <string name="description_magifier_icon">돋보기 아이콘</string>
     <string name="info_exchange">콩 한개는 약 2500원의 \n가치에 달합니다</string>
+    <string name="description_banner_image">배너 이미지</string>
 </resources>

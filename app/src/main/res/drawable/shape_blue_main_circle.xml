@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"> <!-- 원 모양을 정의 -->
+
+    <solid android:color="@color/blue_main"/> <!-- 원의 색상을 빨간색으로 설정 -->
+
+</shape>

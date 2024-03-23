@@ -56,13 +56,24 @@
 
         <TextView
             android:id="@+id/tv_write_post_need_beans_count"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:text="@string/text_need_beans"
-            app:layout_constraintEnd_toEndOf="@id/tv_home_write_post_title"
             app:layout_constraintStart_toStartOf="@id/tv_home_write_post_title"
             app:layout_constraintTop_toBottomOf="@id/et_input_post_title" />
+
+
+        <ImageButton
+            android:id="@+id/bt_exchange_beans_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="291dp"
+            android:background="@drawable/bt_information"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_write_post_need_beans_count"
+            app:layout_constraintTop_toTopOf="@id/tv_write_post_need_beans_count" />
 
         <EditText
             android:id="@+id/et_input_write_post_need_beans"
@@ -171,5 +182,19 @@
             app:layout_constraintTop_toBottomOf="@id/tv_write_post_image"
             tools:listitem="@layout/item_image_file" />
 
+        <TextView
+            android:id="@+id/tv_info_exchange"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/shape_rounded_rect_5dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/info_exchange"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/et_input_write_post_need_beans"
+            app:layout_constraintStart_toEndOf="@id/bt_exchange_beans_value"
+            app:layout_constraintTop_toTopOf="@id/bt_exchange_beans_value" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

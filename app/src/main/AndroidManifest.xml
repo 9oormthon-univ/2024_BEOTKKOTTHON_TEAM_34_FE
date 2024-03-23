@@ -22,6 +22,9 @@
             android:name=".ui.mypage.DetailActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.chatting.ChattingRoomFragment"
+            android:exported="false" />
+        <activity
             android:name=".ui.account.AccountActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true" >

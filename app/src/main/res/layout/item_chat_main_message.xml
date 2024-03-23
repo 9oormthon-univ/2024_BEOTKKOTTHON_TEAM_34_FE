@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="postItem"
+            type="com.goorm.kkiri.domain.model.response.ChatRoomItem" />
+
+        <variable
+            name="listener"
+            type="com.goorm.kkiri.ui.mypage.adapter.MenuClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:background="#F6F6F6">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_send_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_send_message"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginStart="21dp"
+                android:background="@drawable/send_message"
+                android:gravity="center"
+                android:text="ㅎ"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_send_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="%d : %d"
+                android:textSize="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_send_message"
+                app:layout_constraintStart_toEndOf="@+id/tv_send_message" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_receive_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_receive_message"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginEnd="21dp"
+                android:background="@drawable/receive_message"
+                android:gravity="center"
+                android:text="ㅎ"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_receive_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:text="%d : %d"
+                android:textSize="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_receive_message"
+                app:layout_constraintEnd_toStartOf="@+id/tv_receive_message" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

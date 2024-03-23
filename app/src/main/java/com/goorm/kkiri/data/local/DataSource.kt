@@ -4,6 +4,8 @@ import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.goorm.kkiri.R
+import com.goorm.kkiri.domain.model.response.ChatMain
+import com.goorm.kkiri.domain.model.response.ChatRoomItem
 import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import com.goorm.kkiri.domain.model.response.HelpPostInfo
 import com.goorm.kkiri.domain.model.response.MyImageItem
@@ -16,6 +18,17 @@ object DataSource {
     var writtenItems = mutableListOf<MyWrittenMenuItem>()
     var writtenItems2 = mutableListOf<MyWrittenMenuItem>()
     var pictureData = mutableListOf<MyImageItem>()
+    var chatMainItems = mutableListOf<ChatMain>()
+    var chatRoomItems = mutableListOf<ChatRoomItem>()
+
+    fun initChatMainMenuItems(){
+        chatMainItems.clear()
+        chatMainItems.add(ChatMain(1,"구름이","코딩 과제 도와주세요 ㅠㅠ","${LocalDate.now()}",true))
+    }
+    fun initChatRoomMenuItems(){
+        chatRoomItems.clear()
+        chatRoomItems.add(ChatRoomItem(1,"send","구름이","코딩 과제 도와주세요 ㅠㅠ","${LocalDate.now()}",true))
+    }
 
     fun initMyWrittenMenuItems(){
         writtenItems.clear()

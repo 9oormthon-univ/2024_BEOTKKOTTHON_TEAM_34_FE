@@ -35,4 +35,11 @@ interface BoardService {
         @Path("type") type: String,
         @Query("page") page: Int
     ): BaseResponse<List<BoardHomeDto>>
+
+    @GET("/api/board/search")
+    suspend fun searchBoard(
+        @Query("title") title: String,
+        @Query("description") description: String,
+        @Query("page") page: Int
+    ): BaseResponse<BoardPageDto>
 }

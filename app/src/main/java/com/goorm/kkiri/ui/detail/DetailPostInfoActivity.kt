@@ -1,9 +1,11 @@
 package com.goorm.kkiri.ui.detail
 
+import android.content.Intent
+import android.os.Build
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.activity.viewModels
-import androidx.appcompat.content.res.AppCompatResources
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Lifecycle
@@ -16,6 +18,7 @@ import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseActivity
 import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.databinding.ActivityDetailPostInfoBinding
+import com.goorm.kkiri.ui.chatting.ChattingRoomFragment
 import com.goorm.kkiri.ui.detail.viewmodel.DetailViewModel
 import com.goorm.kkiri.ui.mypage.IwViewPagerFragment
 import com.goorm.kkiri.ui.mypage.adapter.IwViewPagerAdapter
@@ -28,6 +31,7 @@ class DetailPostInfoActivity : BaseActivity<ActivityDetailPostInfoBinding>(R.lay
     private val args by navArgs<DetailPostInfoActivityArgs>()
     private val viewModel by viewModels<DetailViewModel>()
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun setLayout() {
         setBackButton()
         viewModel.getBoardDetail(args.postId)
@@ -35,11 +39,21 @@ class DetailPostInfoActivity : BaseActivity<ActivityDetailPostInfoBinding>(R.lay
         binding.ivDetailPostImage.adapter = ScreenSlidePagerAdapter(this)
         binding.ivDetailPostImage.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         binding.icViewPager.setViewPager(binding.ivDetailPostImage)
+        clickChatBtn()
     }
 
     private fun setBackButton() {
         binding.toolbarDetailPost.setNavigationOnClickListener {
             finish()
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun clickChatBtn() {
+        binding.btnPostDetailChattingButton.setOnClickListener {
+            val intent = Intent(this@DetailPostInfoActivity, ChattingRoomFragment::class.java)
+            intent.putExtra("boardId", args.postId)
+            startActivity(intent)
         }
     }
 

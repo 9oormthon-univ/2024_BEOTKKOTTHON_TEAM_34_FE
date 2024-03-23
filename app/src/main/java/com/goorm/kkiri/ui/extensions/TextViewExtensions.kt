@@ -42,3 +42,27 @@ fun TextView.setDateFormat(input: String?) {
         text = date
     }
 }
+
+@BindingAdapter("setNumber")
+fun TextView.setNumber(count: Long?) {
+    if (count != null) {
+        val text = getString(context, R.string.text_number).format(count)
+        setText(text)
+    }
+}
+
+@BindingAdapter("setRealMoneyHelp")
+fun TextView.setRealMoney(input: Long?) {
+    if (input != null) {
+        val text = getString(context, R.string.text_guide_help).format((input * 2500))
+        setText(text)
+    }
+}
+
+@BindingAdapter("setRealMoneyHelped")
+fun TextView.setRealMoneyHelped(input: Long?) {
+    if (input != null) {
+        val text = getString(context, R.string.text_guide_helped).format((input * 2500))
+        setText(text)
+    }
+}

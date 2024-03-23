@@ -95,6 +95,7 @@
             android:layout_height="80dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="22dp"
+            imageUrl="@{postItem.attachmentOutputDto.fileUrl}"
             app:shapeAppearanceOverlay="@style/AppRoundedImage_5dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/shape_rounded_rect_5dp"

@@ -2,16 +2,13 @@ package com.goorm.kkiri.data.remote
 
 import com.goorm.kkiri.domain.model.base.BaseResponse
 import com.goorm.kkiri.domain.model.response.HomeUserInfoDto
+import com.goorm.kkiri.domain.model.response.MyPageDto
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MemberService {
-
-    // Response 추가 해야 함
-    @POST("/user/signup")
-    suspend fun signUp() {
-    }
 
     @GET("/api/user/login")
     suspend fun login(
@@ -24,7 +21,8 @@ interface MemberService {
         @Query("userId") userId: Long
     ): BaseResponse<HomeUserInfoDto>
 
-
-
-    // ...
+    @GET("/api/user/{userId}/mypage")
+    suspend fun getMyPageInfo(
+        @Path("userId") userId: Long
+    ): BaseResponse<MyPageDto>
 }

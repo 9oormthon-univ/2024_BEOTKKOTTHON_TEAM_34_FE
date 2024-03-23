@@ -43,5 +43,16 @@ class BoardDataSource @Inject constructor(
         Log.e("Get My Written Board Failure", it.message.toString())
     }
 
+    fun searchBoard(
+        title: String,
+        description: String,
+        page: Int
+    ): Flow<BaseResponse<BoardPageDto>> = flow {
+        val result = boardService.searchBoard(title, description, page)
+        emit(result)
+    }.catch {
+        Log.e("Get Search Board Failure", it.message.toString())
+    }
+
 
 }

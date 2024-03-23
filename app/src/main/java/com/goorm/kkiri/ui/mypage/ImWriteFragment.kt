@@ -1,12 +1,8 @@
 package com.goorm.kkiri.ui.mypage
 
-import android.content.res.Configuration
 import android.graphics.Typeface
 import android.os.Build
 import android.view.Gravity
-import android.view.View
-import android.view.ViewGroup
-import android.view.animation.AlphaAnimation
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
@@ -17,7 +13,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment
 import com.goorm.kkiri.databinding.FragmentImWriteBinding
-import com.goorm.kkiri.ui.mypage.viewmodel.ImWriteViewModel
+import com.goorm.kkiri.ui.mypage.viewmodel.MyPageViewModel
 import com.goorm.kkiri.ui.mypage.viewmodel.TabItem
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 @RequiresApi(Build.VERSION_CODES.O)
 class ImWriteFragment : BaseFragment<FragmentImWriteBinding>(R.layout.fragment_im_write) {
-    private val viewModel: ImWriteViewModel by activityViewModels()
+    private val viewModel: MyPageViewModel by activityViewModels()
 
     override fun setLayout() {
         setupViewPagerAndTabs()

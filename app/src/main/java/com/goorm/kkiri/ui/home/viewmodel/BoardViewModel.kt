@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.goorm.kkiri.KkiriApplication
 import com.goorm.kkiri.R
+import com.goorm.kkiri.domain.model.base.BaseResponse
+import com.goorm.kkiri.domain.model.response.BoardHomeDto
 import com.goorm.kkiri.domain.model.response.BoardPageDto
 import com.goorm.kkiri.domain.repository.BoardRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,6 +23,10 @@ class BoardViewModel @Inject constructor(
 
     private var _boardList = MutableStateFlow(BoardPageDto())
     val boardList: StateFlow<BoardPageDto> = _boardList
+    private var _homeBoardHelpMe = MutableStateFlow(BaseResponse<List<BoardHomeDto>>())
+    val homeBoardHelpMe: StateFlow<BaseResponse<List<BoardHomeDto>>> = _homeBoardHelpMe
+    private var _homeBoardHelpYou = MutableStateFlow(BaseResponse<List<BoardHomeDto>>())
+    val homeBoardHelpYou: StateFlow<BaseResponse<List<BoardHomeDto>>> = _homeBoardHelpYou
 
     fun getBoardByPage(type: String, page: Int) {
         viewModelScope.launch {
@@ -32,6 +38,30 @@ class BoardViewModel @Inject constructor(
                 }
             } catch (e: Exception) {
                 Log.e("Get Board By Page Error", e.message.toString())
+            }
+        }
+    }
+
+    fun getHomeBoardHelpMe(type: String, page: Int) {
+        viewModelScope.launch {
+            try {
+                boardRepository.getHomeBard(type, page).collect {
+                    _homeBoardHelpMe.value = it
+                }
+            } catch (e: Exception) {
+                Log.e("Get Home Board Help Me Error", e.message.toString())
+            }
+        }
+    }
+
+    fun getHomeBoardHelpYou(type: String, page: Int) {
+        viewModelScope.launch {
+            try {
+                boardRepository.getHomeBard(type, page).collect {
+                    _homeBoardHelpYou.value = it
+                }
+            } catch (e: Exception) {
+                Log.e("Get Home Board Help Me Error", e.message.toString())
             }
         }
     }

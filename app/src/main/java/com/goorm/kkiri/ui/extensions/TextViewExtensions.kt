@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import com.goorm.kkiri.R
 
 @BindingAdapter("setBeans")
-fun TextView.setBeans(count: Int) {
+fun TextView.setBeans(count: Long) {
     val text = getString(context, R.string.text_beans_count).format(count)
     setText(text)
 }

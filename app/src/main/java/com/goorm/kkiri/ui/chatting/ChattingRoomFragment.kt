@@ -1,6 +1,7 @@
 package com.goorm.kkiri.ui.chatting
 
 import android.os.Build
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -14,15 +15,21 @@ import com.goorm.kkiri.base.BaseFragment
 import com.goorm.kkiri.data.local.DataSource
 import com.goorm.kkiri.databinding.FragmentChattingMainBinding
 import com.goorm.kkiri.databinding.FragmentChattingRoomBinding
+import com.goorm.kkiri.domain.model.response.ChatRoomItem
 import com.goorm.kkiri.ui.chatting.adapter.ChatMainAdapter
 import com.goorm.kkiri.ui.chatting.adapter.ChatRoomAdapter
 import com.goorm.kkiri.ui.chatting.adapter.SpinnerAdapter
 import com.goorm.kkiri.ui.mypage.adapter.MenuClickListener
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 @RequiresApi(Build.VERSION_CODES.O)
 
-class ChattingRoomFragment : BaseActivity<FragmentChattingRoomBinding>(R.layout.fragment_chatting_room) {
+class ChattingRoomFragment :
+    BaseActivity<FragmentChattingRoomBinding>(R.layout.fragment_chatting_room) {
     private lateinit var spinner: Spinner
     private lateinit var adapterSpinner: SpinnerAdapter
+    private lateinit var adapter : ChatRoomAdapter
     override fun setLayout() {
         initAdapter()
         initSpinner()
@@ -30,7 +37,7 @@ class ChattingRoomFragment : BaseActivity<FragmentChattingRoomBinding>(R.layout.
     }
 
     private fun initAdapter() {
-        val adapter = ChatRoomAdapter()
+        adapter = ChatRoomAdapter()
         DataSource.initChatRoomMenuItems()
         adapter.update(DataSource.chatRoomItems)
         binding.rvChatRoom.adapter = adapter
@@ -38,12 +45,16 @@ class ChattingRoomFragment : BaseActivity<FragmentChattingRoomBinding>(R.layout.
 
     private fun initSpinner() {
         spinner = binding.spTransactionStart
-        val spState = arrayListOf("거래 전", "거래완료")
+        val spState = arrayListOf("거래 전", "거래중", "거래완료")
         adapterSpinner = SpinnerAdapter(this, spState) // 수정된 리스트로 어댑터 초기화
         spinner.adapter = adapterSpinner
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -52,9 +63,28 @@ class ChattingRoomFragment : BaseActivity<FragmentChattingRoomBinding>(R.layout.
         }
     }
 
+    private fun extractTime(localDateTime: LocalDateTime): String {
+        val formatter = DateTimeFormatter.ofPattern("HH:mm")
+        return localDateTime.format(formatter)
+    }
+    var isState = false
+    var count = 0
     private fun clickBackIcon() {
+
         binding.toolbarChatReceiver.setNavigationOnClickListener {
             finish()
+        }
+        binding.btSendMessage.setOnClickListener{
+            isState = !isState
+            count++
+            val lt = LocalDateTime.now()
+            val flt = extractTime(lt)
+            val cri = ChatRoomItem(count.toLong(),"","","","$flt",isState)
+
+            DataSource.chatRoomItems.add(cri)
+            adapter.update(DataSource.chatRoomItems)
+            Log.d("isState",isState.toString())
+
         }
     }
 }

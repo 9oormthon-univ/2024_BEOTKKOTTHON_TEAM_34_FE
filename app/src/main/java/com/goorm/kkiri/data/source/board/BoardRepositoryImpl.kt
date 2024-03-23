@@ -32,4 +32,11 @@ class BoardRepositoryImpl @Inject constructor(
         type: String,
         page: Int
     ): Flow<BaseResponse<MyResult>> = dataSource.getMyWrittenBoard(userId, type, page)
+
+    override suspend fun searchBoard(
+        title: String,
+        description: String,
+        page: Int
+    ): Flow<BaseResponse<BoardPageDto>> =
+        dataSource.searchBoard(title, description, page)
 }

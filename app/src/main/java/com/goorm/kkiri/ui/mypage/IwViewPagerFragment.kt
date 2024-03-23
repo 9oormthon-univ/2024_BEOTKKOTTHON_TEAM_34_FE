@@ -1,6 +1,7 @@
 package com.goorm.kkiri.ui.mypage
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment
 import com.goorm.kkiri.databinding.FragmentIwViewPagerBinding

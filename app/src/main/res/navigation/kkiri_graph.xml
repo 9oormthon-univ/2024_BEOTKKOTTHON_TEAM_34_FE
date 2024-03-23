@@ -50,6 +50,9 @@
         <argument
             android:name="helpType"
             app:argType="com.goorm.kkiri.ui.common.HelpType" />
+        <action
+            android:id="@+id/action_navigation_home_post_list_to_navigation_chatting_room"
+            app:destination="@id/navigation_chatting_room" />
     </fragment>
     <activity
         android:id="@+id/navigation_im_write"

@@ -7,6 +7,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import com.goorm.kkiri.R
@@ -19,17 +20,27 @@ import com.goorm.kkiri.domain.model.response.ChatRoomItem
 import com.goorm.kkiri.ui.chatting.adapter.ChatMainAdapter
 import com.goorm.kkiri.ui.chatting.adapter.ChatRoomAdapter
 import com.goorm.kkiri.ui.chatting.adapter.SpinnerAdapter
+import com.goorm.kkiri.ui.chatting.viewmodel.ChatViewModel
 import com.goorm.kkiri.ui.mypage.adapter.MenuClickListener
+import dagger.hilt.android.AndroidEntryPoint
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
-
+@AndroidEntryPoint
 class ChattingRoomFragment :
     BaseActivity<FragmentChattingRoomBinding>(R.layout.fragment_chatting_room) {
     private lateinit var spinner: Spinner
     private lateinit var adapterSpinner: SpinnerAdapter
     private lateinit var adapter : ChatRoomAdapter
+    private val viewModel by viewModels<ChatViewModel>()
+
+
+
+
+    private var isState = false
+    private var count = 0
+
     override fun setLayout() {
         initAdapter()
         initSpinner()
@@ -67,8 +78,7 @@ class ChattingRoomFragment :
         val formatter = DateTimeFormatter.ofPattern("HH:mm")
         return localDateTime.format(formatter)
     }
-    var isState = false
-    var count = 0
+
     private fun clickBackIcon() {
 
         binding.toolbarChatReceiver.setNavigationOnClickListener {

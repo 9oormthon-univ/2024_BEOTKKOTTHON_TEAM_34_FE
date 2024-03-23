@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="chatRoomDetail"
+            type="com.goorm.kkiri.domain.model.response.ChatRoomDetailDto" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

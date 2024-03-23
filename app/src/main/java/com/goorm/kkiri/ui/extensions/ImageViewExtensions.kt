@@ -4,6 +4,8 @@ import android.graphics.BitmapFactory
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 
 @BindingAdapter("imageUrl")
 fun ImageView.load(url: String?) {

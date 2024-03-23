@@ -36,9 +36,9 @@ class DetailPostInfoActivity : BaseActivity<ActivityDetailPostInfoBinding>(R.lay
         setBackButton()
         viewModel.getBoardDetail(args.postId)
         setBoardDetail()
-        binding.ivDetailPostImage.adapter = ScreenSlidePagerAdapter(this)
+        /*binding.ivDetailPostImage.adapter = ScreenSlidePagerAdapter(this)
         binding.ivDetailPostImage.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.icViewPager.setViewPager(binding.ivDetailPostImage)
+        binding.icViewPager.setViewPager(binding.ivDetailPostImage)*/
         clickChatBtn()
     }
 
@@ -56,6 +56,7 @@ class DetailPostInfoActivity : BaseActivity<ActivityDetailPostInfoBinding>(R.lay
             startActivity(intent)
         }
     }
+    /*
 
     private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount(): Int = itemCount
@@ -68,7 +69,7 @@ class DetailPostInfoActivity : BaseActivity<ActivityDetailPostInfoBinding>(R.lay
         }
     }
 
-
+*/
 
     private fun setBoardDetail() {
         lifecycleScope.launch {

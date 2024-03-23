@@ -75,12 +75,14 @@ class ChattingRoomFragment :
             finish()
         }
         binding.btSendMessage.setOnClickListener{
+
+            //서버에서 값 받아옴,
             isState = !isState
             count++
+            val exp = binding.etMessageSendField.text
             val lt = LocalDateTime.now()
             val flt = extractTime(lt)
-            val cri = ChatRoomItem(count.toLong(),"","","","$flt",isState)
-
+            val cri = ChatRoomItem(count.toLong(),"","","$exp",flt,isState)
             DataSource.chatRoomItems.add(cri)
             adapter.update(DataSource.chatRoomItems)
             Log.d("isState",isState.toString())

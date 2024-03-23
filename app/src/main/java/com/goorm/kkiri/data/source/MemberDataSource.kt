@@ -1,6 +1,9 @@
 package com.goorm.kkiri.data.source
 
 import com.goorm.kkiri.data.remote.MemberService
+import com.goorm.kkiri.domain.model.response.Message
+import retrofit2.Call
+import retrofit2.http.Path
 import javax.inject.Inject
 
 class MemberDataSource @Inject constructor(
@@ -14,4 +17,5 @@ class MemberDataSource @Inject constructor(
     suspend fun login() {
         // 구현
     }
+
 }

@@ -23,10 +23,10 @@ class BoardViewModel @Inject constructor(
     private var _boardList = MutableStateFlow(BoardPageDto())
     val boardList: StateFlow<BoardPageDto> = _boardList
 
-    fun getBoardByPage(type: String, pageable: Pageable) {
+    fun getBoardByPage(type: String, page: Int) {
         viewModelScope.launch {
             try {
-                boardRepository.getBoardByPage(type, pageable).collect {
+                boardRepository.getBoardByPage(type, page).collect {
                     _boardList.value = it.result
                 }
             } catch (e: Exception) {

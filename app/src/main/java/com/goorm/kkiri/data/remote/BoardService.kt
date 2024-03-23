@@ -9,9 +9,9 @@ import retrofit2.http.Query
 
 interface BoardService {
 
-    @GET("/board/{type}")
+    @GET("/api/board/{type}")
     suspend fun getBoardByPage(
         @Path("type") type: String,
-        @Query("pageable") pageable: Pageable
+        @Query("page") page: Int
     ): BaseResponse<BoardPageDto>
 }

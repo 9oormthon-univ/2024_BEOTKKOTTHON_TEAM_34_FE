@@ -1,6 +1,8 @@
 package com.goorm.kkiri.data.remote
 
 import com.goorm.kkiri.domain.model.base.BaseResponse
+import com.goorm.kkiri.domain.model.response.HomeUserInfoDto
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -12,9 +14,14 @@ interface MemberService {
 
     }
 
-    @POST("/user/login")
+    @GET("/api/user/login")
     suspend fun login(
         @Query("username") userName: String,
         @Query("password") password: String
-    ): BaseResponse<String>
+    ): BaseResponse<Long>
+
+    @POST("/api/user/loginInfo")
+    suspend fun getHomeUserInfo(
+        @Query("userId") userId: Long
+    ): BaseResponse<HomeUserInfoDto>
 }

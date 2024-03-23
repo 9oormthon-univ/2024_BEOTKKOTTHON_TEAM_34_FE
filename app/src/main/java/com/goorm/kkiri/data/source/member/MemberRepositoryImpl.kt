@@ -9,7 +9,11 @@ class MemberRepositoryImpl @Inject constructor(
     private val dataSource: MemberDataSource
 ) : MemberRepository {
 
-    override suspend fun login(userName: String, password: String): Flow<BaseResponse<String>> =
+    override suspend fun login(userName: String, password: String): Flow<BaseResponse<Long>> =
         dataSource.login(userName, password)
+
+    override suspend fun getHomeUserInfo() {
+
+    }
 
 }

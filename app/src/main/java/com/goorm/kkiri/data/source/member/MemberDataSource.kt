@@ -16,7 +16,7 @@ class MemberDataSource @Inject constructor(
         // 구현
     }
 
-    suspend fun login(userName: String, password: String): Flow<BaseResponse<String>> = flow {
+    suspend fun login(userName: String, password: String): Flow<BaseResponse<Long>> = flow {
         val result = memberService.login(userName, password)
         emit(result)
     }.catch {

@@ -5,5 +5,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface MemberRepository {
 
-    suspend fun login(userName: String, password: String): Flow<BaseResponse<String>>
+    suspend fun login(userName: String, password: String): Flow<BaseResponse<Long>>
+    suspend fun getHomeUserInfo()
 }

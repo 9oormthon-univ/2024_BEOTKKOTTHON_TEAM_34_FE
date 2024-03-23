@@ -11,16 +11,28 @@ fun TextView.setBeans(count: Long) {
     setText(text)
 }
 
-@BindingAdapter("setNeedBeans")
-fun TextView.setNeedBeans(count: Int) {
-    val text = getString(context, R.string.text_my_beans_number).format(count)
-    setText(text)
+@BindingAdapter("setUserName")
+fun TextView.setUserName(name: String?) {
+    if (name != null) {
+        val text = getString(context, R.string.text_home_user_name).format(name)
+        setText(text)
+    }
 }
 
 @BindingAdapter("setNeedBeans")
-fun TextView.setNeedBeans(count: Long) {
-    val text = getString(context, R.string.text_my_beans_number).format(count)
-    setText(text)
+fun TextView.setNeedBeans(count: Int?) {
+    if (count != null) {
+        val text = getString(context, R.string.text_my_beans_number).format(count)
+        setText(text)
+    }
+}
+
+@BindingAdapter("setNeedBeans")
+fun TextView.setNeedBeans(count: Long?) {
+    if (count != null) {
+        val text = getString(context, R.string.text_my_beans_number).format(count)
+        setText(text)
+    }
 }
 
 @BindingAdapter("setDateFormat")

@@ -70,4 +70,6 @@
     <string name="description_magifier_icon">돋보기 아이콘</string>
     <string name="info_exchange">콩 한개는 약 2500원의 \n가치에 달합니다</string>
     <string name="description_banner_image">배너 이미지</string>
+    <string name="text_home_volunteer">Volunteer!</string>
+    <string name="description_volunteer_image">봉사 이미지</string>
 </resources>

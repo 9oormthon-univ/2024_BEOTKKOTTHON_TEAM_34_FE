@@ -14,13 +14,12 @@ import com.goorm.kkiri.base.BaseFragment
 import com.goorm.kkiri.databinding.FragmentHomePostListBinding
 import com.goorm.kkiri.domain.model.request.Pageable
 import com.goorm.kkiri.ui.common.HelpPostClickListener
-import com.goorm.kkiri.ui.common.HelpType
+import com.goorm.kkiri.ui.common.HelpType.*
 import com.goorm.kkiri.ui.common.PostType
 import com.goorm.kkiri.ui.common.PostType.*
 import com.goorm.kkiri.ui.home.adapter.HomePostListAdapter
 import com.goorm.kkiri.ui.home.viewmodel.BoardViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -33,19 +32,20 @@ class HomePostListFragment
     private var isHelpYouValue = false
     private val viewModel by viewModels<BoardViewModel>()
     private val args by navArgs<HomePostListFragmentArgs>()
+    private var page = 0
 
     override fun setLayout() {
         binding.vm = viewModel
         setFirstHelpTextViewBackgroundTint()
         setClickListener()
-        initAdapter()
+        //initAdapter()
         changeHelpButton()
     }
 
     private fun setFirstHelpTextViewBackgroundTint() {
         with(binding) {
-            when (args.postType) {
-                HelpMe -> {
+            when (args.helpType) {
+                HELPED -> {
                     isHelpMeValue = true
                     isHelpYouValue = false
                     isHelpMe = isHelpMeValue
@@ -54,7 +54,7 @@ class HomePostListFragment
                     tvHomePostListHelpYou.setTextColor(resources.getColor(R.color.black))
                 }
 
-                HelpYou -> {
+                HELPING -> {
                     isHelpMeValue = false
                     isHelpYouValue = true
                     isHelpMe = isHelpMeValue
@@ -97,7 +97,7 @@ class HomePostListFragment
 
     private fun initAdapter() {
         val adapter = HomePostListAdapter(this)
-        viewModel.getBoardByPage(HelpType.HELPING.name, Pageable(1, 5))
+        viewModel.getBoardByPage(HELPING.name, Pageable(1, 5))
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.boardList.collectLatest {

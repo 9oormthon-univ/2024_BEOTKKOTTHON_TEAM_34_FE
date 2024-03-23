@@ -9,7 +9,9 @@ import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseActivity
 import com.goorm.kkiri.databinding.ActivityImWriteBinding
 import com.goorm.kkiri.ui.mypage.viewmodel.ImWriteViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 @RequiresApi(Build.VERSION_CODES.O)
 class ImWriteActivity : BaseActivity<ActivityImWriteBinding>(R.layout.activity_im_write) {
     private val viewModel: ImWriteViewModel by viewModels()

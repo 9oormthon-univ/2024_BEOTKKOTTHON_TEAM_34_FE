@@ -10,6 +10,7 @@ import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
 import com.goorm.kkiri.domain.model.response.HelpPostInfo
 import com.goorm.kkiri.domain.model.response.MyImageItem
 import com.goorm.kkiri.domain.model.response.BoardIndividualDto
+import com.goorm.kkiri.domain.model.response.BoardVolunteerDto
 import java.time.LocalDate
 @RequiresApi(Build.VERSION_CODES.O)
 object DataSource {
@@ -32,7 +33,6 @@ object DataSource {
             BoardVolunteerDto(3, "구름대학교 장애도우미 모집", R.mipmap.image_student, 9, "~ 4/11")
         )
     }
-
     fun initChatMainMenuItems(){
         chatMainItems.clear()
         chatMainItems.add(ChatMain(1,"구름이","코딩 과제 도와주세요 ㅠㅠ","${LocalDate.now()}",true))

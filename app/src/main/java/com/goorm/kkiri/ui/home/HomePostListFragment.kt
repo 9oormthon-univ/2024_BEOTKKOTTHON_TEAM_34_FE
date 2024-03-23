@@ -97,7 +97,7 @@ class HomePostListFragment
 
     private fun initAdapter() {
         val adapter = HomePostListAdapter(this)
-        viewModel.getBoardByPage(HELPING.name, Pageable(1, 5))
+        viewModel.getBoardByPage(HELPING.name, Pageable(1))
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.boardList.collectLatest {

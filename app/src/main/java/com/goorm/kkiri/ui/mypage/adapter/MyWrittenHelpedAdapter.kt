@@ -7,13 +7,13 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.goorm.kkiri.databinding.HelpeditemBinding
-import com.goorm.kkiri.domain.model.response.MyWrittenMenuItem
+import com.goorm.kkiri.domain.model.response.MyPost
 
 @RequiresApi(Build.VERSION_CODES.O)
 class MyWrittenHelpedAdapter(
     private val listener: MenuClickListener
 ) : RecyclerView.Adapter<MyWrittenHelpedAdapter.MyWrittenHelpedViewHolder>() {
-    private val items = mutableListOf<MyWrittenMenuItem>()
+    private val items = mutableListOf<MyPost>()
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -28,7 +28,7 @@ class MyWrittenHelpedAdapter(
         holder.bind(items[position], listener)
     }
 
-    fun update(posts: List<MyWrittenMenuItem>) {
+    fun update(posts: List<MyPost>) {
         val diffUtil = RecordSaveDiffUtil(items, posts)
         val result = DiffUtil.calculateDiff(diffUtil)
         items.clear()
@@ -37,15 +37,15 @@ class MyWrittenHelpedAdapter(
     }
 
     class RecordSaveDiffUtil(
-        private val oldItems: List<MyWrittenMenuItem>,
-        private val newItems: List<MyWrittenMenuItem>
+        private val oldItems: List<MyPost>,
+        private val newItems: List<MyPost>
     ) : DiffUtil.Callback() {
         override fun getOldListSize(): Int = oldItems.size
         override fun getNewListSize(): Int = newItems.size
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
             val oldItem = oldItems[oldItemPosition]
             val newItem = newItems[newItemPosition]
-            return oldItem.recordIdWt == newItem.recordIdWt
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
@@ -57,7 +57,7 @@ class MyWrittenHelpedAdapter(
         private val binding: HelpeditemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(post: MyWrittenMenuItem, listener: MenuClickListener) {
+        fun bind(post: MyPost, listener: MenuClickListener) {
             binding.record = post
             binding.root.setOnClickListener {
                 listener.menuClickListener(adapterPosition.toLong())

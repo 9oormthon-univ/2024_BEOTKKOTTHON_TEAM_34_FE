@@ -19,8 +19,10 @@ import com.goorm.kkiri.base.BaseFragment
 import com.goorm.kkiri.databinding.FragmentImWriteBinding
 import com.goorm.kkiri.ui.mypage.viewmodel.ImWriteViewModel
 import com.goorm.kkiri.ui.mypage.viewmodel.TabItem
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 @RequiresApi(Build.VERSION_CODES.O)
 class ImWriteFragment : BaseFragment<FragmentImWriteBinding>(R.layout.fragment_im_write) {
     private val viewModel: ImWriteViewModel by activityViewModels()

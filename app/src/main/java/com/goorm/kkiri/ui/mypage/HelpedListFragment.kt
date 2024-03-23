@@ -11,6 +11,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
 import com.goorm.kkiri.R
 import com.goorm.kkiri.base.BaseFragment
@@ -21,9 +24,12 @@ import com.goorm.kkiri.ui.mypage.adapter.MenuClickListener
 import com.goorm.kkiri.ui.mypage.adapter.MyWrittenHelpAdapter
 import com.goorm.kkiri.ui.mypage.adapter.MyWrittenHelpedAdapter
 import com.goorm.kkiri.ui.mypage.viewmodel.ImWriteViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import java.time.LocalDate
 
-
+@AndroidEntryPoint
 @RequiresApi(Build.VERSION_CODES.O)
 class HelpedListFragment : BaseFragment<FragmentHelpedListBinding>(R.layout.fragment_helped_list),
     MenuClickListener {
@@ -46,18 +52,25 @@ class HelpedListFragment : BaseFragment<FragmentHelpedListBinding>(R.layout.frag
     //리사이클러뷰 세팅
     private fun setupRecyclerView() {
         helpedAdapter = MyWrittenHelpedAdapter(this)
-        helpedAdapter.update(DataSource.writtenItems2)
+        viewModel.getMyWrittenByPage(6, "HELPED", 0)
         binding.recyclerHelped.adapter = helpedAdapter
-        viewModel.helpedItems.observe(viewLifecycleOwner) { items ->
-            if (items.isEmpty()) {
-                emptyListIntro(true) // 리스트가 비었을 때 안내문 보이기
-            } else {
-                emptyListIntro(false) // 리스트에 데이터가 있을 때 안내문 숨기기
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
+                viewModel.helpedItems.collectLatest {
+                    if (it.list.isEmpty()) {
+                        emptyListIntro(true) // 리스트가 비었을 때 안내문 보이기
+                    } else {
+                        emptyListIntro(false) // 리스트에 데이터가 있을 때 안내문 숨기기
+                    }
+                    helpedAdapter.update(it.list)
+                }
+                }
             }
-            helpedAdapter.update(items)
         }
 
-    }
+
+
+
 
     private fun emptyListIntro(state: Boolean) {
         binding.tvEmptyHelpedInstructions.isVisible = state
@@ -96,11 +109,10 @@ class HelpedListFragment : BaseFragment<FragmentHelpedListBinding>(R.layout.frag
     //메뉴를 누르면 이동
     override fun menuClickListener(position: Long) {
         val intent = Intent(requireContext(), DetailImWriteActivity::class.java).apply {
-            putExtra("helpTt", viewModel.fetchHelpedDate(position)?.titleWt)
-            putExtra("helpDt", viewModel.fetchHelpedDate(position)?.dateWt.toString())
-            putExtra("helpImg", viewModel.fetchHelpedDate(position)?.imgWt.toString())
-            putExtra("helpExp", viewModel.fetchHelpedDate(position)?.expWt)
-            putExtra("helpBc", viewModel.fetchHelpedDate(position)?.beenCountWt)
+            putExtra("helpTt", viewModel.fetchHelpedDate(position).title)
+            putExtra("helpDt", viewModel.fetchHelpedDate(position).createdDate)
+            putExtra("helpImg", viewModel.fetchHelpedDate(position).attachmentOutputDto?.s3url)
+            putExtra("helpBc", viewModel.fetchHelpedDate(position).point)
             selectPos = position
             //추후 서버에서 가저올 값들
         }
@@ -112,6 +124,7 @@ class HelpedListFragment : BaseFragment<FragmentHelpedListBinding>(R.layout.frag
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
                     // 결과 처리
+                    /*
                     val data: Intent? = result.data
                     Log.d("확인2", "$selectPos}")
 
@@ -126,8 +139,7 @@ class HelpedListFragment : BaseFragment<FragmentHelpedListBinding>(R.layout.frag
                             imgWt = null,  // 이미지 처리 필요
                             expWt = data.getStringExtra("rtHelpExp").toString()
                         )
-                        viewModel.updateHelpedList(selectPos.toInt(), newItem)
-                    }
+                        viewModel.updateHelpedList(selectPos.toInt(), newItem)*/
                 }
             }
     }

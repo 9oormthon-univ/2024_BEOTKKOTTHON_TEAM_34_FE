@@ -12,5 +12,4 @@ class ChatRepositoryImpl @Inject constructor(
 
     override suspend fun getChattingByRoomId(chatRoomId: String): Flow<BaseResponse<MessageDto>> =
         dataSource.getChattingByRoomId(chatRoomId)
-
 }

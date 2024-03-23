@@ -1,6 +1,7 @@
 package com.goorm.kkiri.data.source.chat
 
 import com.goorm.kkiri.domain.model.base.BaseResponse
+import com.goorm.kkiri.domain.model.response.ChatRoomDetailDto
 import com.goorm.kkiri.domain.model.response.MessageDto
 import com.goorm.kkiri.domain.repository.ChattingRepository
 import kotlinx.coroutines.flow.Flow
@@ -12,4 +13,10 @@ class ChatRepositoryImpl @Inject constructor(
 
     override suspend fun getChattingByRoomId(chatRoomId: String): Flow<BaseResponse<MessageDto>> =
         dataSource.getChattingByRoomId(chatRoomId)
+
+    override suspend fun getChatRoomByBoardId(
+        boardId: Long,
+        senderId: Long
+    ): Flow<BaseResponse<ChatRoomDetailDto>> =
+        dataSource.getChatRoomByRoomId(boardId, senderId)
 }

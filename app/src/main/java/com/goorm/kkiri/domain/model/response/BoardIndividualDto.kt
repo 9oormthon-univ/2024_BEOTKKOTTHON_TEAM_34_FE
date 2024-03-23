@@ -7,5 +7,5 @@ data class BoardIndividualDto(
     val chatRoomsCount: Int,
     val createdDate: String,
     val type: String,
-    val attachmentOutputDto: String?
+    val attachmentOutputDto: AttachmentOutPutDto?
 )
